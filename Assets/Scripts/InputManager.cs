@@ -31,6 +31,6 @@ public class InputManager : MonoBehaviour
     }
     public bool GetJumpButton()
     {
-        return Input.GetKey(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.Space);
     }
 }

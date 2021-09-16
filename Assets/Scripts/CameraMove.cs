@@ -8,35 +8,35 @@ public class CameraMove : MonoBehaviour
     float angleUp = 60f;
     float angleDown = -60f;
 
-    //キャラクターをInspectorで入れる
+    [Header("キャラクター")]
     [SerializeField] GameObject player;
-    //Main CameraをInspectorで入れる
+    [Header("空のオブジェクト（子関係）")]
     [SerializeField] GameObject target;
-    //Main CameraをInspectorで入れる
+    [Header("カメラ（子関係）")]
     [SerializeField] Camera cam;
 
-    //スフィアキャスト
-    //当たったオブジェクト
+    [Header("スフィアキャスト")]
+    [Header("当たったオブジェクト")]
     private RaycastHit Hit;
-    //無視するオブジェクトレイヤー
+    [Header("無視するオブジェクトレイヤー")]
     private int Mask = 3;
-    //キャラカメラ間距離
+    [Header("キャラカメラ間距離")]
     private float cameradistance;
-    //半径
+    [Header("半径")]
     [SerializeField] float radius = 0.3f;
 
-    //カメラ
-    //感度
+    [Header("カメラ")]
+    [Header("感度")]
     [SerializeField] float rotate_speed = 3;
-    //補完スピード
+    [Header("補完スピード")]
     [SerializeField] float interpolation_speed = 5;
-    //補完距離
+    [Header("補完距離")]
     [SerializeField] float interpolation_distance = 5;
-    //ズーム感度
+    [Header("ズーム感度")]
     [SerializeField] float zoom_speed = 1;
-    //Axisの位置を指定する変数
+    [Header("Axisの位置を指定する変数")]
     [SerializeField] Vector3 axisPos;
-    //スクロール範囲
+    [Header("スクロール範囲")]
     [SerializeField] float scroll = 0;
     [SerializeField] float _maxrange = 0;
     [SerializeField] float _minrange = 0;

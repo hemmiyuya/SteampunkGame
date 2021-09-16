@@ -10,8 +10,6 @@ public class Walk : MonoBehaviour
     private float _runAnimSpeed  = default;
     private bool _running        = default;
 
-    private InputManager _inputmanager;
-
     private Animationmanager _anim;
 
     private GameObject _player;
@@ -21,7 +19,6 @@ public class Walk : MonoBehaviour
     {
         _player        = player;
         _camera        = camera;
-        _inputmanager  = player.GetComponent<InputManager>();
         _anim          = player.GetComponent<Animationmanager>();
         _accelSpeed    = accelspeed;
         _slowdownSpeed = slowdownspeed;
@@ -29,11 +26,11 @@ public class Walk : MonoBehaviour
         _runAnimSpeed  = runanimspeed;
     }
     
-    public void PlayerWalk()
+    public void PlayerWalk(float hori,float vert,bool run)
     {
         Rigidbody playervelocity = _player.GetComponent<Rigidbody>();
         //無操作で減速
-        if (_inputmanager.GetHorizontal() == 0 && _inputmanager.GetVertical() == 0)
+        if (hori == 0 && vert == 0)
         {
             _running = false;
             _anim.WalkAnimEnd();
@@ -42,13 +39,13 @@ public class Walk : MonoBehaviour
             return;
         }
         //加速と回転処理
-            if (!_running && _inputmanager.GetRunButton())
+            if (!_running && run)
             {
                 _running = true;
             }
 
             Quaternion cameraRotation = Quaternion.AngleAxis(_camera.transform.eulerAngles.y,Vector3.up);
-            Vector3 velo = cameraRotation * new Vector3(_inputmanager.GetHorizontal(), 0, _inputmanager.GetVertical()).normalized;
+            Vector3 velo = cameraRotation * new Vector3(hori, 0, vert).normalized;
             var velocityXZ = Vector3.Scale(playervelocity.velocity, new Vector3(1, 0, 1));
             //アニメーション処理
             if (_running)
@@ -67,4 +64,10 @@ public class Walk : MonoBehaviour
 
         return;
     }
+
+    public void PlayerGoUp(Vector3 start,Vector3 end,float time)
+    {
+        _player.transform.position = Vector3.Slerp(start,end, time);
+    }
+    
 }

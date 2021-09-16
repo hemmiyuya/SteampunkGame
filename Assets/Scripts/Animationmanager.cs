@@ -15,6 +15,7 @@ public class Animationmanager : MonoBehaviour
     private const string _noLandingTag = "NoLanding";
     private const string _landingTag = "Landing";
     private const string _rollingTag = "Rolling";
+    private const string _climbingTag = "Climbing";
 
     private void Start()
     {
@@ -78,6 +79,10 @@ public class Animationmanager : MonoBehaviour
     public void RollingStart()
     {
         _anim.SetTrigger(_rollingTag);
+    }
+    public void ClimbingStart()
+    {
+        _anim.SetTrigger(_climbingTag);
     }
 
     public void SetWalkSpeed(float animspeed)

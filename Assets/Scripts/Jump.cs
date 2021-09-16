@@ -25,5 +25,22 @@ public class Jump : MonoBehaviour
     {
         _player.GetComponent<Rigidbody>().AddForce(Vector3.up * _jumpPower);
     }
+
+    public void PlayerAddGravity(float gravity)
+    {
+        _player.GetComponent<Rigidbody>().AddForce((gravity - 1f) * Physics.gravity, ForceMode.Acceleration);
+    }
+
+    public bool CheckJumpUp()
+    {
+        if (_player.GetComponent<Rigidbody>().velocity.normalized.y > 0) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
 }
