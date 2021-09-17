@@ -348,7 +348,7 @@ public class CharacontrolManager : MonoBehaviour
 
     public void GravityOn()
     {
-        _gravity = 7;
+        _gravity = 5.5f;
     }
 
 }

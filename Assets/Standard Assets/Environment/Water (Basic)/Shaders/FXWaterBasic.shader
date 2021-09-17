@@ -44,7 +44,6 @@ v2f vert(appdata v)
 	temp.xyzw = wpos.xzxz * _WaveScale + _WaveOffset;
 	o.bumpuv[0] = temp.xy * float2(.4, .45);
 	o.bumpuv[1] = temp.wz;
-
 	// object space view direction
 	o.viewDir.xzy = normalize( WorldSpaceViewDir(v.vertex) );
 

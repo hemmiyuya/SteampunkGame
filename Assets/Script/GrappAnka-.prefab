@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4787683059520170495}
   - component: {fileID: 4787683059520170492}
   - component: {fileID: 3042781720757411133}
+  - component: {fileID: -7715040835307680827}
   m_Layer: 0
   m_Name: GrappAnka-
   m_TagString: Untagged
@@ -112,3 +113,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-7715040835307680827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787683059520170493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415e3de3f52bf5a4db7d5c1d9ffafeaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
