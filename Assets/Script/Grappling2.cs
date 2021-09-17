@@ -114,7 +114,7 @@ public class Grappling2 : MonoBehaviour
 
             anchorTransform = nowAnchor.transform;
 
-            float present_Location = (nowshootTime * shootSpeed) / startEndDistance;
+            float present_Location = nowshootTime * shootSpeed / startEndDistance;
 
             anchorTransform.position = Vector3.Lerp(startPosition, endPosition, present_Location);
             lineRenderer.SetPositions(new Vector3[] { new Vector3(player.transform.position.x,player.transform.position.y+0.5f,player.transform.position.z), anchorTransform.position });
@@ -146,7 +146,7 @@ public class Grappling2 : MonoBehaviour
 
             anchorTransform = nowAnchor.transform;
 
-            float present_Location2 = (nowRemoveTime * shootSpeed) / startEndDistance;
+            float present_Location2 = nowRemoveTime * shootSpeed / startEndDistance;
 
             Vector3 nowPlayerPos = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z);
 
@@ -156,10 +156,10 @@ public class Grappling2 : MonoBehaviour
 
             if (anchorTransform.position == nowPlayerPos)
             {
-                Debug.Log("一連終わり!");
                 GameObject.Destroy(nowAnchor);
                 remeveanchorFrag = false;
                 firstFrag = true;
+                nowRemoveTime = 0;
                 present_Location2 = 0;
             }
         }
@@ -187,8 +187,8 @@ public class Grappling2 : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.forward) * 35, Color.white);
-            endPosition = transform.TransformDirection(Vector3.forward) * 35;
+            Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.back) * 20, Color.white);
+            endPosition =  player.transform.position+ transform.TransformDirection(Vector3.back) * 20;
             Debug.Log(endPosition);
             nowAnchor = Instantiate(anchorObj, startPosition, player.transform.rotation);
         }
