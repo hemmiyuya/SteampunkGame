@@ -9,8 +9,8 @@ public class Grappling2 : MonoBehaviour
     private RaycastHit hit2;
     int layerMask = ~(1 << 8);
     private Rigidbody rig;
-    private float force = 1;
-    private float firstForce = 20f;
+    private float force = 2;
+    private float firstForce = 15f;
     private float addForce = 0.4f;
 
     [SerializeField]
@@ -46,6 +46,9 @@ public class Grappling2 : MonoBehaviour
     private float removeSpeed = 50f;
     private float startEndDistance=default;
 
+    [SerializeField]
+    private float useGasValue = default;
+
     private bool shootFlag = false;
     private bool hitFrag = false;
     private bool firstFrag = false;
@@ -57,6 +60,9 @@ public class Grappling2 : MonoBehaviour
 
     [SerializeField]
     private Sprite[] reticleSprites = default;
+
+    [SerializeField]
+    private GasGaugeManager gasGaugeManager=default;
     void Start()
     {
         rig = player.GetComponent<Rigidbody>();
@@ -70,7 +76,11 @@ public class Grappling2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q)&& !removeanchorFrag&&!moveFlag&& !shootFlag)
         {
-            GrapplingShot();
+            if (gasGaugeManager.UseGasCheck(useGasValue))
+            {
+                GrapplingShot();
+            }
+            
             //rig.useGravity = false;
             
         }
