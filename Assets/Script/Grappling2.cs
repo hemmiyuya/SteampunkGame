@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Grappling2 : MonoBehaviour
 {
     private RaycastHit hit;
-    private RaycastHit hit2;
     int layerMask = ~(1 << 8);
     private Rigidbody rig;
-    private float force = 2;
-    private float firstForce = 15f;
+    private float force = 1;
+    private float firstForce = 20f;
     private float addForce = 0.4f;
 
     [SerializeField]
@@ -43,26 +41,13 @@ public class Grappling2 : MonoBehaviour
     private float nowgrappTime=default;
 
     private float shootSpeed = 40f;
-    private float removeSpeed = 50f;
     private float startEndDistance=default;
-
-    [SerializeField]
-    private float useGasValue = default;
 
     private bool shootFlag = false;
     private bool hitFrag = false;
     private bool firstFrag = false;
-    private bool removeanchorFrag = false;
+    private bool remeveanchorFrag = false;
     private bool VisibilityNow = false;
-
-    [SerializeField]
-    private Image reticle=default;
-
-    [SerializeField]
-    private Sprite[] reticleSprites = default;
-
-    [SerializeField]
-    private GasGaugeManager gasGaugeManager=default;
     void Start()
     {
         rig = player.GetComponent<Rigidbody>();
@@ -74,13 +59,9 @@ public class Grappling2 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)&& !removeanchorFrag&&!moveFlag&& !shootFlag)
+        if (Input.GetKeyDown(KeyCode.Q)&& !remeveanchorFrag)
         {
-            if (gasGaugeManager.UseGasCheck(useGasValue))
-            {
-                GrapplingShot();
-            }
-            
+            GrapplingShot();
             //rig.useGravity = false;
             
         }
@@ -98,18 +79,6 @@ public class Grappling2 : MonoBehaviour
         // 線を引く場所を指定する
         //lineRenderer.SetPositions(positions);
 
-        //グラップル発射可能かつ発射したときに刺せる位置ならレティクルをさせるよー表示にする
-        if (Physics.Raycast(new Vector3(player.transform.position.x,player.transform.position.y+ 0.8f,player.transform.position.z), transform.TransformDirection(Vector3.back), out hit2, 35, layerMask)
-            &&!removeanchorFrag && !moveFlag && !shootFlag)
-        {
-            reticle.sprite = reticleSprites[0];
-        }
-        else
-        {
-            reticle.sprite = reticleSprites[1];
-        }
-
-
     }
 
     private void FixedUpdate()
@@ -118,7 +87,7 @@ public class Grappling2 : MonoBehaviour
         if (moveFlag)
         {
             GrapplingMove(hit.point, player.transform.position);
-            if (rig.velocity.magnitude >= 35)
+            if (rig.velocity.magnitude >= 40)
             {
                 rig.velocity = rig.velocity * 0.9f;
             }
@@ -126,13 +95,13 @@ public class Grappling2 : MonoBehaviour
 
             nowgrappTime += Time.deltaTime;
 
-            if (Vector3.Distance(player.transform.position, endPosition)<2||!VisibilityNow||(nowgrappTime>=0.5f&&rig.velocity.magnitude<=0.5f))
+            if (Vector3.Distance(player.transform.position, endPosition)<2||!VisibilityNow)
             {
                 moveFlag = false;
                 nowgrappTime = 0;
                 characontrolManager.GravityOn();
                 positions = initialPosition;
-                removeanchorFrag = true;
+                remeveanchorFrag = true;
             }
             
         }
@@ -145,10 +114,10 @@ public class Grappling2 : MonoBehaviour
 
             anchorTransform = nowAnchor.transform;
 
-            float present_Location = nowshootTime * shootSpeed / startEndDistance;
+            float present_Location = (nowshootTime * shootSpeed) / startEndDistance;
 
             anchorTransform.position = Vector3.Lerp(startPosition, endPosition, present_Location);
-            lineRenderer.SetPositions(new Vector3[] { new Vector3(player.transform.position.x,player.transform.position.y+0.8f,player.transform.position.z), anchorTransform.position });
+            lineRenderer.SetPositions(new Vector3[] { new Vector3(player.transform.position.x,player.transform.position.y+0.5f,player.transform.position.z), anchorTransform.position });
             if (endPosition == anchorTransform.position)
             {
                 if (hitFrag)
@@ -161,7 +130,7 @@ public class Grappling2 : MonoBehaviour
                 }
                 else
                 {
-                    removeanchorFrag = true;
+                    remeveanchorFrag = true;
                 }
                 nowshootTime = 0;
                 //GrapplingMove(hit.point, player.transform.position);
@@ -171,15 +140,15 @@ public class Grappling2 : MonoBehaviour
         }
 
         //グラップルフック外し中
-        if (removeanchorFrag)
+        if (remeveanchorFrag)
         {
             nowRemoveTime += Time.deltaTime;
 
             anchorTransform = nowAnchor.transform;
 
-            float present_Location2 = nowRemoveTime * removeSpeed / startEndDistance;
+            float present_Location2 = (nowRemoveTime * shootSpeed) / startEndDistance;
 
-            Vector3 nowPlayerPos = new Vector3(player.transform.position.x, player.transform.position.y + 0.8f, player.transform.position.z);
+            Vector3 nowPlayerPos = new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z);
 
             anchorTransform.position = Vector3.Lerp(endPosition, nowPlayerPos, present_Location2);
 
@@ -187,10 +156,10 @@ public class Grappling2 : MonoBehaviour
 
             if (anchorTransform.position == nowPlayerPos)
             {
+                Debug.Log("一連終わり!");
                 GameObject.Destroy(nowAnchor);
-                removeanchorFrag = false;
+                remeveanchorFrag = false;
                 firstFrag = true;
-                nowRemoveTime = 0;
                 present_Location2 = 0;
             }
         }
@@ -202,7 +171,7 @@ public class Grappling2 : MonoBehaviour
     /// <returns></returns>
     private bool GrapplingShot()
     {
-        startPosition =new Vector3( player.transform.position.x,player.transform.position.y+0.8f,player.transform.position.z);
+        startPosition =new Vector3( player.transform.position.x,player.transform.position.y+0.5f,player.transform.position.z);
         
 
         if (Physics.Raycast(startPosition, transform.TransformDirection(Vector3.back), out hit, 35, layerMask))
@@ -218,8 +187,8 @@ public class Grappling2 : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.back) * 20, Color.white);
-            endPosition =  player.transform.position+ transform.TransformDirection(Vector3.back) * 20;
+            Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.forward) * 35, Color.white);
+            endPosition = transform.TransformDirection(Vector3.forward) * 35;
             Debug.Log(endPosition);
             nowAnchor = Instantiate(anchorObj, startPosition, player.transform.rotation);
         }

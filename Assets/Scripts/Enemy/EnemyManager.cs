@@ -4,33 +4,28 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject playerObj = default;
 
-    private Rigidbody playerRig = default;
+    [SerializeField]
+    GameObject player = default;
+
+    Rigidbody playerRig = default;
+
+    [SerializeField]
+    float runSpeed = default;
+
+    [SerializeField]
+    float walkSpeed = default;
+
+    [SerializeField]
+    int enemyHp = 100;
 
     private void Start()
     {
-        playerObj = GameObject.FindGameObjectWithTag("Player");
-        playerRig = playerObj.GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerRig = player.GetComponent<Rigidbody>();
     }
-
     private void Update()
     {
         
-    }
-
-    private void Idle()
-    {
-
-    }
-    private void Walk()
-    {
-
-    }
-
-    private void Run()
-    {
-
     }
 }
