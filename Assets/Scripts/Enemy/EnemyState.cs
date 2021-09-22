@@ -8,10 +8,10 @@ namespace EnemyState
     /// <summary>
     /// ステートの実行を管理するクラス
     /// </summary>
-    public class StateProcessor
+    public class StateManager
     {
         //ステート本体
-        public ReactiveProperty<CharacterState> State { get; set; } = new ReactiveProperty<CharacterState>();
+        public ReactiveProperty<EnemyState> State { get; set; } = new ReactiveProperty<EnemyState>();
 
         //実行ブリッジ
         public void Execute() => State.Value.Execute();
@@ -20,7 +20,7 @@ namespace EnemyState
     /// <summary>
     /// ステートのクラス
     /// </summary>
-    public abstract class CharacterState
+    public abstract class EnemyState
     {
         //デリゲート
         public Action ExecAction { get; set; }
@@ -42,7 +42,7 @@ namespace EnemyState
     /// <summary>
     /// 何もしていない状態
     /// </summary>
-    public class CharacterStateIdle : CharacterState
+    public class EnemyStateIdle : EnemyState
     {
         public override string GetStateName()
         {
@@ -51,9 +51,20 @@ namespace EnemyState
     }
 
     /// <summary>
+    /// 歩いている状態
+    /// </summary>
+    public class EnemyStateWalk :EnemyState
+    {
+        public override string GetStateName()
+        {
+            return "State:Walk";
+        }
+    }
+
+    /// <summary>
     /// 走っている状態
     /// </summary>
-    public class CharacterStateRun : CharacterState
+    public class EnemyStateRun : EnemyState
     {
         public override string GetStateName()
         {
@@ -62,19 +73,14 @@ namespace EnemyState
     }
 
     /// <summary>
-    /// 攻撃している状態
+    /// 横歩きしている状態
     /// </summary>
-    public class CharacterStateAttack : CharacterState
+    public class EnemyStateSideWalk : EnemyState
     {
         public override string GetStateName()
         {
-            return "State:Attack";
-        }
-
-        public override void Execute()
-        {
-            Debug.Log("なにか特別な処理をしたいときは派生クラスにて処理をしても良い");
-            if (ExecAction != null) ExecAction();
+            return "State:SideWalk";
         }
     }
+
 }
