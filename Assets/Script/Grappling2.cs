@@ -10,8 +10,8 @@ public class Grappling2 : MonoBehaviour
     int layerMask = ~(1 << 8);
     private Rigidbody rig;
     private float force = 2;
-    private float firstForce = 15f;
-    private float addForce = 0.4f;
+    private float firstForce = 25f;
+    private float addForce = 0.32f;
 
     [SerializeField]
     GameObject player;
@@ -42,8 +42,8 @@ public class Grappling2 : MonoBehaviour
     private float nowRemoveTime = default;
     private float nowgrappTime=default;
 
-    private float shootSpeed = 50f;
-    private float removeSpeed = 55f;
+    private float shootSpeed = 55f;
+    private float removeSpeed = 70f;
     private float startEndDistance=default;
 
     [SerializeField]
@@ -234,7 +234,7 @@ public class Grappling2 : MonoBehaviour
         Vector3 addVelocity = default;
 
         if (Input.GetKey(KeyCode.W)) addVelocity +=rig.transform.up*addForce;
-        if (Input.GetKey(KeyCode.S)) addVelocity += (-rig.transform.up)* addForce;
+        //if (Input.GetKey(KeyCode.S)) addVelocity += (-rig.transform.up)* addForce;
         if (Input.GetKey(KeyCode.A)) addVelocity +=(-rig.transform.right)* addForce;
         if (Input.GetKey(KeyCode.D)) addVelocity +=rig.transform.right* addForce;
 
