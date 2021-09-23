@@ -12,6 +12,9 @@ public class Conditions : MonoBehaviour
     [SerializeField]
     private float minDistance = 3;
 
+    [SerializeField]
+    private float randomTime = 3f;
+
     EnemyController enemyController;
 
     private float timer = 0;
@@ -48,7 +51,7 @@ public class Conditions : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer > 2f) 
+            if (timer > randomTime) 
             {
                 range = Random.Range(0, 3);
                 timer = 0;
