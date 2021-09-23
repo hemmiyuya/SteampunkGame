@@ -42,8 +42,8 @@ public class Grappling2 : MonoBehaviour
     private float nowRemoveTime = default;
     private float nowgrappTime=default;
 
-    private float shootSpeed = 40f;
-    private float removeSpeed = 50f;
+    private float shootSpeed = 50f;
+    private float removeSpeed = 55f;
     private float startEndDistance=default;
 
     [SerializeField]
@@ -233,10 +233,10 @@ public class Grappling2 : MonoBehaviour
     {
         Vector3 addVelocity = default;
 
-        if (Input.GetKey(KeyCode.W)) addVelocity += new Vector3(0, addForce, 0);
-        if (Input.GetKey(KeyCode.S)) addVelocity += new Vector3(0, -addForce, 0);
-        if (Input.GetKey(KeyCode.A)) addVelocity += new Vector3(-addForce, 0, 0);
-        if (Input.GetKey(KeyCode.D)) addVelocity += new Vector3(addForce, 0, 0);
+        if (Input.GetKey(KeyCode.W)) addVelocity +=rig.transform.up*addForce;
+        if (Input.GetKey(KeyCode.S)) addVelocity += (-rig.transform.up)* addForce;
+        if (Input.GetKey(KeyCode.A)) addVelocity +=(-rig.transform.right)* addForce;
+        if (Input.GetKey(KeyCode.D)) addVelocity +=rig.transform.right* addForce;
 
         if (firstFrag)
         {
