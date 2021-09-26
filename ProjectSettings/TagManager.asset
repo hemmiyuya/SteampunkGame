@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerCamera
+  - Muzzle
+  - Target
+  - BulletPool
   layers:
   - Default
   - TransparentFX

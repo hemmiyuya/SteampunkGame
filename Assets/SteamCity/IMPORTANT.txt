@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4ee59043c935e043c206fe59618d37cbef41ad5c8e039aee721028cfc7fdc4a5
-size 194
+IMPORTANT: For best Post-Processing results:
+
+1. Edit > Project Settings > Quality > Anti Aliasing > 'Disabled' 
+2. Edit > Project Settings > Player > Other Settings > Color Space > 'Linear' 
