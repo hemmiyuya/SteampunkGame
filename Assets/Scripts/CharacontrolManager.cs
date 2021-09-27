@@ -25,8 +25,7 @@ public class TagSelecter : Editor
     }
 }
 public class CharacontrolManager : MonoBehaviour
-{
-
+{ 
     private enum Job
     {
         Wait,
