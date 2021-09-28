@@ -20,27 +20,24 @@ public class Jump : MonoBehaviour
         _maxAltitude  = maxaltitude;
 
     }
-
+    /// <summary>
+    /// 通常ジャンプ
+    /// </summary>
     public void PlayerJump()
     {
         _player.GetComponent<Rigidbody>().AddForce(Vector3.up * _jumpPower);
     }
-
-    public void PlayerAddGravity(float gravity)
+    /// <summary>
+    /// 壁から離れるときのジャンプ
+    /// </summary>
+    public void PlayerWallJump(Vector3 vec)
     {
-        _player.GetComponent<Rigidbody>().AddForce((gravity - 1f) * Physics.gravity, ForceMode.Acceleration);
+        _player.GetComponent<Rigidbody>().AddForce(vec * _jumpPower);
     }
 
-    public bool CheckJumpUp()
+    public void PlayerAddGravity(float gravity, Vector3 gravityvec)
     {
-        if (_player.GetComponent<Rigidbody>().velocity.normalized.y > 0) 
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        _player.GetComponent<Rigidbody>().AddForce((gravity - 1f) * gravityvec, ForceMode.Acceleration);
     }
     
 }

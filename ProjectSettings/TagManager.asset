@@ -8,6 +8,9 @@ TagManager:
   - Muzzle
   - Target
   - BulletPool
+  - FxTemporaire
+  - Attack
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -1,31 +1,9 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
-//タグ選択するためのエディター拡張
-[CustomEditor(typeof(CharacontrolManager))]
-public class TagSelecter : Editor
-{
-    private SerializedProperty _cameratag;
-
-    void OnEnable()
-    {
-        _cameratag = serializedObject.FindProperty("_cameratag");
-
-    }
-
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        //　シリアライズオブジェクトの更新
-        serializedObject.Update();
-
-        _cameratag.stringValue = EditorGUILayout.TagField("Camera Tag", _cameratag.stringValue);
-
-    }
-}
 public class CharacontrolManager : MonoBehaviour
-{ 
+{
+
     private enum Job
     {
         Wait,
@@ -37,31 +15,33 @@ public class CharacontrolManager : MonoBehaviour
     /// <summary>
     /// オブジェクト群
     /// </summary>
-    private GameObject _Camera = default;
     [SerializeField]
-    public string _cameratag = "MainCamera";
+    private GameObject _Camera = default;
 
     /// <summary>
     /// スクリプト群
     /// </summary>
-    private InputManager _input;
+    private InputManager     _input;
     private Animationmanager _anim;
-    private Walk _walk;
-    private Jump _jump;
-    private Grab _grab;
+    private Walk             _walk;
+    private Jump             _jump;
+    private Grab             _grab;
+    private Attack      _attack;
 
     /// <summary>
     /// 判定用レイ
     /// </summary>
+    [SerializeField]
+    private int _groundLayer  = default;
     [Header("床判定")]
     [SerializeField]
-    private bool _checkGround      = default;//接地中か
+    private bool _checkGround = default;
     [SerializeField]
-    private float g_castHight       = default;//
+    private float g_castHight = default;
     [SerializeField]
-    private Vector3 g_boxSize      = default;
+    private Vector3 g_boxSize = default;
     [SerializeField]
-    private Color g_rayColor = default;
+    private Color g_rayColor  = default;
 
     [Header("床判定(自然落下判定用)")]
     [SerializeField]
@@ -95,19 +75,31 @@ public class CharacontrolManager : MonoBehaviour
 
     [Header("壁判定(下)")]
     [SerializeField]
-    private bool _checkStep                 = default;
+    private bool _checkStep               = default;
     [SerializeField]
-    private Vector3 w_fowardRayOrigin       = default;
+    private Vector3 w_fowardDownRayOrigin       = default;
     [SerializeField]
-    private Vector3 w_fowardRayPlusVector   = default;
+    private Vector3 w_fowardDownRayPlusVector   = default;
     [SerializeField]
-    private float w_fowardRayAmount         = default;
+    private float w_fowardDownRayAmount         = default;
     [SerializeField]
-    private RaycastHit w_fowardHit          = default;
+    private RaycastHit w_fowardDownHit          = default;
     [SerializeField]
-    private Color w_fowardRayColor          = default;
+    private Color w_fowardDownRayColor          = default;
 
     [Header("壁判定(上)")]
+    [SerializeField]
+    private Vector3 w_fowardUpRayOrigin       = default;
+    [SerializeField]
+    private Vector3 w_fowardUpRayPlusVector   = default;
+    [SerializeField]
+    private float w_fowardUpRayAmount         = default;
+    [SerializeField]
+    private RaycastHit w_fowardUpHit          = default;
+    [SerializeField]
+    private Color w_fowardUpRayColor          = default;
+
+    [Header("壁判定(段差の頂点)")]
     [SerializeField]
     private bool _checkWall                    = default;
     [SerializeField]
@@ -158,6 +150,8 @@ public class CharacontrolManager : MonoBehaviour
     [SerializeField]
     private float _maxAltitude   = default;
     [SerializeField]
+    private float _skyAccelSpeed = default;
+    [SerializeField]
     private float _flightTime    = default;
     [SerializeField]
     private float _noLandingTime = default;
@@ -165,34 +159,65 @@ public class CharacontrolManager : MonoBehaviour
     private float _rollingTime   = default;
     [Header("壁登り関係")]
     [SerializeField]
-    private bool _grabing        = default;
+    private bool _grabing             = default;
+    [SerializeField]
+    private float _climbAccelSpeed    = default;
+    [SerializeField, Range(0.01f, 1)]
+    private float _climbSlowDownSpeed = default;
+    [SerializeField]
+    private float _climbAnimSpeed     = default;
+    [SerializeField]
+    private Vector3 _wallNormal       = default;
+    [SerializeField]
+    private float _playerTilt         = default;
+    [Header("攻撃関係")]
+    [SerializeField]
+    //武器交換(デフォルト銃)
+    private bool _inputSwitchWeapon   = default;
+    [SerializeField]
+    private bool _attacking           = default;
+    [SerializeField]
+    private bool _inputAttack         = default;
+    [SerializeField]
+    private int _combo                = default;
+    [SerializeField]
+    private int _maxcombo             = 3;
 
     void Start()
     {
-        _Camera = GameObject.FindGameObjectWithTag(_cameratag);
-
-        _input = GetComponent<InputManager>();
-        _anim  = GetComponent<Animationmanager>();
-        _walk  = new Walk();
-        _jump  = new Jump();
-        _grab  = new Grab();
-        _walk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed, _runAnimSpeed);
-        _grab.InitialSet(this.gameObject);
+        _input  = GetComponent<InputManager>();
+        _anim   = GetComponent<Animationmanager>();
+        _walk   = new Walk();
+        _jump   = new Jump();
+        _grab   = new Grab();
+        _attack = new Attack();
+        _walk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _skyAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed, _runAnimSpeed);
+        _grab.InitialSet(this.gameObject, _Camera, _climbAccelSpeed, _climbSlowDownSpeed, _climbAnimSpeed);
         _jump.InitialSet(this.gameObject, _jumpPower, _maxAltitude);
+        _attack.InitialSet(this.gameObject, _Camera);
     }
 
     private void Update()
     {
-        _walk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed, _runAnimSpeed);
-        _grab.InitialSet(this.gameObject);
+        _walk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _skyAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed, _runAnimSpeed);
+        _grab.InitialSet(this.gameObject, _Camera, _climbAccelSpeed, _climbSlowDownSpeed, _climbAnimSpeed);
         _jump.InitialSet(this.gameObject, _jumpPower, _maxAltitude);
+        _attack.InitialSet(this.gameObject, _Camera);
         //入力
         _inputHori = _input.GetHorizontal();
         _inputVert = _input.GetVertical();
         _inputRun  = _input.GetRunButton();
+        if (_input.GetMouseLeftClick())
+        {
+            _inputAttack = true;
+        }
         if (_input.GetJumpButton())
         {
             _inputJump = true;
+        }
+        if (_input.GetSwitchWeaponButton())
+        {
+            _inputSwitchWeapon = !_inputSwitchWeapon;
         }
         //判定
         _checkGround = GroundCheck();
@@ -203,65 +228,44 @@ public class CharacontrolManager : MonoBehaviour
     private void FixedUpdate()
     {
 
+        //壁判定・動作
+        WallMove();
+
+        //段差越える
         GoUpCheck();
-        /*
-        if (_checkWall || _grabing)
-        {
-            _grabing = true;
-            if (_inputVert < 0 && _inputJump)
-            {
-                _grabing = false;
-            }
-        }
-        */
+
+        //接地判定・動作
         if (!_grabing && _checkGround || _goUpping)
         {
-            //着地アニメーション
-            if (_jumping && !_goUpping)
+            if (!_goUpping && _inputAttack && !_attacking)
             {
-                if (_flightTime < _noLandingTime)
+                _attacking = true;
+                _combo = 1;
+                _anim.ActiveRootMotion();
+            }
+            if (_attacking && _inputAttack && _maxcombo >= _combo)
+            {
+                if (_inputSwitchWeapon)
                 {
-                    _anim.NoLandingStart();
-                }
-                else if (_flightTime < _rollingTime)
-                {
-                    _anim.LandingStart();
+                    _attack.PlayerSwordAttack(_combo);
                 }
                 else
                 {
-                    _anim.RollingStart();
+                    _attack.PlayerGunAttack(_combo);
                 }
-                _anim.JumpAnimEnd();
-                _anim.FallingEnd();
-                _jumping = false;
+                    GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    _combo++;
+                    _inputAttack = false;
             }
-            _flightTime = 0;
-            //歩き
-            if (!_grabing)
-            {
-                _walk.PlayerWalk(_inputHori, _inputVert, _inputRun);
-            }
-
-            //ジャンプ
-            if (_inputJump)
-            {
-                _jumping = true;
-                _anim.JumpAnimStart();
-                _jump.PlayerJump();
-
-            }
-            _inputJump = false;
+                GroundMove();
         }
         else
         {
-            if (!_jumping && !GroundDownCheck())
-            {
-                _anim.FallingStart();
-                _jumping = true;
-            }
-            _flightTime += Time.deltaTime;
-            _jump.PlayerAddGravity(_gravity);
+            _inputAttack = false;
+            //空中判定・動作
+            SkyMove();
         }
+        _inputJump = false;
     }
     void OnDrawGizmos()
     {
@@ -269,41 +273,50 @@ public class CharacontrolManager : MonoBehaviour
         Gizmos.DrawWireCube(transform.position + new Vector3(0, g_castHight, 0) + new Vector3(0, -1, 0) * g_maxDistance, g_boxSize * 2);
         Gizmos.color = g_downRayColor;
         Gizmos.DrawWireCube(transform.position + new Vector3(0, g_downRayHight, 0) + new Vector3(0, -1, 0) * g_maxDistance, g_downBoxSize * 2);
-        Gizmos.color = w_fowardRayColor;
-        Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardRayPlusVector * w_fowardRayAmount);
+        Gizmos.color = w_fowardDownRayColor;
+        Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayPlusVector * w_fowardDownRayAmount);
+        Gizmos.color = w_fowardUpRayColor;
+        Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayPlusVector * w_fowardUpRayAmount);
         Gizmos.color = w_upperFowardRayColor;
         Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayPlusVector * w_upperFowardRayAmount);
         Gizmos.color = w_heightRayColor;
         Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayPlusVector * w_heightRayAmount);
     }
 
-    //接地判定
+    /// <summary>
+    /// 接地判定
+    /// </summary>
     private bool GroundCheck()
     {
-        return Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0),g_boxSize, new Vector3(0, -1, 0),transform.rotation, g_maxDistance);
+        return Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0),g_boxSize, new Vector3(0, -1, 0),transform.rotation, g_maxDistance, 1 << _groundLayer);
     }
     private bool GroundDownCheck()
     {
-        return Physics.BoxCast(transform.position + new Vector3(0, g_downRayHight, 0), g_downBoxSize, new Vector3(0, -1, 0), transform.rotation, g_maxDistance);
+        return Physics.BoxCast(transform.position + new Vector3(0, g_downRayHight, 0), g_downBoxSize, new Vector3(0, -1, 0), transform.rotation, g_maxDistance, 1 << _groundLayer);
     }
-    //壁判定
+    /// <summary>
+    /// 段差判定
+    /// </summary>
     private bool StepCheck()
     {
         Quaternion playerRotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
-        bool fowardcheck = Physics.Raycast(transform.position + playerRotation * w_fowardRayOrigin, playerRotation * w_fowardRayPlusVector ,out w_fowardHit, w_fowardRayAmount);
-        bool heightcheck = Physics.Raycast(transform.position + playerRotation * w_heightRayOrigin, playerRotation * w_heightRayPlusVector ,out w_heightHit, w_heightRayAmount);
-        if (fowardcheck && heightcheck)
+        bool fowarddowncheck = Physics.Raycast(transform.position + playerRotation * w_fowardDownRayOrigin, playerRotation * w_fowardDownRayPlusVector, out w_fowardDownHit, w_fowardDownRayAmount, 1 << _groundLayer);
+        bool heightcheck     = Physics.Raycast(transform.position + playerRotation * w_heightRayOrigin, playerRotation * w_heightRayPlusVector ,out w_heightHit, w_heightRayAmount, 1 << _groundLayer);
+        bool fowardupcheck   = Physics.Raycast(transform.position + playerRotation * w_fowardUpRayOrigin, playerRotation * w_fowardUpRayPlusVector, out w_fowardUpHit, w_fowardUpRayAmount, 1 << _groundLayer);
+        if (fowarddowncheck && heightcheck && !fowardupcheck)
         {
             return true;
         }
         return false;
     }
-
+    /// <summary>
+    /// 壁判定
+    /// </summary>
     private bool WallCheck()
     {
         Quaternion playerRotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
-        bool lowercheck = Physics.Raycast(transform.position + playerRotation * w_fowardRayOrigin, playerRotation * w_fowardRayPlusVector, out w_fowardHit, w_fowardRayAmount);
-        bool uppercheck = Physics.Raycast(transform.position + playerRotation * w_upperFowardRayOrigin, playerRotation * w_upperFowardRayPlusVector, out w_upperFowardHit, w_upperFowardRayAmount);
+        bool lowercheck = Physics.Raycast(transform.position + playerRotation * w_fowardDownRayOrigin, playerRotation * w_fowardDownRayPlusVector, out w_fowardDownHit, w_fowardDownRayAmount, 1 << _groundLayer);
+        bool uppercheck = Physics.Raycast(transform.position + playerRotation * w_upperFowardRayOrigin, playerRotation * w_upperFowardRayPlusVector, out w_upperFowardHit, w_upperFowardRayAmount, 1 << _groundLayer);
         if (lowercheck && uppercheck)
         {
             return true;
@@ -316,9 +329,11 @@ public class CharacontrolManager : MonoBehaviour
     /// </summary>
     private void GoUpCheck()
     {
-        if (_checkStep && !_goUpping)
+        //判定
+        if (_checkStep && !_goUpping && !_attacking)
         {
             _goUpping = true;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             g_hitPoint = w_heightHit.point;
             g_nowPoint = transform.position;
             _goUpTime = 0;
@@ -327,6 +342,7 @@ public class CharacontrolManager : MonoBehaviour
                 _anim.ClimbingStart();
             }
         }
+        //動作
         if (_goUpping)
         {
             _goUpTime += Time.deltaTime * _goUpSpeed;
@@ -334,15 +350,131 @@ public class CharacontrolManager : MonoBehaviour
             float nowdis = Vector3.Distance(transform.position, g_hitPoint);
             if (nowdis <= 0.1)
             {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
                 _goUpping = false;
+                _grabing  = false;
+                _flightTime = 0;
+                _anim.ClimbAnimEnd();
             }
         }
 
     }
 
+    /// <summary>
+    /// 地面動作
+    /// </summary>
+    private void GroundMove()
+    {
+        //着地アニメーション
+        if (_jumping && !_goUpping && !_goUpping)
+        {
+            if (_flightTime < _noLandingTime)
+            {
+                _anim.NoLandingStart();
+            }
+            else if (_flightTime < _rollingTime)
+            {
+                _anim.LandingStart();
+            }
+            else
+            {
+                _anim.RollingStart();
+            }
+            _anim.JumpAnimEnd();
+            _anim.FallingEnd();
+            _jumping = false;
+        }
+        _flightTime = 0;
+        //歩き
+        if (!_grabing && !_attacking)
+        {
+            _walk.PlayerWalk(-_inputHori, -_inputVert, _inputRun);
+        }
+        //ジャンプ
+        if (_inputJump)
+        {
+            _jumping = true;
+            _anim.JumpAnimStart();
+            _jump.PlayerJump();
+
+        }
+    }
+
+    /// <summary>
+    /// 空中動作
+    /// </summary>
+    private void SkyMove()
+    {
+        if (!_jumping && !GroundDownCheck() && !_attacking)
+        {
+            _anim.FallingStart();
+            _jumping = true;
+        }
+        _flightTime += Time.deltaTime;
+        Vector3 gravityvector = Vector3.zero;
+        if (!_grabing)
+        {
+            gravityvector = Physics.gravity;
+            _walk.SkyMoving(_inputHori, _inputVert);
+        }
+        else
+        {
+            gravityvector = w_upperFowardHit.normal * -9.81f;
+        }
+        _jump.PlayerAddGravity(_gravity, gravityvector);
+    }
+
+    /// <summary>
+    /// 壁動作
+    /// </summary>
+    private void WallMove()
+    {
+        //壁移動はじめ
+        if (!_goUpping && _checkWall && !_attacking)
+        {
+            _grabing = true;
+            _anim.ClimbAnimStart();
+            transform.rotation = Quaternion.LookRotation(w_upperFowardHit.normal * -1, Vector3.up);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            _wallNormal = w_upperFowardHit.normal;
+        }
+        //壁移動解除
+        if (_grabing && _inputVert < 0 && _inputJump)
+        {
+            _jump.PlayerWallJump((w_upperFowardHit.normal + Vector3.up).normalized);
+            _grabing = false;
+            _inputJump = false;
+            _anim.ClimbAnimEnd();
+            _flightTime = 0;
+        }
+        else if (_grabing && !_checkWall)
+        {
+            _jump.PlayerWallJump((w_upperFowardHit.normal + Vector3.up).normalized);
+            _grabing = false;
+            _inputJump = false;
+            _anim.ClimbAnimEnd();
+            _flightTime = 0;
+        }
+        //壁移動処理
+        if (_grabing)
+        {
+            _grab.PlayerClimb(_inputHori, _inputVert, _inputRun, _wallNormal);
+        }
+
+    }
+    /// <summary>
+    /// コンボ攻撃の終了・アニメーションから呼び出し
+    /// </summary>
+    public void AttackAnimationEnd()
+    {
+        _attacking = false;
+        _inputAttack = false;
+        _anim.InvalidRootMotion();
+    }
+
     public void GravityOff()
     {
-        _gravity=1;
+        _gravity = 1;
     }
 
     public void GravityOn()
@@ -350,4 +482,8 @@ public class CharacontrolManager : MonoBehaviour
         _gravity = 5.5f;
     }
 
+    public bool ReturnWeponFlag()
+    {
+        return _inputSwitchWeapon;
+    }
 }
