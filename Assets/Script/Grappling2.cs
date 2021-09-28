@@ -211,7 +211,11 @@ public class Grappling2 : MonoBehaviour
 
             endPosition = hit.point;
             startEndDistance = Vector3.Distance(startPosition, endPosition);
-            nowAnchor = Instantiate(anchorObj, startPosition, player.transform.rotation);
+            nowAnchor = Instantiate(anchorObj, startPosition, transform.rotation);
+            nowAnchor.transform.rotation = transform.rotation;
+            Vector3 _rotateAngle = nowAnchor.transform.eulerAngles;
+            _rotateAngle.x -= 90.0f;
+            nowAnchor.transform.rotation = Quaternion.Euler(_rotateAngle);
             shootFlag = true;
             hitFrag = true;
             return true;
@@ -221,7 +225,11 @@ public class Grappling2 : MonoBehaviour
             Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.back) * 20, Color.white);
             endPosition =  player.transform.position+ transform.TransformDirection(Vector3.back) * 20;
             Debug.Log(endPosition);
-            nowAnchor = Instantiate(anchorObj, startPosition, player.transform.rotation);
+            nowAnchor = Instantiate(anchorObj, startPosition, transform.rotation);
+            nowAnchor.transform.rotation = transform.rotation;
+            Vector3 _rotateAngle = nowAnchor.transform.eulerAngles;
+            _rotateAngle.x -= 90.0f;
+            nowAnchor.transform.rotation = Quaternion.Euler(_rotateAngle);
         }
         startEndDistance = Vector3.Distance(startPosition, endPosition);
         shootFlag = true;

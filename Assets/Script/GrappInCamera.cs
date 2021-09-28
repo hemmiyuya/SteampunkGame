@@ -20,7 +20,6 @@ public class GrappInCamera : MonoBehaviour
     /// </summary>
     public void StartJudgeInCamera()
     {
-        Debug.Log("”»’èŠJn");
         judgeNow = true;
     }
 
@@ -28,7 +27,6 @@ public class GrappInCamera : MonoBehaviour
     {
         if (judgeNow)
         {
-            Debug.Log("‹ŠEØ‚ê‚½");
             grappling2.OutOfVisibility();
             judgeNow = false;
         }
