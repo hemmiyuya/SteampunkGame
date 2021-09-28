@@ -85,7 +85,7 @@ public class MeshCombiner : MonoBehaviour {
 	void OnDisable()
 	{
 		if (generatedObject != null) {
-			generatedObject.SetActive(true);
+			//generatedObject.SetActive(true);
 		}
 	}
 	#endif
