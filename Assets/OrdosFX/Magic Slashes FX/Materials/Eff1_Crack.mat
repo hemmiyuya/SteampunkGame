@@ -4,9 +4,8 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Eff1_Crack
   m_Shader: {fileID: 4800000, guid: 0c4da5b854c93244b96fc0ae24e9b103, type: 3}
   m_ShaderKeywords: USE_ALPHA_CUTOUT _ALPHABLEND_ON _EMISSION
@@ -24,8 +23,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CutoutTex:
-        m_Texture: {fileID: 2800000, guid: e199ee8112362864f831425463b09fda, type: 3}
-        m_Scale: {x: 61.69, y: 1}
+        m_Texture: {fileID: 2800000, guid: b1c4838ca128ad441b92b13e4300dcf6, type: 3}
+        m_Scale: {x: 5, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -89,5 +88,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DistStrength: {r: 0, g: 0, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TintColor: {r: 2.297397, g: 0, b: 0.025337454, a: 1}
-  m_BuildTextureStacks: []
+    - _TintColor: {r: 1.202, g: 0.044191148, b: 0.21187411, a: 1}

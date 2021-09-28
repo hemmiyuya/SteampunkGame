@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public float GetHorizontal()
     {
@@ -32,5 +21,13 @@ public class InputManager : MonoBehaviour
     public bool GetJumpButton()
     {
         return Input.GetKeyDown(KeyCode.Space);
+    }
+    public bool GetMouseLeftClick()
+    {
+        return Input.GetMouseButtonDown(0);
+    }
+    public bool GetSwitchWeaponButton()
+    {
+        return Input.GetKeyDown(KeyCode.R);
     }
 }

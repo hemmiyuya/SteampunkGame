@@ -19,7 +19,7 @@ public class CameraMove : MonoBehaviour
     [Header("当たったオブジェクト")]
     private RaycastHit Hit;
     [Header("無視するオブジェクトレイヤー")]
-    private int Mask = 3;
+    [SerializeField] private int Mask = default;
     [Header("キャラカメラ間距離")]
     private float cameradistance;
     [Header("半径")]
@@ -34,7 +34,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] float interpolation_distance = 5;
     [Header("ズーム感度")]
     [SerializeField] float zoom_speed = 1;
-    [Header("Axisの位置を指定する変数")]
+    [Header("原点位置を指定する変数")]
     [SerializeField] Vector3 axisPos;
     [Header("スクロール範囲")]
     [SerializeField] float scroll = 0;
@@ -59,7 +59,7 @@ public class CameraMove : MonoBehaviour
         transform.position = player.transform.position + axisPos;
         cameradistance = Vector3.Distance(transform.position, target.transform.position);
         //球体を飛ばしてめり込み防止
-        if (Physics.SphereCast(player.transform.position + axisPos, radius, target.transform.position - player.transform.position - axisPos, out Hit, cameradistance))
+        if (Physics.SphereCast(player.transform.position + Quaternion.AngleAxis(player.transform.eulerAngles.y, Vector3.up) * axisPos, radius, target.transform.position - player.transform.position - axisPos, out Hit, cameradistance, ~(1 << Mask)))
         {
             cam.transform.position = Vector3.Lerp(cam.transform.position, Hit.point + -transform.forward * interpolation_distance, interpolation_speed) ;
         }
@@ -113,7 +113,7 @@ public class CameraMove : MonoBehaviour
     }
     void OnDrawGizmos()
     {
-        if (Physics.SphereCast(player.transform.position + axisPos, radius, target.transform.position - player.transform.position - axisPos, out Hit, cameradistance, Mask))
+        if (Physics.SphereCast(player.transform.position + Quaternion.AngleAxis(player.transform.eulerAngles.y, Vector3.up) * axisPos, radius, target.transform.position - player.transform.position - axisPos, out Hit, cameradistance, Mask))
         {
             Gizmos.DrawWireSphere(Hit.point,radius);
         }
@@ -121,7 +121,7 @@ public class CameraMove : MonoBehaviour
         {
             Gizmos.DrawWireSphere(target.transform.position, radius);
         }
-        Gizmos.DrawRay(player.transform.position + axisPos, target.transform.position-player.transform.position - axisPos);
+        Gizmos.DrawRay(player.transform.position + Quaternion.AngleAxis(player.transform.eulerAngles.y, Vector3.up) * axisPos, target.transform.position-player.transform.position - axisPos);
 
     }
 }

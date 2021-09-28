@@ -10,23 +10,20 @@ public class Animationmanager : MonoBehaviour
     private const string _walkSpeedTag = "WalkSpeed";
     private const string _runTag = "Run";
     private const string _runSpeedTag = "RunSpeed";
+    private const string _climbTag = "Climb";
+    private const string _climbSpeedTag = "ClimbSpeed";
     private const string _jumpTag = "Jump";
     private const string _fallingTag = "Falling";
     private const string _noLandingTag = "NoLanding";
     private const string _landingTag = "Landing";
     private const string _rollingTag = "Rolling";
-    private const string _climbingTag = "Climbing";
+    private const string _climbingTag = "GoUp";
+    private string[] _swordAttack = { "SwordFirstAttack", "SwordSecondAttack", "SwordThirdAttack" };
+    private string[] _gunAttack = { "GunFirstAttack", "GunSecondAttack", "GunThirdAttack" };
 
     private void Start()
     {
         _anim = this.GetComponent<Animator>();
-    }
-
-    public void Reset()
-    {
-        WalkAnimEnd();
-        RunAnimEnd();
-        JumpAnimEnd();
     }
     public void WalkAnimStart()
     {
@@ -40,10 +37,18 @@ public class Animationmanager : MonoBehaviour
     {
         _anim.SetBool(_runTag, true);
     }
-
     public void RunAnimEnd()
     {
         _anim.SetBool(_runTag, false);
+    }
+
+    public void ClimbAnimStart()
+    {
+        _anim.SetBool(_climbTag, true);
+    }
+    public void ClimbAnimEnd()
+    {
+        _anim.SetBool(_climbTag, false);
     }
     public void JumpAnimStart()
     {
@@ -84,6 +89,16 @@ public class Animationmanager : MonoBehaviour
     {
         _anim.SetTrigger(_climbingTag);
     }
+    
+    public void SwordAttackStart(int combo)
+    {
+        _anim.SetTrigger(_swordAttack[combo - 1]);
+    }
+
+    public void GunAttackStart(int combo)
+    {
+        _anim.SetTrigger(_gunAttack[combo - 1]);
+    }
 
     public void SetWalkSpeed(float animspeed)
     {
@@ -93,5 +108,19 @@ public class Animationmanager : MonoBehaviour
     public void SetRunSpeed(float animspeed)
     {
         _anim.SetFloat(_runSpeedTag, animspeed);
+    }
+
+    public void SetClimbSpeed(float animspeed)
+    {
+        _anim.SetFloat(_climbSpeedTag, animspeed);
+    }
+
+    public void ActiveRootMotion()
+    {
+        _anim.applyRootMotion = true;
+    }
+    public void InvalidRootMotion()
+    {
+        _anim.applyRootMotion = false;
     }
 }
