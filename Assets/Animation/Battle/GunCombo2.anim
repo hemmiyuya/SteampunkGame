@@ -28858,12 +28858,26 @@ AnimationClip:
     floatParameter: 0
     intParameter: 6
     messageOptions: 0
+  - time: 0.05
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.11666667
     functionName: InstantiateEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 6
+    messageOptions: 0
+  - time: 0.11666667
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.16666667
     functionName: InstantiateEffect
@@ -28872,12 +28886,26 @@ AnimationClip:
     floatParameter: 0
     intParameter: 6
     messageOptions: 0
+  - time: 0.16666667
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.21666667
     functionName: InstantiateEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 6
+    messageOptions: 0
+  - time: 0.21666667
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.26666668
     functionName: InstantiateEffect
@@ -28886,10 +28914,24 @@ AnimationClip:
     floatParameter: 0
     intParameter: 6
     messageOptions: 0
+  - time: 0.26666668
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.33333334
     functionName: InstantiateEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 6
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

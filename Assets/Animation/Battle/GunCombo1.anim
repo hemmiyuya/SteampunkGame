@@ -128452,6 +128452,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 6
     messageOptions: 0
+  - time: 0.3
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.55
     functionName: InstantiateEffect
     data: 
@@ -128459,10 +128466,24 @@ AnimationClip:
     floatParameter: 0
     intParameter: 6
     messageOptions: 0
+  - time: 0.55
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.75
     functionName: InstantiateEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 6
+    messageOptions: 0
+  - time: 0.75
+    functionName: Shot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

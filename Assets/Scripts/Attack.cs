@@ -14,6 +14,8 @@ public class Attack
     [SerializeField]
     private float _gunRevisionRange = 10;
     [SerializeField]
+    private float _sowdRevisionRange = 4;
+    [SerializeField]
     private float _degree = 45;
 
     [System.Serializable]
@@ -36,6 +38,10 @@ public class Attack
     /// </summary>
     public void PlayerSwordAttack(int combo)
     {
+        if (combo == 1)
+        {
+            Revision(_sowdRevisionRange);
+        }
         _anim.SwordAttackStart(combo);
     }
     /// <summary>

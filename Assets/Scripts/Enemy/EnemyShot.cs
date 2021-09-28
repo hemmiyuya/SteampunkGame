@@ -14,6 +14,9 @@ public class EnemyShot : MonoBehaviour
     [SerializeField]
     private float bulletSpeed = 100f;
 
+    /// <summary>
+    /// true‚Ì@UŒ‚‚·‚é
+    /// </summary>
     [SerializeField]
     private bool buttle = true;
 

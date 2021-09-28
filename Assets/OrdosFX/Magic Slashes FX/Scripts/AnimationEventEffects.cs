@@ -46,6 +46,11 @@ public class AnimationEventEffects : MonoBehaviour {
             Debug.LogError("Incorrect effect number or effect is null");
         }
 
+        if (EffectNumber == 6 || EffectNumber == 7)
+        {
+
+        }
+
         var instance = Instantiate(Effects[EffectNumber].Effect, Effects[EffectNumber].StartPositionRotation.position, Effects[EffectNumber].StartPositionRotation.rotation);
 
         if (Effects[EffectNumber].UseLocalPosition)
