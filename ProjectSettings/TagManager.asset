@@ -11,6 +11,8 @@ TagManager:
   - FxTemporaire
   - Attack
   - Enemy
+  - EnemySpoon
+  - Audio
   layers:
   - Default
   - TransparentFX

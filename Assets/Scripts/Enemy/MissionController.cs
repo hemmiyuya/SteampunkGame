@@ -9,6 +9,8 @@ public class MissionController : MonoBehaviour
 
     private Transform playerTrs = null;
 
+    private GameObject audioObj = null;
+
     [SerializeField]
     private float missionRange = 9;
 
@@ -17,9 +19,20 @@ public class MissionController : MonoBehaviour
 
     private bool once = true;
 
+    private Transform canvas;
+    [SerializeField]
+    private GameObject pinPrefab;
+    private GameObject pinUI;
+
+
     private void Start()
     {
         playerTrs = GameObject.FindWithTag("Target").transform;
+        canvas = GameObject.Find("Canvas").transform;
+        pinUI = Instantiate(pinPrefab, canvas);
+        pinUI.transform.SetParent(canvas);
+        pinUI.GetComponent<TargetIndicator>().SetTarget(transform);
+        audioObj = GameObject.FindGameObjectWithTag("Audio");
     }
 
     private void Update()
@@ -27,6 +40,7 @@ public class MissionController : MonoBehaviour
         if (Vector3.Distance(playerTrs.position, this.transform.position) < missionRange&&once)
         {
             MissionStart();
+            pinUI.SetActive(false);
             once = false;
         }
     }
