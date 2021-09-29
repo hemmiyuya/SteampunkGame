@@ -9,10 +9,10 @@ public class GrappInCamera : MonoBehaviour
 
     Grappling2 grappling2 = default;
 
-    private string playerCameraTag = "PlayerCamera";
+    private string playerTag = "Player";
     private void Start()
     {
-        grappling2 = GameObject.FindGameObjectWithTag(playerCameraTag).GetComponent<Grappling2>();
+        grappling2 = GameObject.FindGameObjectWithTag(playerTag).GetComponent<Grappling2>();
     }
 
     /// <summary>

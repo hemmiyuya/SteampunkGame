@@ -7,14 +7,18 @@ public class Grappling2 : MonoBehaviour
 {
     private RaycastHit hit;
     private RaycastHit hit2;
-    int layerMask = ~(1 << 8);
+    int layerMask = ~(1 << 7);
     private Rigidbody rig;
     private float force = 2;
     private float firstForce = 25f;
     private float addForce = 0.32f;
 
     [SerializeField]
-    GameObject player;
+    Transform grapMuzzle;
+    GameObject mainCamara;
+    GameObject playerCamera;
+
+    private Animator playerAnim;
 
     //[SerializeField]
     //GameObject playerObj;
@@ -26,15 +30,12 @@ public class Grappling2 : MonoBehaviour
 
     bool moveFlag = false;
 
-    Vector3[] initialPosition = new Vector3[] { new Vector3(0, 0, 0), new Vector3(0, 0, 0) };
-    Vector3[] positions;
-
     [SerializeField]
     private GameObject anchorObj;
     private GameObject nowAnchor;
     private Transform anchorTransform;
 
-    //アンカーの発射位置と到着位置
+    //アンカーレイの発射位置と到着位置
     private Vector3 startPosition;
     private Vector3 endPosition;
 
@@ -65,11 +66,13 @@ public class Grappling2 : MonoBehaviour
     private GasGaugeManager gasGaugeManager=default;
     void Start()
     {
-        rig = player.GetComponent<Rigidbody>();
-        characontrolManager = player.GetComponent<CharacontrolManager>();
+        rig = GetComponent<Rigidbody>();
+        characontrolManager = GetComponent<CharacontrolManager>();
         lineRenderer.startWidth = 0.02f;                   //線の太さ
         lineRenderer.endWidth = 0.02f;                     
-        positions = initialPosition;
+        playerAnim = GetComponent<Animator>();
+        mainCamara = GameObject.FindGameObjectWithTag("MainCamera");
+        playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera");
     }
 
     void Update()
@@ -85,21 +88,11 @@ public class Grappling2 : MonoBehaviour
             
         }
 
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            
-            //rig.useGravity = true;
-            
-        }
-        if (moveFlag)
-        {
-            positions = new Vector3[] { player.transform.position, hit.point };
-        }
         // 線を引く場所を指定する
         //lineRenderer.SetPositions(positions);
 
         //グラップル発射可能かつ発射したときに刺せる位置ならレティクルをさせるよー表示にする
-        if (Physics.Raycast(new Vector3(player.transform.position.x,player.transform.position.y+ 0.8f,player.transform.position.z), transform.TransformDirection(Vector3.back), out hit2, 35, layerMask)
+        if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y+ 0.8f,transform.position.z), transform.TransformDirection(Vector3.back), out hit2, 35, layerMask)
             &&!removeanchorFrag && !moveFlag && !shootFlag)
         {
             reticle.sprite = reticleSprites[0];
@@ -117,21 +110,20 @@ public class Grappling2 : MonoBehaviour
         //グラップル中
         if (moveFlag)
         {
-            GrapplingMove(hit.point, player.transform.position);
+            GrapplingMove(hit.point, transform.position);
             if (rig.velocity.magnitude >= 35)
             {
                 rig.velocity = rig.velocity * 0.9f;
             }
-            lineRenderer.SetPositions(new Vector3[] { player.transform.position, endPosition });
+            lineRenderer.SetPositions(new Vector3[] { transform.position, endPosition });
 
             nowgrappTime += Time.deltaTime;
 
-            if (Vector3.Distance(player.transform.position, endPosition)<2||!VisibilityNow||(nowgrappTime>=0.5f&&rig.velocity.magnitude<=0.5f))
+            if (Vector3.Distance(transform.position, endPosition)<2||!VisibilityNow||(nowgrappTime>=0.5f&&rig.velocity.magnitude<=0.5f))
             {
                 moveFlag = false;
                 nowgrappTime = 0;
                 characontrolManager.GravityOn();
-                positions = initialPosition;
                 removeanchorFrag = true;
             }
             
@@ -140,20 +132,19 @@ public class Grappling2 : MonoBehaviour
         //グラップル発射中
         if (shootFlag)
         {
-
             nowshootTime += Time.deltaTime;
 
             anchorTransform = nowAnchor.transform;
 
             float present_Location = nowshootTime * shootSpeed / startEndDistance;
 
-            anchorTransform.position = Vector3.Lerp(startPosition, endPosition, present_Location);
-            lineRenderer.SetPositions(new Vector3[] { new Vector3(player.transform.position.x,player.transform.position.y+0.8f,player.transform.position.z), anchorTransform.position });
+            anchorTransform.position = Vector3.Lerp(grapMuzzle.position, endPosition, present_Location);
+            lineRenderer.SetPositions(new Vector3[] { new Vector3(transform.position.x,transform.position.y+0.8f,transform.position.z), anchorTransform.position });
             if (endPosition == anchorTransform.position)
             {
                 if (hitFrag)
                 {
-                    moveFlag = true;
+                    playerAnim.SetTrigger("GrapHit");
                     characontrolManager.GravityOff();
                     rig.velocity = rig.velocity * 0.1f;
                     VisibilityNow = true;
@@ -179,7 +170,7 @@ public class Grappling2 : MonoBehaviour
 
             float present_Location2 = nowRemoveTime * removeSpeed / startEndDistance;
 
-            Vector3 nowPlayerPos = new Vector3(player.transform.position.x, player.transform.position.y + 0.8f, player.transform.position.z);
+            Vector3 nowPlayerPos = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
 
             anchorTransform.position = Vector3.Lerp(endPosition, nowPlayerPos, present_Location2);
 
@@ -196,36 +187,52 @@ public class Grappling2 : MonoBehaviour
         }
     }
 
+    private void OnAnimatorIK(int layerIndex)
+    {
+        if (shootFlag)
+        {
+            playerAnim.SetLookAtWeight(1f, 1f, 1f, 0f, 0.5f);     // LookAtの調整
+            playerAnim.SetLookAtPosition(endPosition);          // ターゲットの方向を向く
+        }
+
+    }
+
     /// <summary>
     /// グラップルショット
     /// </summary>
-    /// <returns></returns>
-    private bool GrapplingShot()
+    private void GrapplingShot()
     {
-        startPosition =new Vector3( player.transform.position.x,player.transform.position.y+0.8f,player.transform.position.z);
-        
+        startPosition = mainCamara.transform.position 
+                        += transform.position - mainCamara.transform.position;
 
-        if (Physics.Raycast(startPosition, transform.TransformDirection(Vector3.back), out hit, 35, layerMask))
+        //方向を合わせる
+        transform.forward = new Vector3(mainCamara.transform.forward.x, transform.forward.y, mainCamara.transform.forward.z);
+
+        playerAnim.SetTrigger("GrapShot");
+
+        if (Physics.Raycast(startPosition, playerCamera.transform.TransformDirection(Vector3.back), out hit, 35, layerMask))
         {
-            Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow);
+            print(hit.transform.name);
+            Debug.DrawRay(startPosition, playerCamera.transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow);
 
             endPosition = hit.point;
             startEndDistance = Vector3.Distance(startPosition, endPosition);
-            nowAnchor = Instantiate(anchorObj, startPosition, player.transform.rotation);
-            shootFlag = true;
+            nowAnchor = Instantiate(anchorObj, startPosition, transform.rotation);
             hitFrag = true;
-            return true;
+            shootFlag = true;
+
+            return;
         }
         else
         {
-            Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.back) * 20, Color.white);
-            endPosition =  player.transform.position+ transform.TransformDirection(Vector3.back) * 20;
-            nowAnchor = Instantiate(anchorObj, startPosition, player.transform.rotation);
+            Debug.DrawRay(startPosition, playerCamera.transform.TransformDirection(Vector3.back) * 20, Color.white);
+            endPosition =  transform.position+ playerCamera.transform.TransformDirection(Vector3.back) * 20;
+            nowAnchor = Instantiate(anchorObj, startPosition, transform.rotation);
+            playerAnim.SetTrigger("GrapEnd");
         }
         startEndDistance = Vector3.Distance(startPosition, endPosition);
         shootFlag = true;
         hitFrag = false;
-        return false;
     }
 
     private void GrapplingMove(Vector3 target, Vector3 transform)
@@ -253,5 +260,11 @@ public class Grappling2 : MonoBehaviour
     public void OutOfVisibility()
     {
         VisibilityNow = false;
+    }
+
+    //アニメーションイベントで呼び出し
+    public void MoveStart()
+    {
+        moveFlag = true;
     }
 }
