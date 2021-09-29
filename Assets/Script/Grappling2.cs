@@ -144,7 +144,6 @@ public class Grappling2 : MonoBehaviour
             {
                 if (hitFrag)
                 {
-                    playerAnim.SetTrigger("GrapHit");
                     characontrolManager.GravityOff();
                     rig.velocity = rig.velocity * 0.1f;
                     VisibilityNow = true;
@@ -183,6 +182,7 @@ public class Grappling2 : MonoBehaviour
                 firstFrag = true;
                 nowRemoveTime = 0;
                 present_Location2 = 0;
+                playerAnim.SetTrigger("GrapComp");
             }
         }
     }
@@ -221,6 +221,7 @@ public class Grappling2 : MonoBehaviour
             hitFrag = true;
             shootFlag = true;
 
+            playerAnim.SetTrigger("GrapHit");
             return;
         }
         else

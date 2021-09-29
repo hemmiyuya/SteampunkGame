@@ -45,6 +45,7 @@ public class CameraMove : MonoBehaviour
     //https://tech.pjin.jp/blog/2016/11/04/unity_skill_5/
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         //Camera‚ÌAxis‚É‘Š‘Î“I‚ÈˆÊ’u‚ðlocalPosition‚ÅŽw’è
         target.transform.localPosition = new Vector3(0, 0, 3);
 
