@@ -11,6 +11,12 @@ public class CharacontrolManager : MonoBehaviour
         Jump,
         Climb
     }
+
+    [SerializeField]
+    private GameObject gun = null;
+    [SerializeField]
+    private GameObject sowrd = null;
+
     private Job job = Job.Wait;
     /// <summary>
     /// オブジェクト群
@@ -218,6 +224,8 @@ public class CharacontrolManager : MonoBehaviour
         if (_input.GetSwitchWeaponButton())
         {
             _inputSwitchWeapon = !_inputSwitchWeapon;
+            gun.active = !gun.active;
+            sowrd.active = !sowrd.active;
         }
         //判定
         _checkGround = GroundCheck();

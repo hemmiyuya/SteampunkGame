@@ -23,6 +23,6 @@ public class ShotRay : MonoBehaviour
             }
         }
 
-        Debug.DrawRay(muzzle.position, muzzle.forward * 1, Color.red, range, true);
+        Debug.DrawRay(muzzle.position, muzzle.forward*range, Color.red, 1, true);
     }
 }

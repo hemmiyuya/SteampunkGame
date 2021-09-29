@@ -220,7 +220,6 @@ public class Grappling2 : MonoBehaviour
         {
             Debug.DrawRay(startPosition, transform.TransformDirection(Vector3.back) * 20, Color.white);
             endPosition =  player.transform.position+ transform.TransformDirection(Vector3.back) * 20;
-            Debug.Log(endPosition);
             nowAnchor = Instantiate(anchorObj, startPosition, player.transform.rotation);
         }
         startEndDistance = Vector3.Distance(startPosition, endPosition);

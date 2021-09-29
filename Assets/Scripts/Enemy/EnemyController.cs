@@ -60,6 +60,14 @@ public class EnemyController : MonoBehaviour
             .AddTo(this);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Attack")
+        {
+            Damage(30);
+        }
+    }
+
     private void Update()
     {
         //やられた
@@ -106,6 +114,7 @@ public class EnemyController : MonoBehaviour
     {
         enemyAnim.SetLookAtWeight(1f, 1f, 1f, 0f, 0.5f);     // LookAtの調整
         enemyAnim.SetLookAtPosition(playerTrs.position);          // ターゲットの方向を向く
+
     }
 
     //ターゲットの方向を向く
@@ -146,6 +155,7 @@ public class EnemyController : MonoBehaviour
     
     public void Damage(int damage)
     {
+        enemyAnim.SetTrigger("Hit");
         hp -= damage;
     }
 
