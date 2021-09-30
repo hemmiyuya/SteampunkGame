@@ -212,14 +212,18 @@ public class Grappling2 : MonoBehaviour
 
         if (Physics.Raycast(startPosition, playerCamera.transform.TransformDirection(Vector3.back), out hit, 35, layerMask))
         {
-            print(hit.transform.name);
             Debug.DrawRay(startPosition, playerCamera.transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow);
 
             endPosition = hit.point;
             startEndDistance = Vector3.Distance(startPosition, endPosition);
             nowAnchor = Instantiate(anchorObj, startPosition, transform.rotation);
-            hitFrag = true;
+            nowAnchor.transform.rotation = transform.rotation;
+            Vector3 _rotateAngle = nowAnchor.transform.eulerAngles;
+            _rotateAngle.x -= 90.0f;
+            nowAnchor.transform.rotation = Quaternion.Euler(_rotateAngle);
             shootFlag = true;
+            hitFrag = true;
+
 
             playerAnim.SetTrigger("GrapHit");
             return;
@@ -227,9 +231,15 @@ public class Grappling2 : MonoBehaviour
         else
         {
             Debug.DrawRay(startPosition, playerCamera.transform.TransformDirection(Vector3.back) * 20, Color.white);
-            endPosition =  transform.position+ playerCamera.transform.TransformDirection(Vector3.back) * 20;
+            endPosition = transform.position + playerCamera.transform.TransformDirection(Vector3.back) * 20;
+            Debug.Log(endPosition);
             nowAnchor = Instantiate(anchorObj, startPosition, transform.rotation);
+            nowAnchor.transform.rotation = transform.rotation;
+            Vector3 _rotateAngle = nowAnchor.transform.eulerAngles;
+            _rotateAngle.x -= 90.0f;
+            nowAnchor.transform.rotation = Quaternion.Euler(_rotateAngle);
             playerAnim.SetTrigger("GrapEnd");
+
         }
         startEndDistance = Vector3.Distance(startPosition, endPosition);
         shootFlag = true;
