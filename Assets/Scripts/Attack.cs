@@ -11,10 +11,10 @@ public class Attack
     [Header("エフェクト発生場所")]
     public EffectInfo[] Effects;
 
-    [SerializeField]
+    
     private float _gunRevisionRange = 10;
-    [SerializeField]
-    private float _sowdRevisionRange = 4;
+    
+    private float _sowdRevisionRange = 5;
     [SerializeField]
     private float _degree = 45;
 

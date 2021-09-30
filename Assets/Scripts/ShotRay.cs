@@ -11,8 +11,16 @@ public class ShotRay : MonoBehaviour
     [SerializeField]
     private int shotDamage = 14;
 
+    PlayerSound playerSound = null;
+
+    private void Start()
+    {
+        playerSound = GetComponent<PlayerSound>();
+    }
+
     public void Shot()
     {
+        playerSound.PlaySE(0);
         RaycastHit hit;
 
         if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, range))
