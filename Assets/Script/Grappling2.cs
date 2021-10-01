@@ -10,7 +10,7 @@ public class Grappling2 : MonoBehaviour
     int layerMask = ~(1 << 7);
     private Rigidbody rig;
     private float force = 2;
-    private float firstForce = 30f;
+    private float firstForce = 27f;
     private float addForce = 0.32f;
 
     [SerializeField]

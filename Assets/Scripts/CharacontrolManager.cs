@@ -246,11 +246,13 @@ public class CharacontrolManager : MonoBehaviour
     private void FixedUpdate()
     {
 
-        //壁判定・動作
-        WallMove();
-
         //段差越える
         GoUpCheck();
+
+        //壁判定・動作
+        //WallMove();
+
+        
 
         //接地判定・動作
         if (!_grabing && _checkGround || _goUpping)
@@ -446,6 +448,7 @@ public class CharacontrolManager : MonoBehaviour
         }
         _jump.PlayerAddGravity(_gravity, gravityvector);
     }
+
 
     /// <summary>
     /// 壁動作

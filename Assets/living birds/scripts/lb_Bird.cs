@@ -75,6 +75,7 @@ public class lb_Bird : MonoBehaviour {
 		anim = gameObject.GetComponent<Animator>();
 
 		audioSource = GetComponent<AudioSource>();
+		audioSource.clip = flyAway1;
 		rig = GetComponent<Rigidbody>();
 
 		idleAnimationHash = Animator.StringToHash("Base Layer.Idle");
