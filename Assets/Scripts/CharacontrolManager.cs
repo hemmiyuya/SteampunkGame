@@ -27,12 +27,14 @@ public class CharacontrolManager : MonoBehaviour
     /// <summary>
     /// スクリプト群
     /// </summary>
-    private InputManager     _input;
-    private Animationmanager _anim;
-    private Walk             _walk;
-    private Jump             _jump;
-    private Grab             _grab;
-    private Attack      _attack;
+    private InputManager     _input=default;
+    private Animationmanager _anim=default;
+    private Walk             _walk=default;
+    private Jump             _jump=default;
+    private Grab             _grab=default;
+    private Attack      _attack=default;
+    private GrappWalk _grappWalk=default;
+    private Grappling2 _grappling2 = default;
 
     /// <summary>
     /// 判定用レイ
@@ -188,6 +190,9 @@ public class CharacontrolManager : MonoBehaviour
     private int _combo                = default;
     [SerializeField]
     private int _maxcombo             = 3;
+    [Header("グラップル")]
+    [SerializeField]
+    private bool _grapping = default;
 
     void Start()
     {
@@ -197,18 +202,23 @@ public class CharacontrolManager : MonoBehaviour
         _jump   = new Jump();
         _grab   = new Grab();
         _attack = new Attack();
+        _grappWalk = new GrappWalk();
+        _grappling2 = GetComponent<Grappling2>();
         _walk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _skyAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed, _runAnimSpeed);
         _grab.InitialSet(this.gameObject, _Camera, _climbAccelSpeed, _climbSlowDownSpeed, _climbAnimSpeed);
         _jump.InitialSet(this.gameObject, _jumpPower, _maxAltitude);
         _attack.InitialSet(this.gameObject, _Camera);
+        _grappWalk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _skyAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed);
     }
 
     private void Update()
     {
+        /*ここいる？
         _walk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _skyAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed, _runAnimSpeed);
         _grab.InitialSet(this.gameObject, _Camera, _climbAccelSpeed, _climbSlowDownSpeed, _climbAnimSpeed);
         _jump.InitialSet(this.gameObject, _jumpPower, _maxAltitude);
         _attack.InitialSet(this.gameObject, _Camera);
+        */
         //入力
         _inputHori = _input.GetHorizontal();
         _inputVert = _input.GetVertical();
@@ -393,8 +403,13 @@ public class CharacontrolManager : MonoBehaviour
             _jumping = false;
         }
         _flightTime = 0;
+        if ( _grappling2.UsingGrapp)
+        {
+
+            _grappWalk.GrappNowWalk(-_inputHori, -_inputVert, _inputRun, _grappling2.NowEndPos);
+        }
         //歩き
-        if (!_grabing && !_attacking)
+        if (!_grabing && !_attacking&&!_grappling2.UsingGrapp)
         {
             _walk.PlayerWalk(-_inputHori, -_inputVert, _inputRun);
         }
