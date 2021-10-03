@@ -213,7 +213,7 @@ public class CharacontrolManager : MonoBehaviour
 
     private void Update()
     {
-        /*ここいる？
+        /*ここいる？(実行中にインスペクターで数値変えるときいる)
         _walk.InitialSet(this.gameObject, _Camera, _walkAccelSpeed, _skyAccelSpeed, _walkSlowDownSpeed, _walkAnimSpeed, _runAnimSpeed);
         _grab.InitialSet(this.gameObject, _Camera, _climbAccelSpeed, _climbSlowDownSpeed, _climbAnimSpeed);
         _jump.InitialSet(this.gameObject, _jumpPower, _maxAltitude);
@@ -250,7 +250,7 @@ public class CharacontrolManager : MonoBehaviour
         GoUpCheck();
 
         //壁判定・動作
-        //WallMove();
+        WallMove();
 
         
 
