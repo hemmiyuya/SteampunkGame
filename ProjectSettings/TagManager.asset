@@ -13,6 +13,8 @@ TagManager:
   - Enemy
   - EnemySpoon
   - Audio
+  - lb_groundTarget
+  - lb_perchTarget
   layers:
   - Default
   - TransparentFX
