@@ -35,13 +35,15 @@ public class GrappWalk : MonoBehaviour
     /// <param name="run"></param>
     /// <param name="grappEndPos">グラップルが刺さる場所</param>
     public void GrappNowWalk(float hori, float vert, bool run,Vector3 grappEndPos)
-    {
+    { 
+        //アニメーション処理
+        _anim.GrapWalkX(hori);
+        _anim.GrapWalkZ(vert);
+
         Rigidbody playervelocity = _player.GetComponent<Rigidbody>();
         //無操作で減速
         if (hori == 0 && vert == 0)
         {
-            _anim.WalkAnimEnd();
-            _anim.RunAnimEnd();
             playervelocity.velocity = playervelocity.velocity.magnitude > 0 ? playervelocity.velocity * _slowdownSpeed : Vector3.zero;
             return;
         }
@@ -50,11 +52,7 @@ public class GrappWalk : MonoBehaviour
         Quaternion cameraRotation = Quaternion.AngleAxis(_camera.transform.eulerAngles.y, Vector3.up);
         Vector3 velo = cameraRotation * new Vector3(hori, 0, vert).normalized;
         var velocityXZ = Vector3.Scale(playervelocity.velocity, new Vector3(1, 0, 1));
-        //アニメーション処理
-        _anim.WalkAnimStart();
-        _anim.SetWalkSpeed(velocityXZ.magnitude / _walkAnimSpeed);
-
-
+       
         playervelocity.velocity = velo * _groundAccelSpeed;
         _player.transform.LookAt(new Vector3(grappEndPos.x,_player.transform.position.y,grappEndPos.z));
     }

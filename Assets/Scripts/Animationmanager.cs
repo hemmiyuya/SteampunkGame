@@ -18,12 +18,23 @@ public class Animationmanager : MonoBehaviour
     private const string _landingTag = "Landing";
     private const string _rollingTag = "Rolling";
     private const string _climbingTag = "GoUp";
+    private const string _grapShootTag = "GrapShot";
+    private const string _grapHitTag = "GrapHit";
+    private const string _grapCompTag = "GrapComp";
+    private const string _grapWalkTag = "GrapWalk";
+    private const string _grapSpeedXTag = "Speed_x";
+    private const string _grapSpeedZTag = "Speed_z";
     private string[] _swordAttack = { "SwordFirstAttack", "SwordSecondAttack", "SwordThirdAttack" };
     private string[] _gunAttack = { "GunFirstAttack", "GunSecondAttack", "GunThirdAttack" };
 
     private void Start()
     {
         _anim = this.GetComponent<Animator>();
+    }
+
+    public string NowClipName()
+    {
+        return _anim.GetCurrentAnimatorClipInfo(0)[0].clip.name;
     }
     public void WalkAnimStart()
     {
@@ -33,15 +44,6 @@ public class Animationmanager : MonoBehaviour
     {
         _anim.SetBool(_walkTag, false);
     }
-    public void RunAnimStart()
-    {
-        _anim.SetBool(_runTag, true);
-    }
-    public void RunAnimEnd()
-    {
-        _anim.SetBool(_runTag, false);
-    }
-
     public void ClimbAnimStart()
     {
         _anim.SetBool(_climbTag, true);
@@ -105,11 +107,6 @@ public class Animationmanager : MonoBehaviour
         _anim.SetFloat(_walkSpeedTag,animspeed);
     }
 
-    public void SetRunSpeed(float animspeed)
-    {
-        _anim.SetFloat(_runSpeedTag, animspeed);
-    }
-
     public void SetClimbSpeed(float animspeed)
     {
         _anim.SetFloat(_climbSpeedTag, animspeed);
@@ -122,5 +119,34 @@ public class Animationmanager : MonoBehaviour
     public void InvalidRootMotion()
     {
         _anim.applyRootMotion = false;
+    }
+    public void GrapShoot()
+    {
+        _anim.SetBool(_grapHitTag, false);
+        _anim.SetBool(_grapCompTag, false);
+        _anim.SetBool(_grapShootTag,true);
+    }
+    public void GrapHit()
+    {
+        _anim.SetBool(_grapHitTag,true);
+    }
+    public void GrapComp()
+    {
+        _anim.SetBool(_grapCompTag,true);
+
+        _anim.SetBool(_grapShootTag, false);
+    }
+    public void GrapWalk(bool walk)
+    {
+        _anim.SetBool(_grapWalkTag, walk);
+    }
+
+    public void GrapWalkX(float speed_x)
+    {
+        _anim.SetFloat(_grapSpeedXTag, speed_x);
+    }
+    public void GrapWalkZ(float speed_z)
+    {
+        _anim.SetFloat(_grapSpeedZTag, speed_z);
     }
 }

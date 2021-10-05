@@ -12,6 +12,8 @@ public class CharacontrolManager : MonoBehaviour
         Climb
     }
 
+    private string[] notAttack = { "idle", "walk", "run" };
+
     [SerializeField]
     private GameObject gun = null;
     [SerializeField]
@@ -188,6 +190,8 @@ public class CharacontrolManager : MonoBehaviour
     private bool _inputAttack         = default;
     [SerializeField]
     private int _combo                = default;
+    private bool _animCheck           = default;
+    private bool _wait                = default;
     [SerializeField]
     private int _maxcombo             = 3;
     [Header("グラップル")]
@@ -242,17 +246,27 @@ public class CharacontrolManager : MonoBehaviour
         _checkStep   = StepCheck();
         _checkWall   = WallCheck();
 
+        if (_animCheck)
+        {
+            //現在のアニメーションクリップ名
+            if (_anim.NowClipName() == notAttack[0]
+                || _anim.NowClipName() == notAttack[1]
+                || _anim.NowClipName() == notAttack[2])
+            {
+                _attacking = false;
+                _inputAttack = false;
+                _anim.InvalidRootMotion();
+                _animCheck = false;
+            }
+        }
     }
     private void FixedUpdate()
     {
-
         //段差越える
         GoUpCheck();
 
         //壁判定・動作
         WallMove();
-
-        
 
         //接地判定・動作
         if (!_grabing && _checkGround || _goUpping)
@@ -263,21 +277,14 @@ public class CharacontrolManager : MonoBehaviour
                 _combo = 1;
                 _anim.ActiveRootMotion();
             }
-            if (_attacking && _inputAttack && _maxcombo >= _combo)
+            if (_attacking && _inputAttack && _maxcombo >= _combo&&!_wait)
             {
-                if (_inputSwitchWeapon)
-                {
-                    _attack.PlayerSwordAttack(_combo);
-                }
-                else
-                {
-                    _attack.PlayerGunAttack(_combo);
-                }
-                    GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    _combo++;
-                    _inputAttack = false;
+                StartCoroutine(Attack());
             }
+            else
+            {
                 GroundMove();
+            }
         }
         else
         {
@@ -377,7 +384,6 @@ public class CharacontrolManager : MonoBehaviour
                 _anim.ClimbAnimEnd();
             }
         }
-
     }
 
     /// <summary>
@@ -386,7 +392,7 @@ public class CharacontrolManager : MonoBehaviour
     private void GroundMove()
     {
         //着地アニメーション
-        if (_jumping && !_goUpping && !_goUpping)
+        if (_jumping && !_goUpping)
         {
             if (_flightTime < _noLandingTime)
             {
@@ -407,7 +413,6 @@ public class CharacontrolManager : MonoBehaviour
         _flightTime = 0;
         if ( _grappling2.UsingGrapp)
         {
-
             _grappWalk.GrappNowWalk(-_inputHori, -_inputVert, _inputRun, _grappling2.NowEndPos);
         }
         //歩き
@@ -421,7 +426,6 @@ public class CharacontrolManager : MonoBehaviour
             _jumping = true;
             _anim.JumpAnimStart();
             _jump.PlayerJump();
-
         }
     }
 
@@ -488,16 +492,6 @@ public class CharacontrolManager : MonoBehaviour
         }
 
     }
-    /// <summary>
-    /// コンボ攻撃の終了・アニメーションから呼び出し
-    /// </summary>
-    public void AttackAnimationEnd()
-    {
-        _attacking = false;
-        _inputAttack = false;
-        _anim.InvalidRootMotion();
-    }
-
     public void GravityOff()
     {
         _gravity = 1;
@@ -512,4 +506,29 @@ public class CharacontrolManager : MonoBehaviour
     {
         return _inputSwitchWeapon;
     }
+
+    /// <summary>
+    /// 攻撃処理
+    /// </summary>
+    private IEnumerator Attack()
+    {
+        if (_inputSwitchWeapon)
+        {
+            _attack.PlayerSwordAttack(_combo);
+        }
+        else
+        {
+            _attack.PlayerGunAttack(_combo);
+        }
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        _combo++;
+        _wait = true;
+        _inputAttack = false;
+        yield return new WaitForSeconds(0.4f);
+        _animCheck = true;
+        _wait = false;
+
+        yield break;
+    }
+
 }
