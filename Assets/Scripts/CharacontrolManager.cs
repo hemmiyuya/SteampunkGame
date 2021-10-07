@@ -421,7 +421,7 @@ public class CharacontrolManager : MonoBehaviour
             _walk.PlayerWalk(-_inputHori, -_inputVert, _inputRun);
         }
         //ƒWƒƒƒ“ƒv
-        if (_inputJump)
+        if (_inputJump && !_attacking)
         {
             _jumping = true;
             _anim.JumpAnimStart();

@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class Grappling2 : MonoBehaviour
 {
+    [SerializeField]
+    private int lineVertexCount = 100;
+    [SerializeField]
+    private int wobbleCount = 1;
+
     private RaycastHit hit;
     private RaycastHit hit2;
     int layerMask = ~(1 << 7);
@@ -45,8 +51,16 @@ public class Grappling2 : MonoBehaviour
     private float nowRemoveTime = default;
     private float nowgrappTime=default;
 
+    Vector3 positive = new Vector3(1, 0, 1).normalized;
+    Vector3 xPositive = new Vector3(1, 0, 0);
+    Vector3 zPositive = new Vector3(0, 0, 1);
+
     private float shootSpeed = 55f;
     private float removeSpeed = 70f;
+
+    /// <summary>
+    /// グラップルの開始位置から終了位置までの長さ
+    /// </summary>
     private float startEndDistance=default;
 
     [SerializeField]
@@ -95,7 +109,8 @@ public class Grappling2 : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         characontrolManager = GetComponent<CharacontrolManager>();
         lineRenderer.startWidth = 0.02f;                   //線の太さ
-        lineRenderer.endWidth = 0.02f;                     
+        lineRenderer.endWidth = 0.02f;
+        lineRenderer.positionCount = lineVertexCount;
         anim = GetComponent<Animationmanager>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera");
@@ -133,21 +148,67 @@ public class Grappling2 : MonoBehaviour
 
     }
 
+    private Spring spring;
+    private Vector3 currentGrapplePosition;
+    public int quality;
+    public float damper;
+    public float strength;
+    public float velocity;
+    public float waveCount;
+    public float waveHeight;
+    public AnimationCurve affectCurve;
+
+    private void Awake()
+    {
+        spring = new Spring();
+        spring.SetTarget(0);
+    }
+    private void OnRenderObject()
+    {
+        if(!grapplingNow && !removeanchorFrag)
+        {
+            currentGrapplePosition = grapMuzzle.position;
+            spring.Reset();
+            if (lineRenderer.positionCount > 0)
+                lineRenderer.positionCount = 0;
+            return;
+        }
+        if (lineRenderer.positionCount == 0)
+        {
+            spring.SetVelocity(velocity);
+            lineRenderer.positionCount = quality + 1;
+        }
+
+        spring.SetDamper(damper);
+        spring.SetStrength(strength);
+        spring.Update(Time.deltaTime);
+        var grapplePoint = endPosition;
+        var up = Quaternion.LookRotation((grapplePoint - grapMuzzle.position).normalized) * Vector3.up;
+
+        currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 12f);
+
+        for (var i = 0; i < quality + 1; i++)
+        {
+            var delta = i / (float)quality;
+            var offset = up * waveHeight * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value *
+                         affectCurve.Evaluate(delta);
+
+            lineRenderer.SetPosition(i, Vector3.Lerp(grapMuzzle.position, currentGrapplePosition, delta) + offset);
+        }
+    }
+
     private void FixedUpdate()
     {
-        
-
         //グラップル発射中
         if (shootFlag)
         {
             nowshootTime += Time.deltaTime;
-
             anchorTransform = nowAnchor.transform;
 
             float present_Location = nowshootTime * shootSpeed / startEndDistance;
 
             anchorTransform.position = Vector3.Lerp(grapMuzzle.position, endPosition, present_Location);
-            lineRenderer.SetPositions(new Vector3[] { new Vector3(transform.position.x,transform.position.y+0.8f,transform.position.z), anchorTransform.position });
+            
             if (endPosition == anchorTransform.position)
             {
                 if (hitFrag)
@@ -163,7 +224,6 @@ public class Grappling2 : MonoBehaviour
                     removeanchorFrag = true;
                 }
                 nowshootTime = 0;
-                //GrapplingMove(hit.point, player.transform.position);
                 shootFlag = false;
                 present_Location = 0;
             }
@@ -177,7 +237,7 @@ public class Grappling2 : MonoBehaviour
             {
                 rig.velocity = rig.velocity * 0.9f;
             }
-            lineRenderer.SetPositions(new Vector3[] { transform.position, endPosition });
+            
 
             nowgrappTime += Time.deltaTime;
 
@@ -199,14 +259,11 @@ public class Grappling2 : MonoBehaviour
             nowRemoveTime += Time.deltaTime;
 
             anchorTransform = nowAnchor.transform;
-
             float present_Location2 = nowRemoveTime * removeSpeed / startEndDistance;
 
             Vector3 nowPlayerPos = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
 
             anchorTransform.position = Vector3.Lerp(endPosition, nowPlayerPos, present_Location2);
-
-            lineRenderer.SetPositions(new Vector3[] { anchorTransform.position, nowPlayerPos });
 
             if (anchorTransform.position == nowPlayerPos)
             {
@@ -219,10 +276,7 @@ public class Grappling2 : MonoBehaviour
             }
         }
 
-        if (grapplingNow)
-        {
-            lineRenderer.SetPositions(new Vector3[] { new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z), anchorTransform.position });
-        }
+
     }
 
     private void OnAnimatorIK(int layerIndex)
@@ -250,16 +304,15 @@ public class Grappling2 : MonoBehaviour
         if (Physics.Raycast(startPosition, playerCamera.transform.TransformDirection(Vector3.back), out hit, rayRange, layerMask)&& shotReady)
         {
             gasGaugeManager.UseGasCheck(useGasValue);
-            //startPosition = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
 
             anim.GrapShoot();
             anim.GrapWalk(true);
 
-            Debug.DrawRay(startPosition, playerCamera.transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow,100);
+            Debug.DrawRay(startPosition, playerCamera.transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow,5);
 
             endPosition = hit.point;
             startEndDistance = Vector3.Distance(startPosition, endPosition);
-            nowAnchor = Instantiate(anchorObj, startPosition, transform.rotation);
+            nowAnchor = Instantiate(anchorObj, grapMuzzle.position, transform.rotation);
             nowAnchor.transform.rotation = transform.rotation;
             Vector3 _rotateAngle = nowAnchor.transform.eulerAngles;
             _rotateAngle.x -= 90.0f;
@@ -284,7 +337,6 @@ public class Grappling2 : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.W)) addVelocity +=rig.transform.up*addForce;
-        //if (Input.GetKey(KeyCode.S)) addVelocity += (-rig.transform.up)* addForce;
         if (Input.GetKey(KeyCode.A)) addVelocity +=(-rig.transform.right)* addForce;
         if (Input.GetKey(KeyCode.D)) addVelocity +=rig.transform.right* addForce;
 
@@ -308,4 +360,6 @@ public class Grappling2 : MonoBehaviour
         moveFlag = true;
         anim.GrapWalk(false);
     }
+
+   
 }

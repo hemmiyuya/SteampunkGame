@@ -5488,16 +5488,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3269a1ef8a361904abd2aaea3ee7f133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayRange: 100
+  lineVertexCount: 100
+  wobbleCount: 3
+  rayRange: 40
   grapMuzzle: {fileID: 7132353890549286952}
   lineRenderer: {fileID: 0}
-  anchorObj: {fileID: 4787683059520170493, guid: 4f943b18293abf2468cca72cb934f03c, type: 3}
+  anchorObj: {fileID: 3872813100546664029, guid: 31e35ff1403eb3c4ca5684ddf94c470d, type: 3}
   useGasValue: 15
   reticle: {fileID: 0}
   reticleSprites:
   - {fileID: 21300000, guid: 59ac60eb650fd4e4d84e2f324c0f40a8, type: 3}
   - {fileID: 21300000, guid: 21bb262d9769b2a4d935f350bb36d109, type: 3}
   gasGaugeManager: {fileID: 0}
+  quality: 500
+  damper: 14
+  strength: 800
+  velocity: 15
+  waveCount: 3
+  waveHeight: 10
+  affectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.62014
+      outSlope: 4.62014
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.092003286
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &393468810
 AudioSource:
   m_ObjectHideFlags: 0
