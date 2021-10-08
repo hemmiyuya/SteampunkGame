@@ -144,7 +144,7 @@ MonoBehaviour:
     max: 100
   tint:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 10
     min: -100
     max: 100
 --- !u!114 &11400000
@@ -199,7 +199,7 @@ MonoBehaviour:
     min: 0
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.821557, b: 0.65471697, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
