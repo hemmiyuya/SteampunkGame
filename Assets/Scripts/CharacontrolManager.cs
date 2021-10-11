@@ -29,20 +29,20 @@ public class CharacontrolManager : MonoBehaviour
     /// <summary>
     /// スクリプト群
     /// </summary>
-    private InputManager     _input=default;
-    private Animationmanager _anim=default;
-    private Walk             _walk=default;
-    private Jump             _jump=default;
-    private Grab             _grab=default;
-    private Attack      _attack=default;
-    private GrappWalk _grappWalk=default;
+    private InputManager _input = default;
+    private Animationmanager _anim = default;
+    private Walk _walk = default;
+    private Jump _jump = default;
+    private Grab _grab = default;
+    private Attack _attack = default;
+    private GrappWalk _grappWalk = default;
     private Grappling2 _grappling2 = default;
 
     /// <summary>
     /// 判定用レイ
     /// </summary>
     [SerializeField]
-    private int _groundLayer  = default;
+    private int _groundLayer = default;
     [Header("床判定")]
     [SerializeField]
     private bool _checkGround = default;
@@ -51,25 +51,25 @@ public class CharacontrolManager : MonoBehaviour
     [SerializeField]
     private Vector3 g_boxSize = default;
     [SerializeField]
-    private Color g_rayColor  = default;
+    private Color g_rayColor = default;
 
     [Header("床判定(自然落下判定用)")]
     [SerializeField]
     private float g_downRayHight = default;
     [SerializeField]
-    private Vector3 g_downBoxSize  = default;
+    private Vector3 g_downBoxSize = default;
     [SerializeField]
     private Color g_downRayColor = default;
 
     [Header("床判定共通パラメータ")]
     [SerializeField]
-    private float g_maxDistance    = default;
+    private float g_maxDistance = default;
     [SerializeField]
-    private RaycastHit g_hit       = default;
+    private RaycastHit g_hit = default;
     [SerializeField]
-    private Vector3 g_hitPoint     = default;
+    private Vector3 g_hitPoint = default;
     [SerializeField]
-    private Vector3 g_nowPoint     = default;
+    private Vector3 g_nowPoint = default;
 
     [Header("床判定(段差)")]
     [SerializeField]
@@ -85,43 +85,43 @@ public class CharacontrolManager : MonoBehaviour
 
     [Header("壁判定(下)")]
     [SerializeField]
-    private bool _checkStep               = default;
+    private bool _checkStep = default;
     [SerializeField]
-    private Vector3 w_fowardDownRayOrigin       = default;
+    private Vector3 w_fowardDownRayOrigin = default;
     [SerializeField]
-    private Vector3 w_fowardDownRayPlusVector   = default;
+    private Vector3 w_fowardDownRayPlusVector = default;
     [SerializeField]
-    private float w_fowardDownRayAmount         = default;
+    private float w_fowardDownRayAmount = default;
     [SerializeField]
-    private RaycastHit w_fowardDownHit          = default;
+    private RaycastHit w_fowardDownHit = default;
     [SerializeField]
-    private Color w_fowardDownRayColor          = default;
+    private Color w_fowardDownRayColor = default;
 
     [Header("壁判定(上)")]
     [SerializeField]
-    private Vector3 w_fowardUpRayOrigin       = default;
+    private Vector3 w_fowardUpRayOrigin = default;
     [SerializeField]
-    private Vector3 w_fowardUpRayPlusVector   = default;
+    private Vector3 w_fowardUpRayPlusVector = default;
     [SerializeField]
-    private float w_fowardUpRayAmount         = default;
+    private float w_fowardUpRayAmount = default;
     [SerializeField]
-    private RaycastHit w_fowardUpHit          = default;
+    private RaycastHit w_fowardUpHit = default;
     [SerializeField]
-    private Color w_fowardUpRayColor          = default;
+    private Color w_fowardUpRayColor = default;
 
     [Header("壁判定(段差の頂点)")]
     [SerializeField]
-    private bool _checkWall                    = default;
+    private bool _checkWall = default;
     [SerializeField]
-    private Vector3 w_upperFowardRayOrigin     = default;
+    private Vector3 w_upperFowardRayOrigin = default;
     [SerializeField]
     private Vector3 w_upperFowardRayPlusVector = default;
     [SerializeField]
-    private float w_upperFowardRayAmount       = default;
+    private float w_upperFowardRayAmount = default;
     [SerializeField]
-    private RaycastHit w_upperFowardHit        = default;
+    private RaycastHit w_upperFowardHit = default;
     [SerializeField]
-    private Color w_upperFowardRayColor        = default;
+    private Color w_upperFowardRayColor = default;
 
 
     /// <summary>
@@ -129,82 +129,82 @@ public class CharacontrolManager : MonoBehaviour
     /// </summary>
     [Header("歩行関係")]
     [SerializeField]
-    private float _inputHori         = default;
+    private float _inputHori = default;
     [SerializeField]
-    private float _inputVert         = default;
+    private float _inputVert = default;
     [SerializeField]
-    private bool _inputRun           = default;
+    private bool _inputRun = default;
     [SerializeField]
-    private float _walkAccelSpeed    = default;
-    [SerializeField, Range(0.01f,1)]
+    private float _walkAccelSpeed = default;
+    [SerializeField, Range(0.01f, 1)]
     private float _walkSlowDownSpeed = default;
     [SerializeField]
-    private float _walkAnimSpeed     = default;
+    private float _walkAnimSpeed = default;
     [SerializeField]
-    private float _runAnimSpeed      = default;
+    private float _runAnimSpeed = default;
     [SerializeField]
-    private float _gravity           = default;
+    private float _gravity = default;
     [SerializeField]
-    private bool _goUpping           = default;
+    private bool _goUpping = default;
     [SerializeField]
-    private float _goUpSpeed         = default;
+    private float _goUpSpeed = default;
     [SerializeField]
-    private float _goUpTime          = default;
+    private float _goUpTime = default;
     [Header("ジャンプ関係")]
     [SerializeField]
-    private bool _inputJump      = default;
+    private bool _inputJump = default;
     [SerializeField]
-    private bool _jumping        = default;
+    private bool _jumping = default;
     [SerializeField]
-    private float _jumpPower     = default;
+    private float _jumpPower = default;
     [SerializeField]
-    private float _maxAltitude   = default;
+    private float _maxAltitude = default;
     [SerializeField]
     private float _skyAccelSpeed = default;
     [SerializeField]
-    private float _flightTime    = default;
+    private float _flightTime = default;
     [SerializeField]
     private float _noLandingTime = default;
     [SerializeField]
-    private float _rollingTime   = default;
+    private float _rollingTime = default;
     [Header("壁登り関係")]
     [SerializeField]
-    private bool _grabing             = default;
+    private bool _grabing = default;
     [SerializeField]
-    private float _climbAccelSpeed    = default;
+    private float _climbAccelSpeed = default;
     [SerializeField, Range(0.01f, 1)]
     private float _climbSlowDownSpeed = default;
     [SerializeField]
-    private float _climbAnimSpeed     = default;
+    private float _climbAnimSpeed = default;
     [SerializeField]
-    private Vector3 _wallNormal       = default;
+    private Vector3 _wallNormal = default;
     [SerializeField]
-    private float _playerTilt         = default;
+    private float _playerTilt = default;
     [Header("攻撃関係")]
     [SerializeField]
     //武器交換(デフォルト銃)
-    private bool _inputSwitchWeapon   = default;
+    private bool _inputSwitchWeapon = default;
     [SerializeField]
-    private bool _attacking           = default;
+    private bool _attacking = default;
     [SerializeField]
-    private bool _inputAttack         = default;
+    private bool _inputAttack = default;
     [SerializeField]
-    private int _combo                = default;
-    private bool _animCheck           = default;
-    private bool _wait                = default;
+    private int _combo = default;
+    private bool _animCheck = default;
+    private bool _wait = default;
     [SerializeField]
-    private int _maxcombo             = 3;
+    private int _maxcombo = 3;
     [Header("グラップル")]
     [SerializeField]
     private bool _grapping = default;
 
     void Start()
     {
-        _input  = GetComponent<InputManager>();
-        _anim   = GetComponent<Animationmanager>();
-        _walk   = new Walk();
-        _jump   = new Jump();
-        _grab   = new Grab();
+        _input = GetComponent<InputManager>();
+        _anim = GetComponent<Animationmanager>();
+        _walk = new Walk();
+        _jump = new Jump();
+        _grab = new Grab();
         _attack = new Attack();
         _grappWalk = new GrappWalk();
         _grappling2 = GetComponent<Grappling2>();
@@ -226,7 +226,7 @@ public class CharacontrolManager : MonoBehaviour
         //入力
         _inputHori = _input.GetHorizontal();
         _inputVert = _input.GetVertical();
-        _inputRun  = _input.GetRunButton();
+        _inputRun = _input.GetRunButton();
         if (_input.GetMouseLeftClick())
         {
             _inputAttack = true;
@@ -243,8 +243,8 @@ public class CharacontrolManager : MonoBehaviour
         }
         //判定
         _checkGround = GroundCheck();
-        _checkStep   = StepCheck();
-        _checkWall   = WallCheck();
+        _checkStep = StepCheck();
+        _checkWall = WallCheck();
 
         if (_animCheck)
         {
@@ -271,13 +271,13 @@ public class CharacontrolManager : MonoBehaviour
         //接地判定・動作
         if (!_grabing && _checkGround || _goUpping)
         {
-            if (!_goUpping && _inputAttack && !_attacking)
+            if (!_goUpping && _inputAttack && !_attacking && !_grappling2.UsingGrapp)
             {
                 _attacking = true;
                 _combo = 1;
                 _anim.ActiveRootMotion();
             }
-            if (_attacking && _inputAttack && _maxcombo >= _combo&&!_wait)
+            if (_attacking && _inputAttack && _maxcombo >= _combo && !_wait)
             {
                 StartCoroutine(Attack());
             }
@@ -301,13 +301,13 @@ public class CharacontrolManager : MonoBehaviour
         Gizmos.color = g_downRayColor;
         Gizmos.DrawWireCube(transform.position + new Vector3(0, g_downRayHight, 0) + new Vector3(0, -1, 0) * g_maxDistance, g_downBoxSize * 2);
         Gizmos.color = w_fowardDownRayColor;
-        Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayPlusVector * w_fowardDownRayAmount);
+        Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayPlusVector * w_fowardDownRayAmount);
         Gizmos.color = w_fowardUpRayColor;
-        Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayPlusVector * w_fowardUpRayAmount);
+        Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayPlusVector * w_fowardUpRayAmount);
         Gizmos.color = w_upperFowardRayColor;
-        Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayPlusVector * w_upperFowardRayAmount);
+        Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayPlusVector * w_upperFowardRayAmount);
         Gizmos.color = w_heightRayColor;
-        Gizmos.DrawRay(transform.position +Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayPlusVector * w_heightRayAmount);
+        Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayPlusVector * w_heightRayAmount);
     }
 
     /// <summary>
@@ -315,7 +315,7 @@ public class CharacontrolManager : MonoBehaviour
     /// </summary>
     private bool GroundCheck()
     {
-        return Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0),g_boxSize, new Vector3(0, -1, 0),transform.rotation, g_maxDistance, 1 << _groundLayer);
+        return Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0), g_boxSize, new Vector3(0, -1, 0), transform.rotation, g_maxDistance, 1 << _groundLayer);
     }
     private bool GroundDownCheck()
     {
@@ -328,8 +328,8 @@ public class CharacontrolManager : MonoBehaviour
     {
         Quaternion playerRotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
         bool fowarddowncheck = Physics.Raycast(transform.position + playerRotation * w_fowardDownRayOrigin, playerRotation * w_fowardDownRayPlusVector, out w_fowardDownHit, w_fowardDownRayAmount, 1 << _groundLayer);
-        bool heightcheck     = Physics.Raycast(transform.position + playerRotation * w_heightRayOrigin, playerRotation * w_heightRayPlusVector ,out w_heightHit, w_heightRayAmount, 1 << _groundLayer);
-        bool fowardupcheck   = Physics.Raycast(transform.position + playerRotation * w_fowardUpRayOrigin, playerRotation * w_fowardUpRayPlusVector, out w_fowardUpHit, w_fowardUpRayAmount, 1 << _groundLayer);
+        bool heightcheck = Physics.Raycast(transform.position + playerRotation * w_heightRayOrigin, playerRotation * w_heightRayPlusVector, out w_heightHit, w_heightRayAmount, 1 << _groundLayer);
+        bool fowardupcheck = Physics.Raycast(transform.position + playerRotation * w_fowardUpRayOrigin, playerRotation * w_fowardUpRayPlusVector, out w_fowardUpHit, w_fowardUpRayAmount, 1 << _groundLayer);
         if (fowarddowncheck && heightcheck && !fowardupcheck)
         {
             return true;
@@ -379,7 +379,7 @@ public class CharacontrolManager : MonoBehaviour
             {
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
                 _goUpping = false;
-                _grabing  = false;
+                _grabing = false;
                 _flightTime = 0;
                 _anim.ClimbAnimEnd();
             }
@@ -411,17 +411,17 @@ public class CharacontrolManager : MonoBehaviour
             _jumping = false;
         }
         _flightTime = 0;
-        if ( _grappling2.UsingGrapp)
+        if (_grappling2.UsingGrapp)
         {
             _grappWalk.GrappNowWalk(-_inputHori, -_inputVert, _inputRun, _grappling2.NowEndPos);
         }
         //歩き
-        if (!_grabing && !_attacking&&!_grappling2.UsingGrapp)
+        if (!_grabing && !_attacking && !_grappling2.UsingGrapp)
         {
             _walk.PlayerWalk(-_inputHori, -_inputVert, _inputRun);
         }
         //ジャンプ
-        if (_inputJump && !_attacking)
+        if (_inputJump && !_attacking && !_grappling2.UsingGrapp)
         {
             _jumping = true;
             _anim.JumpAnimStart();
@@ -531,4 +531,8 @@ public class CharacontrolManager : MonoBehaviour
         yield break;
     }
 
+    public bool GetAtacckingFlag()
+    {
+        return _attacking;
+    }
 }

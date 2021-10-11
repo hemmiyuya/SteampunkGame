@@ -122,19 +122,15 @@ public class Animationmanager : MonoBehaviour
     }
     public void GrapShoot()
     {
-        _anim.SetBool(_grapHitTag, false);
-        _anim.SetBool(_grapCompTag, false);
-        _anim.SetBool(_grapShootTag,true);
+        _anim.SetTrigger(_grapShootTag);
     }
     public void GrapHit()
     {
-        _anim.SetBool(_grapHitTag,true);
+        _anim.SetTrigger(_grapHitTag);
     }
     public void GrapComp()
     {
-        _anim.SetBool(_grapCompTag,true);
-
-        _anim.SetBool(_grapShootTag, false);
+        _anim.SetTrigger(_grapCompTag);
     }
     public void GrapWalk(bool walk)
     {
