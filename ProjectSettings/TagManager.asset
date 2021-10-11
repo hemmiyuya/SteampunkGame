@@ -13,6 +13,9 @@ TagManager:
   - Enemy
   - EnemySpoon
   - Audio
+  - lb_groundTarget
+  - lb_perchTarget
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -22,11 +25,11 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
+  - FogVolumeShadowCaster
+  - FogVolume
+  - FogVolumeSurrogate
+  - FogVolumeUniform
+  - MiniMap
   - 
   - 
   - 

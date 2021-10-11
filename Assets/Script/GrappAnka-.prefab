@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4787683059520170492}
   - component: {fileID: 3042781720757411133}
   - component: {fileID: -7715040835307680827}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GrappAnka-
   m_TagString: Untagged
   m_Icon: {fileID: 0}

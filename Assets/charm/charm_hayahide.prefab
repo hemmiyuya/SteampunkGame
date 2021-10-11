@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3872813100547963485}
   - component: {fileID: 3872813100548929693}
   - component: {fileID: 5789065205760735335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: charm_hayahide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
