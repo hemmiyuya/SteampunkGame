@@ -9,7 +9,7 @@ public class Walk : MonoBehaviour
     private float _slowdownSpeed = default;
     private float _walkAnimSpeed = default;
     private float _runAnimSpeed  = default;
-    private bool _running        = default;
+    private bool  _slowDown      = default;
 
     private Animationmanager _anim;
 
@@ -30,40 +30,54 @@ public class Walk : MonoBehaviour
     /// <summary>
     /// 歩く
     /// </summary>
-    public void PlayerWalk(float hori,float vert,bool run)
+    public void PlayerWalk(float hori, float vert, bool run)
     {
         Rigidbody playervelocity = _player.GetComponent<Rigidbody>();
+       
+        //加速と回転処理
+        Quaternion cameraRotation = Quaternion.AngleAxis(_camera.transform.eulerAngles.y, Vector3.up);
+        Vector3 velo = cameraRotation * new Vector3(hori, 0, vert).normalized;
+        var velocityXZ = Vector3.Scale(playervelocity.velocity, new Vector3(1, 0, 1));
+        //アニメーション処理
+        _anim.WalkAnimStart();
+        _anim.SetWalkSpeed(velocityXZ.magnitude / _runAnimSpeed);
+       
         //無操作で減速
         if (hori == 0 && vert == 0)
         {
-            _running = false;
             _anim.WalkAnimEnd();
-            _anim.RunAnimEnd();
-            playervelocity.velocity = playervelocity.velocity.magnitude > 0 ? playervelocity.velocity * _slowdownSpeed : Vector3.zero;
+            playervelocity.velocity = playervelocity.velocity.magnitude > 0 ? Vector3.MoveTowards(playervelocity.velocity, velo * 0, _slowdownSpeed) : Vector3.zero;
             return;
         }
-        //加速と回転処理
-            if (!_running && run)
+        if(run)
+        {
+            _slowDown = true;
+            if (velocityXZ.magnitude >= _runAnimSpeed)
             {
-                _running = true;
-            }
-
-            Quaternion cameraRotation = Quaternion.AngleAxis(_camera.transform.eulerAngles.y,Vector3.up);
-            Vector3 velo = cameraRotation * new Vector3(hori, 0, vert).normalized;
-            var velocityXZ = Vector3.Scale(playervelocity.velocity, new Vector3(1, 0, 1));
-        //アニメーション処理
-        if (_running)
-            {
-                _anim.RunAnimStart();
-                _anim.SetRunSpeed(velocityXZ.magnitude / _runAnimSpeed);
-                velo *= 2;
+                playervelocity.velocity = velo * _runAnimSpeed;
             }
             else
             {
-                _anim.WalkAnimStart();
-                _anim.SetWalkSpeed(velocityXZ.magnitude / _walkAnimSpeed);
+                playervelocity.velocity += velo * _groundAccelSpeed;
             }
-        playervelocity.velocity = velo * _groundAccelSpeed;
+        }
+        else if (_slowDown)
+        {
+            playervelocity.velocity = Vector3.MoveTowards(playervelocity.velocity, velo * _walkAnimSpeed, _slowdownSpeed);
+            if(velocityXZ.magnitude == _walkAnimSpeed)
+            _slowDown = false;
+        }
+        else
+        {
+            if(velocityXZ.magnitude > _walkAnimSpeed * 0.98f)
+            {
+                playervelocity.velocity = velo * _walkAnimSpeed;
+            }
+            else
+            {
+                playervelocity.velocity += velo * _groundAccelSpeed;
+            }
+        }
         _player.transform.rotation = Quaternion.LookRotation(velo, Vector3.up);
     }
     /// <summary>

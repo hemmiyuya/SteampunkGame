@@ -51,7 +51,6 @@ public class EnemyShot : MonoBehaviour
         bulletRig.AddForce(bullets.transform.forward * bulletSpeed,ForceMode.Impulse );
 
         bullets.GetComponent<Bullet>().muzzlePos = muzzle.position;
-
     }
 
     private IEnumerator AttackTimer()
