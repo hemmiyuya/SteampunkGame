@@ -37,10 +37,9 @@ public class Walk : MonoBehaviour
         //加速と回転処理
         Quaternion cameraRotation = Quaternion.AngleAxis(_camera.transform.eulerAngles.y, Vector3.up);
         Vector3 velo = cameraRotation * new Vector3(hori, 0, vert).normalized;
-        var velocityXZ = Vector3.Scale(playervelocity.velocity, new Vector3(1, 0, 1));
         //アニメーション処理
         _anim.WalkAnimStart();
-        _anim.SetWalkSpeed(velocityXZ.magnitude / _runAnimSpeed);
+        _anim.SetWalkSpeed(playervelocity.velocity.magnitude / _runAnimSpeed);
        
         //無操作で減速
         if (hori == 0 && vert == 0)
@@ -52,7 +51,7 @@ public class Walk : MonoBehaviour
         if(run)
         {
             _slowDown = true;
-            if (velocityXZ.magnitude >= _runAnimSpeed)
+            if (playervelocity.velocity.magnitude >= _runAnimSpeed)
             {
                 playervelocity.velocity = velo * _runAnimSpeed;
             }
@@ -64,12 +63,12 @@ public class Walk : MonoBehaviour
         else if (_slowDown)
         {
             playervelocity.velocity = Vector3.MoveTowards(playervelocity.velocity, velo * _walkAnimSpeed, _slowdownSpeed);
-            if(velocityXZ.magnitude == _walkAnimSpeed)
+            if(playervelocity.velocity.magnitude == _walkAnimSpeed)
             _slowDown = false;
         }
         else
         {
-            if(velocityXZ.magnitude > _walkAnimSpeed * 0.98f)
+            if(playervelocity.velocity.magnitude > _walkAnimSpeed * 0.98f)
             {
                 playervelocity.velocity = velo * _walkAnimSpeed;
             }

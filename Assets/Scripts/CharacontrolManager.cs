@@ -108,6 +108,8 @@ public class CharacontrolManager : MonoBehaviour
     private RaycastHit w_fowardUpHit = default;
     [SerializeField]
     private Color w_fowardUpRayColor = default;
+    [SerializeField]
+    private Vector3 w_fowardUpRayAngle = default;
 
     [Header("ï«îªíË(íiç∑ÇÃí∏ì_)")]
     [SerializeField]
@@ -327,7 +329,7 @@ public class CharacontrolManager : MonoBehaviour
     private bool StepCheck()
     {
         Quaternion playerRotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
-        bool fowarddowncheck = Physics.Raycast(transform.position + playerRotation * w_fowardDownRayOrigin, playerRotation * w_fowardDownRayPlusVector, out w_fowardDownHit, w_fowardDownRayAmount, 1 << _groundLayer);
+        bool fowarddowncheck = Physics.Raycast(transform.position + playerRotation * w_fowardDownRayOrigin.normalized, playerRotation * w_fowardDownRayPlusVector, out w_fowardDownHit, w_fowardDownRayAmount, 1 << _groundLayer);
         bool heightcheck = Physics.Raycast(transform.position + playerRotation * w_heightRayOrigin, playerRotation * w_heightRayPlusVector, out w_heightHit, w_heightRayAmount, 1 << _groundLayer);
         bool fowardupcheck = Physics.Raycast(transform.position + playerRotation * w_fowardUpRayOrigin, playerRotation * w_fowardUpRayPlusVector, out w_fowardUpHit, w_fowardUpRayAmount, 1 << _groundLayer);
         if (fowarddowncheck && heightcheck && !fowardupcheck)
