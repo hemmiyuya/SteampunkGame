@@ -25,6 +25,8 @@ public class EnemyController : MonoBehaviour
 
     private int plusOrMinus = 1;
 
+    [SerializeField]
+    private int hp = 100;
 
     //ステート
     public StateManager StateManager { get; set; } = new StateManager();
@@ -52,15 +54,28 @@ public class EnemyController : MonoBehaviour
             .Where(_ => StateManager.State.Value.GetStateName() != prevStateName)
             .Subscribe(_ =>
             {
-                Debug.Log("Now State:" + StateManager.State.Value.GetStateName());
                 prevStateName = StateManager.State.Value.GetStateName();
                 StateManager.Execute();
             })
             .AddTo(this);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Attack")
+        {
+            Damage(30);
+        }
+    }
+
     private void Update()
     {
+        //やられた
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         //一定角度以上でターゲットに向きを合わせる
         if (Vector3.Dot(transform.forward, playerTrs.position - transform.position) <= 11.31)
         {
@@ -99,6 +114,7 @@ public class EnemyController : MonoBehaviour
     {
         enemyAnim.SetLookAtWeight(1f, 1f, 1f, 0f, 0.5f);     // LookAtの調整
         enemyAnim.SetLookAtPosition(playerTrs.position);          // ターゲットの方向を向く
+
     }
 
     //ターゲットの方向を向く
@@ -137,18 +153,10 @@ public class EnemyController : MonoBehaviour
         enemyAnim.SetBool("Run", false);
     }
     
-    public void Attack()
+    public void Damage(int damage)
     {
-        Debug.Log("StateがAttackに状態遷移しました。");
+        enemyAnim.SetTrigger("Hit");
+        hp -= damage;
     }
-}
-public abstract class EnemyAttack
-{
-    /// <summary>
-    /// 敵の攻撃メソッド
-    /// </summary>
-    protected virtual void Attack()
-    {
 
-    }
 }

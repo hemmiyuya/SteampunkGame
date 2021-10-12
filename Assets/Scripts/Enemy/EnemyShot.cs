@@ -14,6 +14,9 @@ public class EnemyShot : MonoBehaviour
     [SerializeField]
     private float bulletSpeed = 100f;
 
+    /// <summary>
+    /// trueÇÃéûÅ@çUåÇÇ∑ÇÈ
+    /// </summary>
     [SerializeField]
     private bool buttle = true;
 
@@ -48,7 +51,6 @@ public class EnemyShot : MonoBehaviour
         bulletRig.AddForce(bullets.transform.forward * bulletSpeed,ForceMode.Impulse );
 
         bullets.GetComponent<Bullet>().muzzlePos = muzzle.position;
-
     }
 
     private IEnumerator AttackTimer()

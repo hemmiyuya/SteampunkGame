@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1994807892857869377}
   m_Layer: 0
   m_Name: EnemySpoon
-  m_TagString: Untagged
+  m_TagString: EnemySpoon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,3 +46,4 @@ MonoBehaviour:
   gunEnemy: {fileID: 3784539579316967748, guid: 3d4a3ed53a812194f887765a8b21c8b7, type: 3}
   missionRange: 9
   enemyValue: 5
+  pinPrefab: {fileID: 700022902608382551, guid: 01589b474e66a304eb86f7d94ace12d1, type: 3}

@@ -10,6 +10,7 @@ public class AnimationEventEffects : MonoBehaviour {
     //public GameObject EffectPrefabWorldSpace;
     //public Transform EffectStartPositionWorld;
     //public float DestroyAfterWorld = 10;
+    private PlayerSound playerSound;
 
     public EffectInfo[] Effects;
 
@@ -37,6 +38,7 @@ public class AnimationEventEffects : MonoBehaviour {
     //       Destroy(effectOBJ, DestroyAfterWorld);
     //   }
     void Start() {
+        playerSound = GetComponent<PlayerSound>();
     }
             
     void InstantiateEffect(int EffectNumber)
@@ -44,6 +46,15 @@ public class AnimationEventEffects : MonoBehaviour {
         if(Effects == null || Effects.Length <= EffectNumber)
         {
             Debug.LogError("Incorrect effect number or effect is null");
+        }
+
+        if (EffectNumber == 6 || EffectNumber == 7)
+        {
+
+        }
+        else
+        {
+            playerSound.PlaySE(1);
         }
 
         var instance = Instantiate(Effects[EffectNumber].Effect, Effects[EffectNumber].StartPositionRotation.position, Effects[EffectNumber].StartPositionRotation.rotation);
