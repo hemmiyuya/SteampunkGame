@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 1f1742addcaef804eaad71508de173b5
-labels:
-- city
-- dieselpunk
-- fantasy
-- retro
-- sci-fi
-- steampunk
-- vintage
-timeCreated: 1533866394
-licenseType: Store
+guid: 758b6a379027f814abd8a8292f0e1664
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
