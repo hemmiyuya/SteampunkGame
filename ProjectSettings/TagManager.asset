@@ -16,6 +16,8 @@ TagManager:
   - lb_groundTarget
   - lb_perchTarget
   - Fire
+  - NPC
+  - CanCheckObj
   layers:
   - Default
   - TransparentFX
