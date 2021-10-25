@@ -20,11 +20,12 @@ public class StartTalkIvent : MonoBehaviour
         {
             player.GetComponent<NPCTalkLength>().NPCTalkNow();
             talkUI.SetActive(true);
+            talkUI.GetComponent<ReadTalkText>().SetMessagePanel(targetTransform.GetComponent<NPCData>().GetConversation().GetConversationMessage());
             if (targetTransform.tag == "NPC")
             {
                 //NPC‚È‚ç–¼‘O˜g‚à•\Ž¦
                 namePanel.SetActive(true);
-                namePanel.transform.GetChild(0).GetComponent<Text>().text = targetTransform.GetComponent<NPCName>().Name;
+                namePanel.transform.GetChild(0).GetComponent<Text>().text = targetTransform.GetComponent<NPCData>().Name;
             }
         }
     }
@@ -32,7 +33,8 @@ public class StartTalkIvent : MonoBehaviour
     public void EndTalkIvent()
     {
         namePanel.SetActive(false);
-        talkUI.SetActive(true);
+        talkUI.SetActive(false);
+        player.GetComponent<NPCTalkLength>().NPCTalkEnd();
     }
 
     public Transform target

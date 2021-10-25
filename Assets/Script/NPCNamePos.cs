@@ -35,6 +35,6 @@ public class NPCNamePos : MonoBehaviour
     {
         targetTransform = targetTrs;
         targetNow = true;
-        return targetTrs.GetComponent<NPCName>().Name;
+        return targetTrs.GetComponent<NPCData>().Name;
     }
 }
