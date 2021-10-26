@@ -179,7 +179,7 @@ public class Grappling2 : MonoBehaviour
 
                     lockatFlag = false;
                     attack.PlayerKick(enemyTrs);
-                    GrapComp();
+                    moveFlag = false;
                     rig.velocity= Vector3.zero;
                 }
             }

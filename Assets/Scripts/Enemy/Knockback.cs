@@ -14,6 +14,7 @@ public class Knockback : MonoBehaviour
     public void StopEnemy()
     {
         anim.enabled = false;
+        anim.SetLayerWeight(anim.GetLayerIndex("Aim"), 0);
     }
 
     public void KnockbackEnemy(GameObject player)
@@ -34,6 +35,8 @@ public class Knockback : MonoBehaviour
             transform.Translate(0, 0, -0.075f);
             yield return new WaitForSeconds(0.01f);
         }
+        yield return new WaitForSeconds(2f);
+        anim.SetLayerWeight(anim.GetLayerIndex("Aim"), 1);
         yield break;
     }
 }
