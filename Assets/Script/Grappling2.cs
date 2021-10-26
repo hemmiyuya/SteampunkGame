@@ -34,6 +34,13 @@ public class Grappling2 : MonoBehaviour
     CharacontrolManager characontrolManager = default;
 
     bool moveFlag = false;
+    /// <summary>
+    ///キックするかどうかのフラグ
+    /// </summary>
+    private bool kickFlag = false;
+    const string enemyTag = "Enemy";
+
+    private Transform enemyTrs = default;
 
     [SerializeField]
     private GameObject anchorObj;
@@ -67,9 +74,11 @@ public class Grappling2 : MonoBehaviour
     private bool removeanchorFrag = false;
     private bool VisibilityNow = false;
 
+    [SerializeField]
     private bool lockatFlag = false;
 
     private bool grapplingNow = false;
+
 
     /// <summary>
     /// グラップルしてるかどうかを返す
@@ -97,10 +106,13 @@ public class Grappling2 : MonoBehaviour
 
     [SerializeField]
     private GasGaugeManager gasGaugeManager=default;
+
+    Attack attack;
     void Start()
     {
         rig = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
+        attack = new Attack();
         characontrolManager = GetComponent<CharacontrolManager>();
         lineRenderer.startWidth = 0.02f;                   //線の太さ
         lineRenderer.endWidth = 0.02f;
@@ -108,6 +120,7 @@ public class Grappling2 : MonoBehaviour
         anim = GetComponent<Animationmanager>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera");
+        attack.InitialSet(this.gameObject, playerCamera);
     }
 
     void Update()
@@ -157,14 +170,27 @@ public class Grappling2 : MonoBehaviour
         if (moveFlag)
         {
             nowgrappTime += Time.deltaTime;
-            if (Vector3.Distance(transform.position, endPosition) < 10 || !VisibilityNow || (nowgrappTime >= 0.5f && rig.velocity.magnitude <= 0.5f))
+
+            if (kickFlag)
             {
-                moveFlag = false;
-                nowgrappTime = 0;
-                characontrolManager.GravityOn();
-                removeanchorFrag = true;
-                lockatFlag = false;
-                anim.GrapComp();
+                if (Vector3.Distance(transform.position, endPosition) < 2 || !VisibilityNow || (nowgrappTime >= 0.5f && rig.velocity.magnitude <= 0.5f))
+                {
+                    nowgrappTime = 0;
+
+                    lockatFlag = false;
+                    attack.PlayerKick(enemyTrs);
+                    GrapComp();
+                    rig.velocity= Vector3.zero;
+                }
+            }
+            else
+            {
+                //近づくとグラップル回収
+                if (Vector3.Distance(transform.position, endPosition) < 5 || !VisibilityNow || (nowgrappTime >= 0.5f && rig.velocity.magnitude <= 0.5f))
+                {
+                    nowgrappTime = 0;
+                    GrapComp();
+                }
             }
         }
 
@@ -249,7 +275,20 @@ public class Grappling2 : MonoBehaviour
         //グラップル中
         if (moveFlag)
         {
-            GrapplingMove(endPosition, transform.position);
+            if (kickFlag)
+            {
+                if (enemyTrs != null)
+                    KickGrapMove(enemyTrs.position, transform.position);
+                else
+                {
+                    kickFlag = false;
+                    GrapComp();
+                }
+            }
+            else
+            {
+                GrapplingMove(endPosition, transform.position);
+            }
             if (rig.velocity.magnitude >= 35)
             {
                 rig.velocity = rig.velocity * 0.9f;
@@ -295,6 +334,21 @@ public class Grappling2 : MonoBehaviour
 
             Debug.DrawRay(startPosition, playerCamera.transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow,5);
 
+            //敵にあたるとキックする
+            if (hit.transform.tag == enemyTag)
+            {
+                kickFlag = true;
+                enemyTrs = hit.transform;
+                //敵の動きを止める
+                enemyTrs.GetComponent<Knockback>().StopEnemy();
+
+            }
+            else
+            {
+                enemyTrs = default;
+                kickFlag = false;
+            }
+
             endPosition = hit.point;
             startEndDistance = Vector3.Distance(startPosition, endPosition);
             nowAnchor = Instantiate(anchorObj, grapMuzzle.position, transform.rotation);
@@ -314,24 +368,44 @@ public class Grappling2 : MonoBehaviour
 
         if (firstFrag)
         {
-            rig.AddForce(((target -  transform).normalized + addVelocity) * firstForce, ForceMode.Impulse);
+            rig.AddForce(((target - transform).normalized + addVelocity) * firstForce, ForceMode.Impulse);
             firstFrag = false;
         }
 
-        if (Input.GetKey(KeyCode.W)) addVelocity +=rig.transform.up*addForce;
-        if (Input.GetKey(KeyCode.A)) addVelocity +=(-rig.transform.right)* addForce;
-        if (Input.GetKey(KeyCode.D)) addVelocity +=rig.transform.right* addForce;
+        if (Input.GetKey(KeyCode.W)) addVelocity += rig.transform.up * addForce;
+        if (Input.GetKey(KeyCode.A)) addVelocity += (-rig.transform.right) * addForce;
+        if (Input.GetKey(KeyCode.D)) addVelocity += rig.transform.right * addForce;
+
+        if (characontrolManager.GroundCheck())
+        {
+            addVelocity = new Vector3(addVelocity.x, 1, addVelocity.z);
+        }
 
         rig.AddForce(((target - transform).normalized + addVelocity) * force, ForceMode.Impulse);
-        
     }
 
+    private void KickGrapMove(Vector3 target, Vector3 transform)
+    {
+        Vector3 addVelocity = default;
+
+        if (firstFrag)
+        {
+            rig.AddForce(((target - transform).normalized + addVelocity) * firstForce, ForceMode.Impulse);
+            firstFrag = false;
+        }
+        if (characontrolManager.GroundCheck())
+        {
+            addVelocity = new Vector3(addVelocity.x, 0.25f, addVelocity.z);
+        }
+        rig.AddForce(((target - transform).normalized + addVelocity) * force, ForceMode.Impulse);
+    }
 
     /// <summary>
     /// アンカーが視界から外れたら外すようにする
     /// </summary>
     public void OutOfVisibility()
     {
+        if(!kickFlag)
         VisibilityNow = false;
     }
 
@@ -340,5 +414,22 @@ public class Grappling2 : MonoBehaviour
     {
         moveFlag = true;
         anim.GrapWalk(false);
+    }
+
+    //アニメーションイベントで呼び出し
+    public void GrapComp()
+    {
+        lockatFlag = false;
+        characontrolManager.GravityOn();
+        moveFlag = false;
+        removeanchorFrag = true;
+        anim.GrapComp();
+    }
+
+    //アニメーションイベントで呼び出し
+    public void CallNockBack()
+    {
+        Knockback knockback=enemyTrs.GetComponent<Knockback>();
+        knockback.KnockbackEnemy(this.gameObject);
     }
 }

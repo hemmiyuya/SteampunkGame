@@ -55,7 +55,6 @@ public class GasGaugeManager : MonoBehaviour
         }
 
         //ƒQ[ƒW‚ğÔ‚­“_–Å‚·‚éˆ—“ü‚ê‚é
-        Debug.Log("CanNotUseGasGage");
         cantUseGageAnim. Play();
         return false;
 

@@ -315,7 +315,7 @@ public class CharacontrolManager : MonoBehaviour
     /// <summary>
     /// ê⁄ínîªíË
     /// </summary>
-    private bool GroundCheck()
+    public bool GroundCheck()
     {
         return Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0), g_boxSize, new Vector3(0, -1, 0), transform.rotation, g_maxDistance, 1 << _groundLayer);
     }
@@ -348,6 +348,7 @@ public class CharacontrolManager : MonoBehaviour
         bool uppercheck = Physics.Raycast(transform.position + playerRotation * w_upperFowardRayOrigin, playerRotation * w_upperFowardRayPlusVector, out w_upperFowardHit, w_upperFowardRayAmount, 1 << _groundLayer);
         if (lowercheck && uppercheck)
         {
+            if(w_fowardDownHit.transform.tag!="Enemy"&&w_upperFowardHit.transform.tag!="Enemy")
             return true;
         }
         return false;

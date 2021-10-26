@@ -26,6 +26,7 @@ public class Animationmanager : MonoBehaviour
     private const string _grapSpeedZTag = "Speed_z";
     private string[] _swordAttack = { "SwordFirstAttack", "SwordSecondAttack", "SwordThirdAttack" };
     private string[] _gunAttack = { "GunFirstAttack", "GunSecondAttack", "GunThirdAttack" };
+    private string _grapKick = "Kick";
 
     private void Start()
     {
@@ -131,6 +132,10 @@ public class Animationmanager : MonoBehaviour
     public void GrapComp()
     {
         _anim.SetTrigger(_grapCompTag);
+    }
+    public void Kick()
+    {
+        _anim.SetTrigger(_grapKick);
     }
     public void GrapWalk(bool walk)
     {

@@ -11,6 +11,7 @@ public class Attack
     [Header("エフェクト発生場所")]
     public EffectInfo[] Effects;
 
+    private Knockback knockback;
     
     private float _gunRevisionRange = 10;
     
@@ -32,6 +33,7 @@ public class Attack
         _player = player;
         _camera = camera;
         _anim = player.GetComponent<Animationmanager>();
+
     }
     /// <summary>
     /// 剣基本攻撃
@@ -56,6 +58,15 @@ public class Attack
 
         _anim.GunAttackStart(combo);
     }
+
+    /// <summary>
+    /// キック攻撃
+    /// </summary>
+    public void PlayerKick(Transform enemyTrs)
+    {
+        _anim.Kick();
+    }
+
 
     private void Revision(float range)
     {
