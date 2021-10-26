@@ -31,36 +31,6 @@ MonoBehaviour:
     m_Value: 0
     min: -100
     max: 100
---- !u!114 &-8450272893084729870
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
-  m_Name: FilmGrain
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  type:
-    m_OverrideState: 1
-    m_Value: 7
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.32
-    min: 0
-    max: 1
-  response:
-    m_OverrideState: 1
-    m_Value: 0.59
-    min: 0
-    max: 1
-  texture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
 --- !u!114 &-7862688772460598513
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -164,8 +134,6 @@ MonoBehaviour:
   - {fileID: -9132199519449735358}
   - {fileID: -4638630124970130220}
   - {fileID: -7862688772460598513}
-  - {fileID: -8450272893084729870}
-  - {fileID: 7568079155741920027}
 --- !u!114 &1868306864422847047
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -186,7 +154,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.7
+    m_Value: 3
     min: 0
   scatter:
     m_OverrideState: 1
@@ -195,7 +163,7 @@ MonoBehaviour:
     max: 1
   clamp:
     m_OverrideState: 1
-    m_Value: 65414.73
+    m_Value: 65414.28
     min: 0
   tint:
     m_OverrideState: 1
@@ -205,7 +173,7 @@ MonoBehaviour:
     showEyeDropper: 1
   highQualityFiltering:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   skipIterations:
     m_OverrideState: 1
     m_Value: 1
@@ -218,33 +186,3 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
     min: 0
---- !u!114 &7568079155741920027
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  mode:
-    m_OverrideState: 0
-    m_Value: 0
-  quality:
-    m_OverrideState: 1
-    m_Value: 2
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.16
-    min: 0
-    max: 1
-  clamp:
-    m_OverrideState: 1
-    m_Value: 0.182
-    min: 0
-    max: 0.2

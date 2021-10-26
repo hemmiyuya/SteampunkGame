@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "com.unity.burst": "1.4.6",
     "com.unity.collab-proxy": "1.5.7",
     "com.unity.ide.rider": "2.0.7",
     "com.unity.ide.vscode": "1.2.3",
+    "com.unity.jobs": "0.2.10-preview.13",
     "com.unity.probuilder": "4.5.2",
     "com.unity.render-pipelines.universal": "10.5.0",
     "com.unity.test-framework": "1.1.27",
