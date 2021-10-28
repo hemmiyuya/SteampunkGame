@@ -10,7 +10,10 @@ public class ShotRay : MonoBehaviour
     Transform muzzle = default;
     [SerializeField]
     private int shotDamage = 14;
-
+    [SerializeField]
+    float radius = 2f;
+    RaycastHit hit;
+    bool isEnable = false;
     PlayerSound playerSound = null;
 
     private void Start()
@@ -20,17 +23,14 @@ public class ShotRay : MonoBehaviour
 
     public void Shot()
     {
+        Vector3 vecter = new Vector3(muzzle.forward.x, 0, muzzle.forward.z);
         playerSound.PlaySE(0);
-        RaycastHit hit;
-
-        if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, range))
+        if (Physics.SphereCast(muzzle.position, radius, vecter, out hit, range))
         {
             if (hit.transform.tag == "Enemy")
             {
                 hit.transform.GetComponent<EnemyController>().Damage(shotDamage);
             }
         }
-
-        Debug.DrawRay(muzzle.position, muzzle.forward*range, Color.red, 1, true);
     }
 }

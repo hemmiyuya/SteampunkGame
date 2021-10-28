@@ -50,7 +50,7 @@ public class AnimationEventEffects : MonoBehaviour {
 
         if (EffectNumber == 6 || EffectNumber == 7)
         {
-
+            Effects[EffectNumber].StartPositionRotation.forward = new Vector3(Effects[EffectNumber].StartPositionRotation.forward.x, 0, Effects[EffectNumber].StartPositionRotation.forward.z);
         }
         else
         {
