@@ -8,8 +8,14 @@ public class NPCData : MonoBehaviour
     private string npcName = default;
 
     [SerializeField]
-    private Conversation conversation = null;
+    private Conversation[] conversations = new Conversation[7];
 
+    public PublicOrderSystem _orderSystem;
+
+    private void Awake()
+    {
+        _orderSystem = GameObject.FindGameObjectWithTag("OrderSytem").GetComponent<PublicOrderSystem>();
+    }
     public string Name
     {
         get { return npcName; }
@@ -18,6 +24,6 @@ public class NPCData : MonoBehaviour
     //　Conversionスクリプトを返す
     public Conversation GetConversation()
     {
-        return conversation;
+        return conversations[_orderSystem.NowOrder];
     }
 }

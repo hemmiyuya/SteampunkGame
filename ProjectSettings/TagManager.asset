@@ -18,6 +18,7 @@ TagManager:
   - Fire
   - NPC
   - CanCheckObj
+  - OrderSytem
   layers:
   - Default
   - TransparentFX

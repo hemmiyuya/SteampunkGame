@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;//必要
+using UnityEngine.Rendering.Universal;//必要;
 using UnityEngine.UI;
 
 [ExecuteInEditMode]
@@ -27,6 +29,10 @@ public class Grappling2 : MonoBehaviour
 
     private Animator playerAnim;
     private Animationmanager anim;
+
+    [SerializeField]
+    private Volume _volume;
+    MotionBlur motionBlur;
 
     [SerializeField]
     LineRenderer lineRenderer;
@@ -121,6 +127,9 @@ public class Grappling2 : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera");
         attack.InitialSet(this.gameObject, playerCamera);
+
+        _volume.profile.TryGet(out motionBlur);
+        motionBlur.active = false;
     }
 
     void Update()
@@ -170,7 +179,8 @@ public class Grappling2 : MonoBehaviour
         if (moveFlag)
         {
             nowgrappTime += Time.deltaTime;
-
+            
+            motionBlur.active = true;
             if (kickFlag)
             {
                 if (Vector3.Distance(transform.position, endPosition) < 2 || !VisibilityNow || (nowgrappTime >= 0.5f && rig.velocity.magnitude <= 0.5f))
@@ -207,6 +217,7 @@ public class Grappling2 : MonoBehaviour
                 GameObject.Destroy(nowAnchor);
                 removeanchorFrag = false;
                 grapplingNow = false;
+                motionBlur.active = false;
                 firstFrag = true;
                 nowRemoveTime = 0;
                 present_Location2 = 0;
