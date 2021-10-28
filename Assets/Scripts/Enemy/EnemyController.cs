@@ -60,14 +60,6 @@ public class EnemyController : MonoBehaviour
             .AddTo(this);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Attack")
-        {
-            Damage(30);
-        }
-    }
-
     private void Update()
     {
         //‚â‚ç‚ê‚½
