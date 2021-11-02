@@ -134,6 +134,8 @@ public class Grappling2 : MonoBehaviour
 
     void Update()
     {
+        Render();
+
         if (Input.GetKeyDown(KeyCode.Q) && !removeanchorFrag && !moveFlag && !shootFlag && !characontrolManager.GetAtacckingFlag()
             &&shotReady&&!grapplingNow)
         {
@@ -240,7 +242,7 @@ public class Grappling2 : MonoBehaviour
         spring = new Spring();
         spring.SetTarget(0);
     }
-    private void OnRenderObject()
+    private void Render()
     {
         if(!grapplingNow && !removeanchorFrag)
         {

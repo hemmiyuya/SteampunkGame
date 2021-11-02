@@ -12,6 +12,6 @@ public class TextMeshProMaxVisibleCharaController : MonoBehaviour
 	private void Update()
 	{
 
-		text.maxVisibleCharacters = maxVisibleCharacters;
+		//text.maxVisibleCharacters = maxVisibleCharacters;
 	}
 }

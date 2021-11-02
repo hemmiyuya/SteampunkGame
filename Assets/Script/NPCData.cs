@@ -2,28 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCData : MonoBehaviour
+public abstract class NPCData : MonoBehaviour
 {
     [SerializeField]
-    private string npcName = default;
+    private string _npcName = default;
 
     [SerializeField]
     private Conversation[] conversations = new Conversation[7];
 
+    [SerializeField]
+    public bool QuestHaveFlag { get; set; } = false;
+
     public PublicOrderSystem _orderSystem;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _orderSystem = GameObject.FindGameObjectWithTag("OrderSytem").GetComponent<PublicOrderSystem>();
     }
     public string Name
     {
-        get { return npcName; }
+        get { return _npcName; }
     }
 
     //　Conversionスクリプトを返す
-    public Conversation GetConversation()
+    public virtual Conversation GetConversation()
     {
+        
+        if (QuestHaveFlag)
+        {
+            return _questData._questSelectSerifu;
+        }
+        
         return conversations[_orderSystem.NowOrder];
+        
     }
+
+    [SerializeField]
+    private QuestData _questData;
+
+
 }

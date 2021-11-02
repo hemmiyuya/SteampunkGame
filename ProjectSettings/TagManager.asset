@@ -19,6 +19,8 @@ TagManager:
   - NPC
   - CanCheckObj
   - OrderSytem
+  - lb_bird
+  - Canvas
   layers:
   - Default
   - TransparentFX
