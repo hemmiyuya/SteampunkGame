@@ -5376,6 +5376,9 @@ GameObject:
   - component: {fileID: 8464847002792792681}
   - component: {fileID: 393468810}
   - component: {fileID: 393468809}
+  - component: {fileID: 572778443}
+  - component: {fileID: 4535665364274595995}
+  - component: {fileID: 572778442}
   m_Layer: 7
   m_Name: Unitychan
   m_TagString: Player
@@ -5515,16 +5518,16 @@ MonoBehaviour:
   g_nowPoint: {x: 0, y: 0, z: 0}
   w_heightRayOrigin: {x: 0, y: 1.8, z: 0.54}
   w_heightRayPlusVector: {x: 0, y: -1, z: 0}
-  w_heightRayAmount: 1.68
+  w_heightRayAmount: 0.49
   w_heightRayColor: {r: 0, g: 0, b: 0, a: 1}
   _checkStep: 0
-  w_fowardDownRayOrigin: {x: 0, y: 0.24, z: 0}
+  w_fowardDownRayOrigin: {x: 0, y: 0.12, z: 0}
   w_fowardDownRayPlusVector: {x: 0, y: 0, z: 1}
-  w_fowardDownRayAmount: 0.5
+  w_fowardDownRayAmount: 0.35
   w_fowardDownRayColor: {r: 1, g: 0.5378349, b: 0, a: 1}
-  w_fowardUpRayOrigin: {x: 0, y: 1.67, z: 0}
+  w_fowardUpRayOrigin: {x: 0, y: 1.7, z: 0}
   w_fowardUpRayPlusVector: {x: 0, y: 0, z: 1}
-  w_fowardUpRayAmount: 0.28
+  w_fowardUpRayAmount: 0.5
   w_fowardUpRayColor: {r: 1, g: 0.9808904, b: 0, a: 1}
   w_fowardUpRayAngle: {x: 0, y: 2, z: -1}
   _checkWall: 0
@@ -5661,8 +5664,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   muzzle: {fileID: 3679899134599967436}
-  shotDamage: 21
   radius: 2
+  scale: 1
+  Rectangle: {x: 1.67, y: 0.9, z: 1.2}
+  up: 1
 --- !u!114 &8464847002792792681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5829,6 +5834,46 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 3d40081e547e97d4a967aec5e3a82884, type: 3}
   - {fileID: 8300000, guid: 29ed22940fa6b78488a7c7052206b820, type: 3}
+--- !u!135 &572778443
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745247893672622943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 200
+  m_Center: {x: 0, y: 100, z: 0}
+--- !u!135 &4535665364274595995
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745247893672622943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 200
+  m_Center: {x: 0, y: 100, z: 0}
+--- !u!114 &572778442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745247893672622943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3b6241c5655614db97283bb5a28493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkIcon: {fileID: 0}
+  talkTargetName: {fileID: 0}
 --- !u!1 &6757891408366817563
 GameObject:
   m_ObjectHideFlags: 0
