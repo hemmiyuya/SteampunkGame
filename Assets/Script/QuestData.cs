@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using NameTag;
 
 /// <summary>
 /// クエストに関する情報を格納した親クラス
@@ -12,33 +13,15 @@ using UnityEngine.UI;
 public abstract class QuestData : MonoBehaviour
 {
     private NPCData NPCData=default;
-    private GameObject _canvas = default;
-    [SerializeField]
-    private GameObject _questWindow = default;
-    private Text _questWindowNameText = default;
-    private Text _questContents = default;
-    [SerializeField]
-    private GameObject _questClere = default;
-    private Text _questClereNameText = default;
 
-    [SerializeField]
-    protected GameObject _progressQuest;
-    [SerializeField]
-    protected TextMeshProUGUI _progressQuestName;
-    [SerializeField]
-    protected TextMeshProUGUI _progressQuestContent;
+    private UIManager _uiManager = default;
+    private AudioManager audioManager = default;
 
     private void Awake()
     {
-        _canvas = GameObject.FindGameObjectWithTag("Canvas");
-        _questWindow=_canvas.transform.Find("QuestWindow").gameObject;
-        _questClere = _canvas.transform.Find("QuestClere").gameObject;
-        _questWindowNameText = _questWindow.transform.Find("QuestName").GetComponent<Text>();
-        _questContents = _questWindow.transform.Find("Questnaiyou").GetComponent<Text>();
-        _questClereNameText = _questClere.transform.Find("Window").Find("Name").GetComponent<Text>();
-        _progressQuest = _canvas.transform.Find("NowProgressQuest").gameObject;
-        _progressQuestName = _progressQuest.transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
-        _progressQuestContent = _progressQuest.transform.Find("Questnaiyou").GetComponent<TextMeshProUGUI>();
+
+        _uiManager = GameObject.FindGameObjectWithTag(Tags.UIManager).GetComponent<UIManager>();
+        audioManager = GameObject.FindGameObjectWithTag(Tags.Audio).GetComponent<AudioManager>();
 
     }
 
@@ -60,13 +43,12 @@ public abstract class QuestData : MonoBehaviour
     /// クエストの名前
     /// </summary>
     [SerializeField]
-    private string _questName = "";
+    private  string _questName = "";
 
     [SerializeField]
     private string _questContent = "";
 
     private bool _questClereFlag = false;
-
 
     /// <summary>
     /// クエストクリア
@@ -74,10 +56,11 @@ public abstract class QuestData : MonoBehaviour
     public virtual void QuestClere()
     {
         //クエストクリア画面表示
-        _questClereNameText.text = _questName;
-        _questClere.SetActive(true);
-        _progressQuest.SetActive(false);
-
+        _uiManager.QuestClereNameSet(_questName);
+        _uiManager.QuestClereWindowSetActive(true);
+        _uiManager.QuestClereNow();
+        _uiManager.ProgressQuestUISetActive(false);
+        //audioManager.SEOn(0);
     }
 
     /// <summary>
@@ -85,17 +68,17 @@ public abstract class QuestData : MonoBehaviour
     /// </summary>
     public virtual void QuestSelect()
     {
-        _questWindowNameText.text = _questName;
-        _questContents.text = _questContent;
-        _questWindow.SetActive(true);
-        
+        _uiManager.QuestWindowNameSet(_questName);
+        _uiManager.QuestWindowContentsSet(_questContent);
+        _uiManager.QuestWindowSetActive(true);
+        audioManager.SEOn(1);
     }
 
     protected void SetProgressQuest()
     {
-        _progressQuestName.text = _questName;
-        _progressQuestContent.text = _questContent;
-        _progressQuest.SetActive(true);
+        _uiManager.ProgressQuestNameSet(_questName);
+        _uiManager.ProgressQuestContentSet(_questContent);
+        _uiManager.ProgressQuestUISetActive(true);
     }
 
     public abstract void QuestStart();

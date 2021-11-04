@@ -16,6 +16,9 @@ public class StartTalkIvent : MonoBehaviour
     [SerializeField]
     private GameObject namePanel = default;
 
+    [SerializeField]
+    private UIManager _uiManager;
+
     public bool QuestTalkNow {
         get; set;
     } = false;
@@ -25,15 +28,16 @@ public class StartTalkIvent : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             player.GetComponent<NPCTalkLength>().NPCTalkNow();
+            _uiManager.TalkUISetActive(true);
+            _uiManager.IventNow();
             talkUI.SetActive(true);
             talkUI.GetComponent<ReadTalkText>().SetMessagePanel(targetTransform.GetComponent<NPCData>().GetConversation().GetConversationMessage());
             if (targetTransform.tag == "NPC")
             {
                 //NPC‚È‚ç–¼‘O˜g‚à•\Ž¦
                 No1.TalkCountUp();
-                Debug.Log(No1.nowTalkCount.Value+"‚ ‚ ‚¢‚¤‚¦");
-                namePanel.SetActive(true);
-                namePanel.transform.GetChild(0).GetComponent<Text>().text = targetTransform.GetComponent<NPCData>().Name;
+                _uiManager.NamePanelSetActive(true);
+                _uiManager.NamePanelSet(targetTransform.GetComponent<NPCData>().Name);
                 QuestTalkNow = targetTransform.GetComponent<NPCData>().QuestHaveFlag;
             }
         }
@@ -57,7 +61,6 @@ public class StartTalkIvent : MonoBehaviour
     {
         get { return targetTransform; }
         set { targetTransform = value; }
-        
     }
 
 }

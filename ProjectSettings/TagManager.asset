@@ -21,6 +21,7 @@ TagManager:
   - OrderSytem
   - lb_bird
   - Canvas
+  - UIManager
   layers:
   - Default
   - TransparentFX

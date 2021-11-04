@@ -12,24 +12,27 @@ public class QuestSelect : MonoBehaviour
     GameObject player;
 
     [SerializeField]
-    GameObject progressQuest;
+    AudioManager audioManager = default;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
             QuestAccept();
+            player.GetComponent<NPCTalkLength>().NPCTalkEnd();
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
             QuestCancel();
+            player.GetComponent<NPCTalkLength>().NPCTalkEnd();
         }
-        player.GetComponent<NPCTalkLength>().NPCTalkEnd();
+        
 
     }
 
     private void QuestAccept()
     {
+        audioManager.SEOn(2);
         talkIvent.target.GetComponent<QuestData>().QuestStart();
         talkIvent.target.GetComponent<NPCData>().QuestHaveFlag=false;
         
@@ -38,6 +41,7 @@ public class QuestSelect : MonoBehaviour
 
     private void QuestCancel()
     {
+        audioManager.SEOn(3);
         gameObject.SetActive(false);
     }
 

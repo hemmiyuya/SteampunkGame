@@ -16,6 +16,9 @@ public class NPCTalkLength : MonoBehaviour
     private const string NPCTag = "NPC";
     private const string CanCheckObjTag = "CanCheckObj";
 
+    [SerializeField]
+    private UIManager _uiManager=default;
+
     /// <summary>
     /// 0=Normal 1=Talk,
     /// </summary>
@@ -92,5 +95,12 @@ public class NPCTalkLength : MonoBehaviour
     public void NPCTalkEnd()
     {
         _talkState = (TalkState)0;
+        _uiManager.IventEnd();
+    }
+
+    public void StopCheckIcon()
+    {
+        _talkState = (TalkState)1;
+        checkIcon.SetActive(false);
     }
 }
