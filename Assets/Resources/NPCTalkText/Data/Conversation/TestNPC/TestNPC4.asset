@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6dbad4d63d5734db6efe7371de38a3, type: 3}
+  m_Name: TestNPC4
+  m_EditorClassIdentifier: 
+  message: "\u3088\u3046\u3053\u305D\u30BB\u30A4\u30F4\u30A1\u30EA\u306E\u8857\u3078\uFF01\n\u6700\u8FD1\u306F\u6CBB\u5B89\u304C\u826F\u304F\u3066\u4F4F\u307F\u3084\u3059\u3044\u8857\u3060\u3088\uFF01<>\u56F0\u3063\u3066\u3044\u308B\u4EBA\u306B\u8A71\u3057\u304B\u3051\u308B\u3068\u300C\u30AF\u30A8\u30B9\u30C8\u300D\u3092\u4F9D\u983C\u3055\u308C\u308B\u3053\u3068\u304C\u3042\u308B\u3088\uFF01\n\u305C\u3072\u89E3\u6C7A\u3057\u3066\u3042\u3052\u3066\u306D\uFF01"

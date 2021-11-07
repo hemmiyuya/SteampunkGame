@@ -21,6 +21,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private double FadeOutDeltaTime = 0;
 
+    private const int BGMSourceNo = 2;
+
+    [SerializeField]
+    private AudioClip[] _seClips = new AudioClip[5];
 
     private void Start()
     {
@@ -42,6 +46,19 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeOut(1,buttleVolume));
         //bgmをつける
         StartCoroutine(FadeIn(0,bgmVolume));
+    }
+
+    /// <summary>
+    /// 0=クエストクリア
+    /// 1=クエスト表示
+    /// 2=クエスト承諾
+    /// 3=クエストキャンセル
+    /// </summary>
+    /// <param name="BGMNo"></param>
+    public void SEOn(int BGMNo)
+    {
+        audioSource[BGMSourceNo].clip = _seClips[BGMNo];
+        audioSource[BGMSourceNo].Play();
     }
 
     IEnumerator FadeIn(int i , float volume)

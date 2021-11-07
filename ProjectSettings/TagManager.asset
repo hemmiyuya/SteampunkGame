@@ -4,20 +4,24 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - lb_bird
-  - Audio
   - PlayerCamera
-  - FxTemporaire
-  - lb_groundTarget
-  - Attack
-  - Target
-  - lb_perchTarget
-  - EnemySpoon
-  - Fire
-  - Enemy
   - Muzzle
+  - Target
   - BulletPool
+  - FxTemporaire
+  - Attack
+  - Enemy
+  - EnemySpoon
+  - Audio
+  - lb_groundTarget
+  - lb_perchTarget
+  - Fire
   - NPC
+  - CanCheckObj
+  - OrderSytem
+  - lb_bird
+  - Canvas
+  - UIManager
   layers:
   - Default
   - TransparentFX
@@ -25,13 +29,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Player
   - FogVolumeShadowCaster
   - FogVolume
   - FogVolumeSurrogate
   - FogVolumeUniform
-  - 
+  - MiniMap
   - 
   - 
   - 
