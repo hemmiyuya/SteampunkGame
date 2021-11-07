@@ -6,9 +6,12 @@ public class Knockback : MonoBehaviour
 {
     Animator anim;
 
+    EnemyController enemyController;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
+        enemyController = GetComponent<EnemyController>();
     }
 
     public void StopEnemy()
@@ -21,6 +24,7 @@ public class Knockback : MonoBehaviour
     {
         anim.enabled = true;
 
+        enemyController.lookatFlag = false;
         transform.LookAt(player.transform);
 
         anim.SetTrigger("Knockback");
@@ -37,6 +41,7 @@ public class Knockback : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         anim.SetLayerWeight(anim.GetLayerIndex("Aim"), 1);
+        enemyController.lookatFlag = true;
         yield break;
     }
 }

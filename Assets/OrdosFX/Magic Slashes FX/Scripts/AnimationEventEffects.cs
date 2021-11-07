@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationEventEffects : MonoBehaviour {
-    //public GameObject EffectPrefab;
-    //public Transform EffectStartPosition;
-    //public float DestroyAfter = 10;
-    //[Space]
-    //public GameObject EffectPrefabWorldSpace;
-    //public Transform EffectStartPositionWorld;
-    //public float DestroyAfterWorld = 10;
+    
     private PlayerSound playerSound;
 
     public EffectInfo[] Effects;
@@ -24,19 +18,6 @@ public class AnimationEventEffects : MonoBehaviour {
         public bool UseLocalPosition = true;
     }
 
-    //   // Update is called once per frame
-    //   void CreateEffect () {
-    //       var effectOBJ = Instantiate(EffectPrefab, EffectStartPosition);
-    //       effectOBJ.transform.localPosition = Vector3.zero;
-    //       Destroy(effectOBJ, DestroyAfter);        		
-    //}
-
-    //   void CreateEffectWorldSpace()
-    //   {
-    //       var effectOBJ = Instantiate(EffectPrefabWorldSpace, EffectStartPositionWorld.transform.position, EffectStartPositionWorld.transform.rotation);
-
-    //       Destroy(effectOBJ, DestroyAfterWorld);
-    //   }
     void Start() {
         playerSound = GetComponent<PlayerSound>();
     }
@@ -50,7 +31,7 @@ public class AnimationEventEffects : MonoBehaviour {
 
         if (EffectNumber == 6 || EffectNumber == 7)
         {
-
+            Effects[EffectNumber].StartPositionRotation.forward = new Vector3(Effects[EffectNumber].StartPositionRotation.forward.x, 0, Effects[EffectNumber].StartPositionRotation.forward.z);
         }
         else
         {

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Animation/mobs.meta
+guid: c7983fccb1a180049b677e07f3eaa4ec
+=======
+guid: d55b18332bd73214b9791edf66a6a623
+>>>>>>> 322e26b60d26ae1e46fe5628d39505ef5098ac2e:Assets/Animation/Enemy/Boss_robot.meta
+=======
+guid: c7983fccb1a180049b677e07f3eaa4ec
+>>>>>>> 322e26b60d26ae1e46fe5628d39505ef5098ac2e
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
