@@ -28,6 +28,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private int hp = 100;
 
+    public bool lookatFlag = true;
+
     //ステート
     public StateManager StateManager { get; set; } = new StateManager();
     public EnemyStateIdle StateIdle { get; set; } = new EnemyStateIdle();
@@ -112,9 +114,12 @@ public class EnemyController : MonoBehaviour
     //ターゲットの方向を向く
     private void LookTarget()
     {
-        Vector3 targetDir = new Vector3(playerTrs.position.x, transform.position.y, playerTrs.position.z) - transform.position;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, rotateSpeed * Time.deltaTime, 0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
+        if (lookatFlag)
+        {
+            Vector3 targetDir = new Vector3(playerTrs.position.x, transform.position.y, playerTrs.position.z) - transform.position;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, rotateSpeed * Time.deltaTime, 0f);
+            transform.rotation = Quaternion.LookRotation(newDir);
+        }
     }
 
     public void Idle()

@@ -5379,6 +5379,7 @@ GameObject:
   - component: {fileID: 572778443}
   - component: {fileID: 4535665364274595995}
   - component: {fileID: 572778442}
+  - component: {fileID: 3833324506621233679}
   m_Layer: 7
   m_Name: Unitychan
   m_TagString: Player
@@ -5874,6 +5875,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkIcon: {fileID: 0}
   talkTargetName: {fileID: 0}
+--- !u!114 &3833324506621233679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745247893672622943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae80bd44342187438ab36262ab79abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  hp: 200
 --- !u!1 &6757891408366817563
 GameObject:
   m_ObjectHideFlags: 0
@@ -8126,13 +8141,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
---- !u!4 &4112616550307971805 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 721510744002510265, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
-  m_PrefabInstance: {fileID: 3679899136084836196}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3627968745182304359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 92467409479657219, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
+  m_PrefabInstance: {fileID: 3679899136084836196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4112616550307971805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 721510744002510265, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
   m_PrefabInstance: {fileID: 3679899136084836196}
   m_PrefabAsset: {fileID: 0}

@@ -10,6 +10,9 @@ public class RobotAttack : MonoBehaviour
 
     GameObject player;
 
+    [SerializeField]
+    GameObject collider;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -33,6 +36,8 @@ public class RobotAttack : MonoBehaviour
             anim.SetFloat("SpinSpeed", Mathf.Lerp(0.2f, 0.6f, interpolatedValue));
         }
 
+        ColliderOn();
+
         timer = 0;
         while (time > timer)
         {
@@ -40,6 +45,8 @@ public class RobotAttack : MonoBehaviour
             timer += 0.01f;
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         }
+
+        ColliderOff();
 
         timer = 2;
 
@@ -82,5 +89,16 @@ public class RobotAttack : MonoBehaviour
             transform.position = Vector3.Slerp(startPosition, targetPosition, interpolatedValue)+center;
         }
         yield break;
+    }
+
+
+    public void ColliderOn()
+    {
+        collider.SetActive(true);
+    }
+
+    public void ColliderOff()
+    {
+        collider.SetActive(false);
     }
 }
