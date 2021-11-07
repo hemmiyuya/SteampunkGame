@@ -5377,9 +5377,8 @@ GameObject:
   - component: {fileID: 393468810}
   - component: {fileID: 393468809}
   - component: {fileID: 572778443}
-  - component: {fileID: 4535665364274595995}
-  - component: {fileID: 572778442}
   - component: {fileID: 3833324506621233679}
+  - component: {fileID: 572778442}
   m_Layer: 7
   m_Name: Unitychan
   m_TagString: Player
@@ -5685,6 +5684,7 @@ MonoBehaviour:
   wobbleCount: 3
   rayRange: 40
   grapMuzzle: {fileID: 7132353890549286952}
+  _volume: {fileID: 0}
   lineRenderer: {fileID: 0}
   anchorObj: {fileID: 3872813100546664029, guid: 31e35ff1403eb3c4ca5684ddf94c470d, type: 3}
   useGasValue: 15
@@ -5848,33 +5848,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 200
   m_Center: {x: 0, y: 100, z: 0}
---- !u!135 &4535665364274595995
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745247893672622943}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 200
-  m_Center: {x: 0, y: 100, z: 0}
---- !u!114 &572778442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6745247893672622943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad3b6241c5655614db97283bb5a28493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkIcon: {fileID: 0}
-  talkTargetName: {fileID: 0}
 --- !u!114 &3833324506621233679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5889,6 +5862,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbar: {fileID: 0}
   hp: 200
+--- !u!114 &572778442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6745247893672622943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3b6241c5655614db97283bb5a28493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkIcon: {fileID: 0}
+  talkTargetName: {fileID: 0}
+  _uiManager: {fileID: 0}
 --- !u!1 &6757891408366817563
 GameObject:
   m_ObjectHideFlags: 0
@@ -8141,13 +8129,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
---- !u!1 &3627968745182304359 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 92467409479657219, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
-  m_PrefabInstance: {fileID: 3679899136084836196}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4112616550307971805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 721510744002510265, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
+  m_PrefabInstance: {fileID: 3679899136084836196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3627968745182304359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 92467409479657219, guid: 7cd622af3e531124e8aac6b49d34621f, type: 3}
   m_PrefabInstance: {fileID: 3679899136084836196}
   m_PrefabAsset: {fileID: 0}
