@@ -56,4 +56,23 @@ public class PlayerSound : MonoBehaviour
         audioSources[1].clip = audioClips[8];
         audioSources[1].Play();
     }
+
+    public void WalkSE()
+    {
+        audioSources[0].clip = audioClips[9];
+        audioSources[0].Play();
+
+    }
+    public void WireShotSE()
+    {
+        audioSources[0].clip = audioClips[10];
+        audioSources[0].Play();
+
+    }
+    public void WireEndUpSE()
+    {
+        audioSources[0].clip = audioClips[11];
+        audioSources[0].Play();
+
+    }
 }

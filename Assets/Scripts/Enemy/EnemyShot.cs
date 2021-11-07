@@ -55,14 +55,23 @@ public class EnemyShot : MonoBehaviour
 
     private IEnumerator AttackTimer()
     {
-        while (buttle)
+        while (this)
         {
             yield return new WaitForSeconds(Random.Range(4f, 10f));
-
-            Attack();
+            if(buttle)
+                Attack();
         }
 
         yield break;
+    }
+
+    public void AttackOn()
+    {
+        buttle = true;
+    }
+    public void AttackOff()
+    {
+        buttle = false;
     }
 
 }

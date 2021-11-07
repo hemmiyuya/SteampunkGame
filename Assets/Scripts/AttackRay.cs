@@ -37,7 +37,11 @@ public class AttackRay : MonoBehaviour
         {
             if (hit.transform.tag == "Enemy")
             {
-                hit.transform.GetComponent<EnemyController>().Damage(shotDamage);
+                hit.transform.GetComponent<EnemyHp>().Damage(shotDamage);
+            }
+            else if (hit.transform.tag == "Robo")
+            {
+                hit.transform.root.GetComponent<EnemyHp>().Damage(shotDamage);
             }
         }
     }
@@ -50,10 +54,13 @@ public class AttackRay : MonoBehaviour
 
         foreach (RaycastHit hit in hitSlash)
         {
-            Debug.Log(hit.transform.name);
             if (hit.transform.tag == "Enemy")
             {
-                hit.transform.GetComponent<EnemyController>().Damage(slashDamage);
+                hit.transform.GetComponent<EnemyHp>().Damage(slashDamage);
+            }
+            else if (hit.transform.tag == "Robo")
+            {
+                hit.transform.root.GetComponent<EnemyHp>().Damage(slashDamage/6);
             }
         }
             

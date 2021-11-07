@@ -5503,6 +5503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf8d27942084464a87c0e65126932ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveFlag: 1
   gun: {fileID: 5630165747305785692}
   sowrd: {fileID: 3627968745182304359}
   _Camera: {fileID: 0}
@@ -5521,6 +5522,10 @@ MonoBehaviour:
   w_heightRayPlusVector: {x: 0, y: -1, z: 0}
   w_heightRayAmount: 0.49
   w_heightRayColor: {r: 0, g: 0, b: 0, a: 1}
+  g_parallelRayOrigin: {x: 0, y: 0, z: 0}
+  g_parallelRayPlusVector: {x: 0, y: 0, z: 0}
+  g_parallelRayAmount: 0
+  g_parallelRayColor: {r: 0, g: 0, b: 0, a: 0}
   _checkStep: 0
   w_fowardDownRayOrigin: {x: 0, y: 0.12, z: 0}
   w_fowardDownRayPlusVector: {x: 0, y: 0, z: 1}
@@ -5530,12 +5535,7 @@ MonoBehaviour:
   w_fowardUpRayPlusVector: {x: 0, y: 0, z: 1}
   w_fowardUpRayAmount: 0.5
   w_fowardUpRayColor: {r: 1, g: 0.9808904, b: 0, a: 1}
-  w_fowardUpRayAngle: {x: 0, y: 2, z: -1}
   _checkWall: 0
-  w_upperFowardRayOrigin: {x: 0, y: 1.7, z: 0}
-  w_upperFowardRayPlusVector: {x: 0, y: 0, z: 1}
-  w_upperFowardRayAmount: 0.5
-  w_upperFowardRayColor: {r: 1, g: 0, b: 0.81560946, a: 1}
   _inputHori: 0
   _inputVert: 0
   _inputRun: 0
@@ -5843,6 +5843,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 528b099012f6bc84f85557b65183d1c6, type: 3}
   - {fileID: 8300000, guid: 08f2bfb795ebcf04fafb840dfcf58c5b, type: 3}
   - {fileID: 8300000, guid: c1af31b8954777b4d8493e45c1e47d4b, type: 3}
+  - {fileID: 8300000, guid: de2dac9b5b9bfc249a8f476ab51a0d53, type: 3}
+  - {fileID: 8300000, guid: 2f6b3be607ac52749b4d3981ae5b9256, type: 3}
+  - {fileID: 8300000, guid: ced5f11277c4acf4ea22299dcd265d94, type: 3}
 --- !u!135 &572778443
 SphereCollider:
   m_ObjectHideFlags: 0

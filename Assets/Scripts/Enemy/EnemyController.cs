@@ -25,10 +25,11 @@ public class EnemyController : MonoBehaviour
 
     private int plusOrMinus = 1;
 
-    [SerializeField]
-    private int hp = 100;
+    EnemyHp enemyHp;
+    int beforHp;
 
     public bool lookatFlag = true;
+    private bool death = false;
 
     //ステート
     public StateManager StateManager { get; set; } = new StateManager();
@@ -43,6 +44,8 @@ public class EnemyController : MonoBehaviour
 
         enemyRig = GetComponent<Rigidbody>();
         enemyAnim = GetComponent<Animator>();
+        enemyHp = GetComponent<EnemyHp>();
+        beforHp = enemyHp.GetHp();
 
         //ステートの初期化
         StateManager.State.Value = StateIdle;
@@ -64,10 +67,18 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        //やられた
-        if (hp <= 0)
+        if (death) return;
+
+        if (beforHp != enemyHp.GetHp())
         {
-            Destroy(gameObject);
+            beforHp = enemyHp.GetHp();
+            enemyAnim.SetTrigger("Hit");
+            //やられた
+            if (enemyHp.GetHp() <= 0)
+            {
+                enemyAnim.SetTrigger("Death");
+                death = true ;
+            }
         }
 
         //一定角度以上でターゲットに向きを合わせる
@@ -150,10 +161,5 @@ public class EnemyController : MonoBehaviour
         enemyAnim.SetBool("Run", false);
     }
     
-    public void Damage(int damage)
-    {
-        enemyAnim.SetTrigger("Hit");
-        hp -= damage;
-    }
 
 }

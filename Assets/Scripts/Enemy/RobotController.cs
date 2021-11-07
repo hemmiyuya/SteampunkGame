@@ -12,13 +12,15 @@ public class RobotController : MonoBehaviour
     RobotAttack robotAttack;
     RobotMove robotMove;
     Animator animator;
+    EnemyHp enemyHp;
 
     Transform playerTrs;
     string playerTag = "Player";
 
     bool action;
+    bool death;
 
-    float jumpTime=1f;
+    float jumpTime=0.5f;
     float spinTime=5f;
 
     private void Start()
@@ -26,6 +28,7 @@ public class RobotController : MonoBehaviour
         robotAttack = GetComponent<RobotAttack>();
         robotMove = GetComponent<RobotMove>();
         animator = GetComponent<Animator>();
+        enemyHp = GetComponent<EnemyHp>();
         playerTrs = GameObject.FindWithTag(playerTag).transform;
         StartCoroutine(Distance());
         StartCoroutine(Action());
@@ -33,19 +36,31 @@ public class RobotController : MonoBehaviour
 
     private void Update()
     {
-        //éÀíˆäOÇ»ÇÁà⁄ìÆ
-        if (distance > range)
+        if (death) return;
+
+        if (enemyHp.GetHp() <= 0)
         {
-            robotMove.Turn(playerTrs);
-            animator.SetBool("walk",true);
             action = false;
+            animator.SetLayerWeight(1, 0);
+            animator.SetTrigger("death");
+            death = true;
         }
-        //îÕàÕì‡Ç»ÇÁçUåÇ
         else
         {
-            action = true;
-            animator.SetBool("walk", false);
-            animator.SetBool("turn", false);
+            //éÀíˆäOÇ»ÇÁà⁄ìÆ
+            if (distance > range)
+            {
+                robotMove.Turn(playerTrs);
+                animator.SetBool("walk", true);
+                action = false;
+            }
+            //îÕàÕì‡Ç»ÇÁçUåÇ
+            else
+            {
+                action = true;
+                animator.SetBool("walk", false);
+                animator.SetBool("turn", false);
+            }
         }
     }
 
@@ -53,7 +68,7 @@ public class RobotController : MonoBehaviour
     {
         while (this)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
             if (action)
             {
                 int random = Random.Range(0, 3);

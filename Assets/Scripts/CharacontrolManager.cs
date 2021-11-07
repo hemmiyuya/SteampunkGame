@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CharacontrolManager : MonoBehaviour
 {
-
-    private string[] notAttack = { "idle", "walk", "run" };
+    public bool moveFlag = true;
+    private string[] notAttack = { "idle", "walk", "Fast Run" };
 
     [SerializeField]
     private GameObject gun = null;
@@ -216,23 +216,35 @@ public class CharacontrolManager : MonoBehaviour
         _attack.InitialSet(this.gameObject, _Camera);
         */
         //“ü—Í
-        _inputHori = _input.GetHorizontal();
-        _inputVert = _input.GetVertical();
-        _inputRun = _input.GetRunButton();
-        if (_input.GetMouseLeftClick())
+
+        if (moveFlag)
         {
-            _inputAttack = true;
+            _inputHori = _input.GetHorizontal();
+            _inputVert = _input.GetVertical();
+            _inputRun = _input.GetRunButton();
+            if (_input.GetMouseLeftClick())
+            {
+                _inputAttack = true;
+            }
+            if (_input.GetJumpButton())
+            {
+                _inputJump = true;
+            }
+            if (_input.GetSwitchWeaponButton())
+            {
+                _inputSwitchWeapon = !_inputSwitchWeapon;
+                gun.active = !gun.active;
+                sowrd.active = !sowrd.active;
+            }
+
         }
-        if (_input.GetJumpButton())
+        else
         {
-            _inputJump = true;
+            _inputHori = 0;
+            _inputVert = 0;
+            _inputRun = false;
         }
-        if (_input.GetSwitchWeaponButton())
-        {
-            _inputSwitchWeapon = !_inputSwitchWeapon;
-            gun.active = !gun.active;
-            sowrd.active = !sowrd.active;
-        }
+
         //”»’è
         _checkGround = GroundCheck();
         _checkStep = StepCheck();
@@ -444,6 +456,10 @@ public class CharacontrolManager : MonoBehaviour
         if (!_grabing && !_attacking && !_grappling2.UsingGrapp)
         {
             _walk.PlayerWalk(-_inputHori, -_inputVert, _inputRun , GroundNomal());
+        }
+        else
+        {
+            _walk.PlayerWalk(0, 0, false, GroundNomal());
         }
         //ƒWƒƒƒ“ƒv
         if (_inputJump && !_attacking && !_grappling2.UsingGrapp)

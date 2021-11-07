@@ -88,6 +88,7 @@
     <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshCollider.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\TAA\Scripts\EffectBase.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyHp.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts (DEMO ONLY)\ParticleForceFieldsDemo_CameraRig.cs" />
     <Compile Include="Assets\MogiWep\C#Script\OneOverFNoise.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\PostProcessingProfile.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\VerticalOscilator.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\VortexParticleAffector.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyDeath.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\SceneResources\Other\Slash_MouseOrbit.cs" />
     <Compile Include="Assets\FogVolume\FogVolume Demo Content\MockupManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\MouseRotateCamera.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="Assets\Scripts\Enemy\Knockback.cs" />
     <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneColliderBuilder.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemySounds.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\SceneResources\Other\Slash_DemoGUI.cs" />
     <Compile Include="Assets\living birds\scripts\lb_BirdController.cs" />
     <Compile Include="Assets\Scripts\Jump.cs" />
@@ -328,6 +331,7 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
+    <Compile Include="Assets\Scripts\Audio\EnvironmentalSound.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />

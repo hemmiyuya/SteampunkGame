@@ -55,7 +55,7 @@ public class Walk : MonoBehaviour
             }
             else
             {
-                speed = _groundAccelSpeed * 2;
+                speed = _groundAccelSpeed * _runAnimSpeed;
             }
         }
         else
@@ -66,7 +66,7 @@ public class Walk : MonoBehaviour
             }
             else
             {
-                speed = _groundAccelSpeed;
+                speed = _groundAccelSpeed * _walkAnimSpeed;
             }
         }
         playervelocity.velocity = normal * speed;

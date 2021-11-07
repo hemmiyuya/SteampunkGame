@@ -18,7 +18,7 @@ public class RobotCollision  : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            characterHp.Dmage(25, 1,transform.position);
+            characterHp.Damage(25, 1,transform.position);
         }
     }
 

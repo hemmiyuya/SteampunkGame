@@ -19,11 +19,15 @@ public class CharacterHp : MonoBehaviour
 
     Rigidbody rb;
     Animator anim;
+
+    CharacontrolManager characontrolManager;
+
     private void Start()
     {
          maxHp = hp;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        characontrolManager = GetComponent<CharacontrolManager>();
         damageFlag = true;
     }
 
@@ -33,11 +37,13 @@ public class CharacterHp : MonoBehaviour
     /// <param name="damage">ダメージ量</param>
     /// <param name="parameter">0＝hitアニメーション　、　1＝ノックバックアニメーション</param>
     /// <param name="enemyVec">敵の位置</param>
-    public void Dmage(int damage,int parameter,Vector3 enemyVec)
+    public void Damage(int damage,int parameter,Vector3 enemyVec)
     {
         if (damageFlag)
         {
             damageFlag = false;
+
+            MoveOff();
 
             hp -= damage;
             if (hp <= 0)
@@ -73,7 +79,7 @@ public class CharacterHp : MonoBehaviour
 
     private void Death()
     {
-
+        anim.SetBool("Death", true);
     }
 
     /// <summary>
@@ -117,13 +123,14 @@ public class CharacterHp : MonoBehaviour
         yield break;
     }
 
+    //アニメーションイベントで呼び出し
     public void MoveOn()
     {
-
+        characontrolManager.moveFlag = true;
     }
 
     private void MoveOff()
     {
-
+        characontrolManager.moveFlag = false;
     }
 }

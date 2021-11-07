@@ -11,11 +11,17 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit,1f))
+        if (Physics.SphereCast(transform.position, transform.localScale.x/2, transform.forward, out hit, 0.1f))
         {
-            gameObject.SetActive(false);
+            if (hit.transform.tag == "Player")
+            {
+                hit.transform.GetComponent<CharacterHp>().Damage(10,0,transform.position);
+            }
+
+            gameObject.SetActive (false);
+
+            print("aaaaaaaaa   "+hit.transform.name);
         }
-        Debug.DrawRay(transform.position, transform.forward*1, Color.red , 1,true);
 
         if (Vector3.Distance(transform.position, muzzlePos) > Range) gameObject.SetActive(false);
     }

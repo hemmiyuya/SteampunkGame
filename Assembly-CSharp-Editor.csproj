@@ -99,7 +99,6 @@
     <Compile Include="Assets\SAColliderBuilder\Editor\SABoneColliderInspector.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Editor\PostProcessingInspector.cs" />
-    <Compile Include="Assets\Editor\ReferenceFinder.cs" />
     <Compile Include="Assets\SAColliderBuilder\Editor\SAMeshColliderInspector.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Editor\FogVolumeDirectionalLightEditor.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Editor\Monitors\ParadeMonitor.cs" />
