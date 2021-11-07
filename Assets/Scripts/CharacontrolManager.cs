@@ -4,14 +4,6 @@ using UnityEngine;
 public class CharacontrolManager : MonoBehaviour
 {
 
-    private enum Job
-    {
-        Wait,
-        Run,
-        Jump,
-        Climb
-    }
-
     private string[] notAttack = { "idle", "walk", "run" };
 
     [SerializeField]
@@ -19,7 +11,6 @@ public class CharacontrolManager : MonoBehaviour
     [SerializeField]
     private GameObject sowrd = null;
 
-    private Job job = Job.Wait;
     /// <summary>
     /// オブジェクト群
     /// </summary>
@@ -38,6 +29,7 @@ public class CharacontrolManager : MonoBehaviour
     private GrappWalk _grappWalk = default;
     private Grappling2 _grappling2 = default;
 
+    #region 判定用レイ
     /// <summary>
     /// 判定用レイ
     /// </summary>
@@ -65,13 +57,11 @@ public class CharacontrolManager : MonoBehaviour
     [SerializeField]
     private float g_maxDistance = default;
     [SerializeField]
-    private RaycastHit g_hit = default;
-    [SerializeField]
     private Vector3 g_hitPoint = default;
     [SerializeField]
     private Vector3 g_nowPoint = default;
 
-    [Header("床判定(段差)")]
+    [Header("床判定(段差の頂点)")]
     [SerializeField]
     private Vector3 w_heightRayOrigin = default;
     [SerializeField]
@@ -82,6 +72,17 @@ public class CharacontrolManager : MonoBehaviour
     [SerializeField]
     private Color w_heightRayColor = default;
 
+    [Header("床判定（並行ベクトル計算用）")]
+    [SerializeField]
+    private Vector3 g_parallelRayOrigin = default;
+    [SerializeField]
+    private Vector3 g_parallelRayPlusVector = default;
+    [SerializeField]
+    private float g_parallelRayAmount = default;
+    [SerializeField]
+    private RaycastHit g_hit = default;
+    [SerializeField]
+    private Color g_parallelRayColor = default;
 
     [Header("壁判定(下)")]
     [SerializeField]
@@ -109,23 +110,10 @@ public class CharacontrolManager : MonoBehaviour
     [SerializeField]
     private Color w_fowardUpRayColor = default;
     [SerializeField]
-    private Vector3 w_fowardUpRayAngle = default;
-
-    [Header("壁判定(段差の頂点)")]
-    [SerializeField]
     private bool _checkWall = default;
-    [SerializeField]
-    private Vector3 w_upperFowardRayOrigin = default;
-    [SerializeField]
-    private Vector3 w_upperFowardRayPlusVector = default;
-    [SerializeField]
-    private float w_upperFowardRayAmount = default;
-    [SerializeField]
-    private RaycastHit w_upperFowardHit = default;
-    [SerializeField]
-    private Color w_upperFowardRayColor = default;
+    #endregion
 
-
+    #region 動作関係パラメータ
     /// <summary>
     /// 動作関係パラメータ
     /// </summary>
@@ -146,6 +134,7 @@ public class CharacontrolManager : MonoBehaviour
     private float _runAnimSpeed = default;
     [SerializeField]
     private float _gravity = default;
+    [Header("段差登り")]
     [SerializeField]
     private bool _goUpping = default;
     [SerializeField]
@@ -199,6 +188,7 @@ public class CharacontrolManager : MonoBehaviour
     [Header("グラップル")]
     [SerializeField]
     private bool _grapping = default;
+    #endregion
 
     void Start()
     {
@@ -247,6 +237,8 @@ public class CharacontrolManager : MonoBehaviour
         _checkGround = GroundCheck();
         _checkStep = StepCheck();
         _checkWall = WallCheck();
+        //床の判定と法線を取得
+        GroundParallelCheck();
 
         if (_animCheck)
         {
@@ -300,14 +292,15 @@ public class CharacontrolManager : MonoBehaviour
     {
         Gizmos.color = g_rayColor;
         Gizmos.DrawWireCube(transform.position + new Vector3(0, g_castHight, 0) + new Vector3(0, -1, 0) * g_maxDistance, g_boxSize * 2);
+        Gizmos.color = g_parallelRayColor;
+        Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * g_parallelRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * g_parallelRayPlusVector * g_parallelRayAmount);
+        Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * g_parallelRayOrigin, Quaternion.FromToRotation(Vector3.up, g_hit.normal) * transform.forward * g_parallelRayAmount * 15);
         Gizmos.color = g_downRayColor;
         Gizmos.DrawWireCube(transform.position + new Vector3(0, g_downRayHight, 0) + new Vector3(0, -1, 0) * g_maxDistance, g_downBoxSize * 2);
         Gizmos.color = w_fowardDownRayColor;
         Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardDownRayPlusVector * w_fowardDownRayAmount);
         Gizmos.color = w_fowardUpRayColor;
         Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_fowardUpRayPlusVector * w_fowardUpRayAmount);
-        Gizmos.color = w_upperFowardRayColor;
-        Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_upperFowardRayPlusVector * w_upperFowardRayAmount);
         Gizmos.color = w_heightRayColor;
         Gizmos.DrawRay(transform.position + Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayOrigin, Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * w_heightRayPlusVector * w_heightRayAmount);
     }
@@ -317,8 +310,25 @@ public class CharacontrolManager : MonoBehaviour
     /// </summary>
     public bool GroundCheck()
     {
-        return Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0), g_boxSize, new Vector3(0, -1, 0), transform.rotation, g_maxDistance, 1 << _groundLayer);
+        return Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0), g_boxSize, new Vector3(0, -1, 0),out g_hit, transform.rotation, g_maxDistance, 1 << _groundLayer);
     }
+
+    public void GroundParallelCheck()
+    {
+        Quaternion playerRotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
+        Physics.Raycast(transform.position + playerRotation * g_parallelRayOrigin, playerRotation * g_parallelRayPlusVector, out g_hit, g_parallelRayAmount, 1 << _groundLayer);
+    }
+
+
+    /// <summary>
+    /// 床と平行なベクトル
+    /// </summary>
+    public Vector3 GroundNomal()
+    {
+        return Quaternion.FromToRotation(Vector3.up, g_hit.normal) * transform.forward;
+    }
+
+
     private bool GroundDownCheck()
     {
         return Physics.BoxCast(transform.position + new Vector3(0, g_downRayHight, 0), g_downBoxSize, new Vector3(0, -1, 0), transform.rotation, g_maxDistance, 1 << _groundLayer);
@@ -345,10 +355,10 @@ public class CharacontrolManager : MonoBehaviour
     {
         Quaternion playerRotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
         bool lowercheck = Physics.Raycast(transform.position + playerRotation * w_fowardDownRayOrigin, playerRotation * w_fowardDownRayPlusVector, out w_fowardDownHit, w_fowardDownRayAmount, 1 << _groundLayer);
-        bool uppercheck = Physics.Raycast(transform.position + playerRotation * w_upperFowardRayOrigin, playerRotation * w_upperFowardRayPlusVector, out w_upperFowardHit, w_upperFowardRayAmount, 1 << _groundLayer);
+        bool uppercheck = Physics.Raycast(transform.position + playerRotation * w_fowardUpRayOrigin, playerRotation * w_fowardUpRayPlusVector, out w_fowardUpHit, w_fowardUpRayAmount, 1 << _groundLayer);
         if (lowercheck && uppercheck)
         {
-            if(w_fowardDownHit.transform.tag!="Enemy"&&w_upperFowardHit.transform.tag!="Enemy")
+            if(w_fowardDownHit.transform.tag!="Enemy"&& w_fowardUpHit.transform.tag!="Enemy")
             return true;
         }
         return false;
@@ -390,12 +400,24 @@ public class CharacontrolManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 屋根に上る動作
+    /// </summary>
+    public void ClimbingUpCheck()
+    {
+
+    }
+
+    /// <summary>
     /// 地面動作
     /// </summary>
     private void GroundMove()
     {
+        if (_jumping && _jump.PlayerUpVec())
+        {
+            return;
+        }
         //着地アニメーション
-        if (_jumping && !_goUpping)
+        if (_jumping && !_goUpping )
         {
             if (_flightTime < _noLandingTime)
             {
@@ -421,7 +443,7 @@ public class CharacontrolManager : MonoBehaviour
         //歩き
         if (!_grabing && !_attacking && !_grappling2.UsingGrapp)
         {
-            _walk.PlayerWalk(-_inputHori, -_inputVert, _inputRun);
+            _walk.PlayerWalk(-_inputHori, -_inputVert, _inputRun , GroundNomal());
         }
         //ジャンプ
         if (_inputJump && !_attacking && !_grappling2.UsingGrapp)
@@ -451,7 +473,7 @@ public class CharacontrolManager : MonoBehaviour
         }
         else
         {
-            gravityvector = w_upperFowardHit.normal * -9.81f;
+            gravityvector = w_fowardUpHit.normal * -9.81f;
         }
         _jump.PlayerAddGravity(_gravity, gravityvector);
     }
@@ -467,14 +489,14 @@ public class CharacontrolManager : MonoBehaviour
         {
             _grabing = true;
             _anim.ClimbAnimStart();
-            transform.rotation = Quaternion.LookRotation(w_upperFowardHit.normal * -1, Vector3.up);
+            transform.rotation = Quaternion.LookRotation(w_fowardUpHit.normal * -1, Vector3.up);
             GetComponent<Rigidbody>().velocity = Vector3.zero;
-            _wallNormal = w_upperFowardHit.normal;
+            _wallNormal = w_fowardUpHit.normal;
         }
         //壁移動解除
         if (_grabing && _inputVert < 0 && _inputJump)
         {
-            _jump.PlayerWallJump((w_upperFowardHit.normal + Vector3.up).normalized);
+            _jump.PlayerWallJump((w_fowardUpHit.normal + Vector3.up).normalized);
             _grabing = false;
             _inputJump = false;
             _anim.ClimbAnimEnd();
@@ -482,7 +504,7 @@ public class CharacontrolManager : MonoBehaviour
         }
         else if (_grabing && !_checkWall)
         {
-            _jump.PlayerWallJump((w_upperFowardHit.normal + Vector3.up).normalized);
+            _jump.PlayerWallJump((w_fowardUpHit.normal + Vector3.up).normalized);
             _grabing = false;
             _inputJump = false;
             _anim.ClimbAnimEnd();

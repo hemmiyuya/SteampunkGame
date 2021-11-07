@@ -116,6 +116,8 @@ public class Grappling2 : MonoBehaviour
     Attack attack;
     void Start()
     {
+        spring = new Spring();
+        spring.SetTarget(0);
         rig = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         attack = new Attack();
@@ -237,11 +239,6 @@ public class Grappling2 : MonoBehaviour
     public float waveHeight;
     public AnimationCurve affectCurve;
 
-    private void Awake()
-    {
-        spring = new Spring();
-        spring.SetTarget(0);
-    }
     private void Render()
     {
         if(!grapplingNow && !removeanchorFrag)

@@ -9,7 +9,6 @@ public class Walk : MonoBehaviour
     private float _slowdownSpeed = default;
     private float _walkAnimSpeed = default;
     private float _runAnimSpeed  = default;
-    private bool  _slowDown      = default;
 
     private Animationmanager _anim;
 
@@ -30,10 +29,10 @@ public class Walk : MonoBehaviour
     /// <summary>
     /// ï‡Ç≠
     /// </summary>
-    public void PlayerWalk(float hori, float vert, bool run)
+    public void PlayerWalk(float hori, float vert, bool run , Vector3 normal)
     {
         Rigidbody playervelocity = _player.GetComponent<Rigidbody>();
-       
+        float speed = 0;
         //â¡ë¨Ç∆âÒì]èàóù
         Quaternion cameraRotation = Quaternion.AngleAxis(_camera.transform.eulerAngles.y, Vector3.up);
         Vector3 velo = cameraRotation * new Vector3(hori, 0, vert).normalized;
@@ -50,33 +49,27 @@ public class Walk : MonoBehaviour
         }
         if(run)
         {
-            _slowDown = true;
             if (playervelocity.velocity.magnitude >= _runAnimSpeed)
             {
-                playervelocity.velocity = velo * _runAnimSpeed;
+                playervelocity.velocity =  playervelocity.velocity.normalized * _runAnimSpeed;
             }
             else
             {
-                playervelocity.velocity += velo * _groundAccelSpeed;
+                speed = _groundAccelSpeed * 2;
             }
-        }
-        else if (_slowDown)
-        {
-            playervelocity.velocity = Vector3.MoveTowards(playervelocity.velocity, velo * _walkAnimSpeed, _slowdownSpeed);
-            if(playervelocity.velocity.magnitude == _walkAnimSpeed)
-            _slowDown = false;
         }
         else
         {
             if(playervelocity.velocity.magnitude > _walkAnimSpeed * 0.98f)
             {
-                playervelocity.velocity = velo * _walkAnimSpeed;
+                playervelocity.velocity =  playervelocity.velocity.normalized * _walkAnimSpeed;
             }
             else
             {
-                playervelocity.velocity += velo * _groundAccelSpeed;
+                speed = _groundAccelSpeed;
             }
         }
+        playervelocity.velocity = normal * speed;
         _player.transform.rotation = Quaternion.LookRotation(velo, Vector3.up);
     }
     /// <summary>
@@ -94,6 +87,9 @@ public class Walk : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// íiç∑ìoÇË
+    /// </summary>
     public void PlayerGoUp(Vector3 start,Vector3 end,float time)
     {
         _player.transform.position = Vector3.Lerp(start,end, time);

@@ -885,9 +885,25 @@
       <Project>{FB3DEC76-CB1A-AFF6-7BA1-69BE9C987C0F}</Project>
       <Name>ZibraAILiquid.Settings.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="CopoCopo.TextMeshProAnimator.Runtime.csproj">
+      <Project>{4788F8B2-A2CC-2790-6738-01BEA2C6A413}</Project>
+      <Name>CopoCopo.TextMeshProAnimator.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.DOTween.csproj">
+      <Project>{74544EB1-E987-1150-8FDE-CDB1C5592D0A}</Project>
+      <Name>UniTask.DOTween</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Linq.csproj">
+      <Project>{C934515A-3875-CCE1-33A9-D7D4B84D0D67}</Project>
+      <Name>UniTask.Linq</Name>
+    </ProjectReference>
     <ProjectReference Include="UniRx.csproj">
       <Project>{07A77A7E-0014-CD1D-1EBC-8B13CED12054}</Project>
       <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.TextMeshPro.csproj">
+      <Project>{F7BEF139-CE9B-D685-FB80-E3F6A3A29E74}</Project>
+      <Name>UniTask.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Samples.csproj">
       <Project>{E5E40DE8-3B24-8481-2CC1-91C5870318C8}</Project>
@@ -900,6 +916,14 @@
     <ProjectReference Include="UMotionSourceEditor.csproj">
       <Project>{234AB61D-8A9A-1B6C-6F91-7ABD7DE1B8A2}</Project>
       <Name>UMotionSourceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{8D441D18-1F5F-241D-6DC1-11AED2F3DBBF}</Project>
+      <Name>UniTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Addressables.csproj">
+      <Project>{6EBA5A42-0691-2EFD-2C8C-13CAAEFBCDAF}</Project>
+      <Name>UniTask.Addressables</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

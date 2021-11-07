@@ -53,14 +53,19 @@
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Enemy\RobotFootIk.cs" />
     <Compile Include="Assets\StartTalkIvent.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\RendererSortingOrder.cs" />
+    <Compile Include="Assets\QuestSelect.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\ExplorationCamera.cs" />
     <Compile Include="Assets\Scripts\UI\TargetIndicator.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\MobileBloom\Slashes_MobileBloom.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
     <Compile Include="Assets\living birds\scripts\lb_CrowProximity.cs" />
+    <Compile Include="Assets\DonSESet.cs" />
     <Compile Include="Assets\MiniMap\MiniMapWithPlayer.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeTAA.cs" />
     <Compile Include="Assets\DynamicBone\Scripts\DynamicBonePlaneCollider.cs" />
     <Compile Include="Assets\Scripts\FootIK.cs" />
@@ -69,6 +74,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
+    <Compile Include="Assets\Script\QuesrList.cs" />
     <Compile Include="Assets\NatureManufacture Assets\NatureManufacture Wind\NM_Wind.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Expansions\XP - STORM\Scripts\StormVFXTerrainDemoFollowTargetPosition.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
@@ -78,6 +84,9 @@
     <Compile Include="Assets\SteamCity\Scripts\FPMouseLook.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\ScreenSpaceReflectionComponent.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\ParticleCollisionInstance.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshCollider.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\TAA\Scripts\EffectBase.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts (DEMO ONLY)\ParticleForceFieldsDemo_CameraRig.cs" />
     <Compile Include="Assets\MogiWep\C#Script\OneOverFNoise.cs" />
@@ -91,26 +100,37 @@
     <Compile Include="Assets\FogVolume\Scripts\Other\EnableDepthInForwardCamera.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\MotionBlurComponent.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\BloomComponent.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\Scripts\AnimationEventEffects.cs" />
     <Compile Include="Assets\Scripts\Exit.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
-    <Compile Include="Assets\Scripts\ShotRay.cs" />
+    <Compile Include="Assets\Scripts\AttackRay.cs" />
     <Compile Include="Assets\Dynamic Flickering Light\FlickeringLight.cs" />
     <Compile Include="Assets\Script\FireKatanaParticle.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\FrontAttack.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\Scripts\CharacterHp.cs" />
+    <Compile Include="Assets\Scripts\Enemy\RobotMove.cs" />
     <Compile Include="Assets\Visual Design Cafe\Nature Renderer\Runtime\NatureRenderer.SRP.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\ParticleAffector.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\TargetProjectile.cs" />
     <Compile Include="Assets\Script\NPCNamePos.cs" />
+    <Compile Include="Assets\Script\NameTag.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SAMeshColliderCommon.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\_Common\CreateLUT.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\GrappWalk.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\DynamicBone\Demo\DynamicBoneDemo1.cs" />
     <Compile Include="Assets\Scripts\Grab.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\DitheringComponent.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\TAA\Scripts\FrustumJitter.cs" />
@@ -120,6 +140,7 @@
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\TurbulenceParticleAffector.cs" />
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\VerticalOscilator.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\VortexParticleAffector.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\SceneResources\Other\Slash_MouseOrbit.cs" />
     <Compile Include="Assets\FogVolume\FogVolume Demo Content\MockupManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\MouseRotateCamera.cs" />
@@ -133,14 +154,22 @@
     <Compile Include="Assets\FogVolume\Scripts\Other\TAA\Scripts\Extensions.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumePrimitiveManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\DestroyOnParticlesDead.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\ColorAnimation.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeRenderer.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\BloomModel.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\TextMeshProMaxVisibleCharaController.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\CameraShake.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\RewindParticleSystemSimple.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\RenderPriority.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\Enemy\Knockback.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneColliderBuilder.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\SceneResources\Other\Slash_DemoGUI.cs" />
     <Compile Include="Assets\living birds\scripts\lb_BirdController.cs" />
     <Compile Include="Assets\Scripts\Jump.cs" />
@@ -148,17 +177,20 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Demos\Wallpapers\Gravity Clock\Scripts\GravityClockInteractivityUVFX.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeDirectionalLight.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Script\NPCData.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\Scripts\Slash_GrvityPoint.cs" />
     <Compile Include="Assets\ReadTalkText.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts\AttractionParticleForceField.cs" />
     <Compile Include="Assets\SampleLoader\SampleLoader.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\DestroyAfterTime.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeLight.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts\TurbulenceParticleForceField.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\ChromaticAberrationComponent.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeLightManager.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\BuiltinDebugViewsComponent.cs" />
@@ -179,8 +211,10 @@
     <Compile Include="Assets\FogVolume\Scripts\Utilities.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\VignetteComponent.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\FogModel.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\TaaComponent.cs" />
     <Compile Include="Assets\living birds\scripts\lb_Bird.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\VignetteModel.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Expansions\XP - STORM\Scripts\StormVFXTerrainDemoCamera.cs" />
     <Compile Include="Assets\Mirza Beig\Shaders\_Common\IEBase.cs" />
@@ -197,37 +231,54 @@
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\TrailRenderers.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\GrainComponent.cs" />
     <Compile Include="Assets\FogVolume\FogVolume Demo Content\TOD_Values.cs" />
+    <Compile Include="Assets\Testaa.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Custom\Custom.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\Scripts\Slash_WroomWroom.cs" />
+    <Compile Include="Assets\TestQuest.cs" />
     <Compile Include="Assets\SteamCity\DynamicClouds\cloud_behav.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FPSDisplay.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeGaiaIntegration.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SAColliderBuilderCommon.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts\VortexParticleForceField.cs" />
     <Compile Include="Assets\FogVolume\Scripts\EFogVolumePrimitiveType.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\UserLutModel.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\Billboard.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\Scripts\Slash_UIEffectList.cs" />
     <Compile Include="Assets\DynamicBone\Scripts\DynamicBone.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneCollider.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Shaders\_Common\MirzaPostProcessing.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\MotionBlurModel.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\FogVolume\Scripts\ShadowCamera.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Expansions\XP - TITLES\Scripts\DemoManager_XPTitles.cs" />
+    <Compile Include="Assets\Script\QuestData.cs" />
     <Compile Include="Assets\Script\NPCTalkLength.cs" />
+    <Compile Include="Assets\Scripts\Enemy\RobotCollision.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneColliderChild.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SABoneColliderCommon.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\PerlinNoise.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\UserLutComponent.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\LoopingParticleSystemsManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\AnimatedLight.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Script\NPCData\TestNPCData.cs" />
     <Compile Include="Assets\DynamicBone\Scripts\DynamicBoneCollider.cs" />
+    <Compile Include="Assets\Script\PublicOrderSystem.cs" />
     <Compile Include="Assets\SteamCity\DynamicClouds\cloud_self.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolume.cs" />
     <Compile Include="Assets\Script\GrappInCamera.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\FORGE3D\Sci-Fi Effects\Effects\Warp Tunnel\Example\ClusterEmitter.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\Scripts\Teleport.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeScreen.cs" />
+    <Compile Include="Assets\Script\UIManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\DemoManager.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
+    <Compile Include="Assets\Scripts\Enemy\RobotController.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\ZoneTrigger.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\AmbientOcclusionModel.cs" />
     <Compile Include="Assets\Grass And Flowers Pack 1\Example Scene\SimpleTextureDrawing.cs" />
     <Compile Include="Assets\living birds\demo\livingBirdsDemoScript.cs" />
@@ -240,6 +291,7 @@
     <Compile Include="Assets\Scripts\Enemy\Bullet.cs" />
     <Compile Include="Assets\Scripts\Audio\PlayerSound.cs" />
     <Compile Include="Assets\CheckIconChange.cs" />
+    <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshColliderBuilder.cs" />
     <Compile Include="Assets\Scripts\UI\PinSystemOverlay.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeCreator.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\EyeAdaptationComponent.cs" />
@@ -253,19 +305,26 @@
     <Compile Include="Assets\Script\Spring.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts\ParticleForceField.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\AutoDestroyPS.cs" />
+    <Compile Include="Assets\Scripts\Enemy\RobotAttack.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\Rotator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\FogComponent.cs" />
     <Compile Include="Assets\FogVolume\FogVolume Demo Content\FadeEffect\Fade.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\MouseFollow.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeData.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Plexus\Scripts\ParticlePlexus.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DepthOfFieldModel.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\AttractionParticleAffector.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\AmbientOcclusionComponent.cs" />
     <Compile Include="Assets\Mirza Beig\Shaders\Image Effects\Resources\Sharpen\Sharpen.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyShot.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\AntialiasingModel.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\OneshotParticleSystemsManager.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
@@ -275,11 +334,13 @@
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\XBoxOne.hlsl" />
     <None Include="Assets\Mirza Beig\_DOCS\README - Particle Plexus.txt" />
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\Intersection Highlight\IntersectionHighlight-Alpha.shader" />
     <None Include="Assets\FogVolume\Resources\FogVolume.shader" />
     <None Include="Assets\MogiWep\Shader\Unlit.shader" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\Mask\Mask-Alpha.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.Nature.dll" />
     <None Include="Assets\Visual Design Cafe\Nature Renderer\Resources\Nature Renderer.compute" />
     <None Include="Assets\FogVolume\Resources\Depth.shader" />
@@ -302,17 +363,20 @@
     <None Include="Assets\Visual Design Cafe\Nature Shaders\Common\Nodes\Integrations\Nature Renderer.cginc" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\Distortion\Distortion-Alpha.shader" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\Metal.hlsl" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\FogVolume\Resources\CommonInputs.cginc" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\GLES2.hlsl" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\LutGen.shader" />
+    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\Distance Fade\DistanceFade-AnimBlendAdd.shader" />
     <None Include="Assets\Visual Design Cafe\Package Manager\VisualDesignCafe.Packages.dll" />
     <None Include="Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.Nature.Editor.dll" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Plugins\VisualDesignCafe.ShaderX.dll" />
     <None Include="Assets\FogVolume\Scenes\Skies\Skybox-Procedural.shader" />
+    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\NM_indirect.cginc" />
     <None Include="Assets\FogVolume\Resources\Surrogate.shader" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\Advanced Grass Standard.shader" />
@@ -320,6 +384,7 @@
     <None Include="Assets\Mirza Beig\Shaders\Particles\No Fog\NoFog-Alpha.shader" />
     <None Include="Assets\UMotionEditor\Shaders\WiresOnly.shader" />
     <None Include="Assets\FogVolume\FogVolume Demo Content\ReflectionScene\LightPanel.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\SteamCity\DynamicClouds\ReadMe.txt" />
     <None Include="Assets\FogVolume\FogVolume Demo Content\FadeEffect\Resources\Fade.shader" />
     <None Include="Assets\Mirza Beig\Shaders\Image Effects\Tests\Screen Rain.shader" />
@@ -328,6 +393,7 @@
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\Advanced Grass Light.shader" />
     <None Include="Assets\FogVolume\Scenes\RT Viewer\FogVolumeTexturedR.shader" />
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\DissolveNoise.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\FogVolume\FogVolume Demo Content\Vegetation.shader" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\TAA.cginc" />
     <None Include="Assets\Dynamic Flickering Light\readme.txt" />
@@ -352,6 +418,7 @@
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\NM_Foliage_VSPro_Indirect.cginc" />
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Add_Fresnel.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Lit_Full_Triplanar_Cover.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\FogVolume\Scripts\Other\TAA\Shaders\IncNoise.cginc" />
     <None Include="Assets\FogVolume\FogVolume Demo Content\UV gradient.shader" />
     <None Include="Assets\Visual Design Cafe\Stylized Nature - Grasslands\Sample Pack.txt" />
@@ -367,6 +434,7 @@
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Distortion.shader" />
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Blend_TwoSides.shader" />
     <None Include="Assets\NatureManufacture Assets\Third-Party Notices.txt" />
+    <None Include="Assets\Resources\NPCTalkText\Data\Conversation\TestNPC\TestNPCs.txt" />
     <None Include="Assets\NatureManufacture Assets\Forest Environment Dynamic Nature\R.A.M Non Tesseled trial\Shaders\WaterDistortionCheck.hlsl" />
     <None Include="Assets\SteamCity\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\Cross_Model_Shader.shader" />
@@ -389,25 +457,32 @@
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\Advanced Grass Specular.shader" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\No Fog\NoFog-Add.shader" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\Vulkan.hlsl" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Lit_Triplanar_Cover.shader" />
     <None Include="Assets\FogVolume\FogVolume Demo Content\Moon.shader" />
     <None Include="Assets\FogVolume\Resources\DepthMapQuad.shader" />
     <None Include="Assets\Mirza Beig\_DOCS\README - Action VFX.txt" />
     <None Include="Assets\Mirza Beig\Shaders\Standard\Standard-Terrain Rain.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\UMotionEditor\Shaders\CameraLit.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\Tree_Bark_Metalic.shader" />
     <None Include="Assets\SteamCity\IMPORTANT.txt" />
     <None Include="Assets\Hovl Studio\PBR Fantasy staff\Shaders\Readme.txt" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Lightning.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\Standard_Metalic_Snow CutOut.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Layered_Full_Triplanar.shader" />
     <None Include="Assets\FogVolume\README.txt" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\FXAA.shader" />
     <None Include="Assets\Mirza Beig\Particle Systems\_Common\Shaders\ASE Templates\Particle Alpha Blend + TEXCOORD1.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Hovl Studio\PBR Fantasy staff\Shaders\Staff.shader" />
     <None Include="Assets\FogVolume\Resources\Upsample.shader" />
     <None Include="Assets\Dark_Brown_GUI_kit\Dark_Brown_GUI_kit.txt" />
@@ -415,6 +490,7 @@
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Blend_LinePath.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Layered_Full_Triplanar_Cover.shader" />
     <None Include="Assets\Visual Design Cafe\Package Manager\VisualDesignCafe.Editor.PackageManager.dll" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\NatureManufacture Assets\Forest Environment Dynamic Nature\README - About asset content and setup.txt" />
     <None Include="Assets\MogiWep\Shader\NoiseEmissionShader.shader" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
@@ -437,6 +513,7 @@
     <None Include="Assets\Mirza Beig\Shaders\Particles\Animation Blend\AnimBlend-Add.shader" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Plugins\VisualDesignCafe.ShaderX.Editor.dll" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\NMWindTouchRect.cginc" />
     <None Include="Assets\NatureManufacture Assets\Forest Environment Dynamic Nature\R.A.M Non Tesseled trial\Shaders\Water Swamp Offset Vertex Color Flow.shader" />
@@ -471,6 +548,7 @@
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Polygonal Particles\Assets\Shaders\GradientBackgroundShader.shader" />
     <None Include="Assets\Boats\Read me.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Mirza Beig\Shaders\Image Effects\Resources\Sharpen\Sharpen.shader" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\TAA.shader" />
     <None Include="Assets\UMotionEditor\Shaders\ColorUnlit.shader" />
@@ -492,19 +570,23 @@
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Add_CenterGlow.shader" />
     <None Include="Assets\Visual Design Cafe\Package Manager\VisualDesignCafe.Editor.Events.dll" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\FogVolume\Scenes\RT Viewer\_CameraDepthTexture.shader" />
     <None Include="Assets\FogVolume\Scenes\RT Viewer\RT_ShadowDepth.shader" />
     <None Include="Assets\Mirza Beig\Particle Systems\_Common\Shaders\ASE Templates\Particle Alpha Blend Textureless.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Object_VSPro_Indirect.cginc" />
     <None Include="Assets\NatureManufacture Assets\Forest Environment Dynamic Nature\HD and URP Support Packs\README - 10.3 HD RP FOREST IMPORT.txt" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\D3D11.hlsl" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\Standard_Specular_Snow CutOut.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\OrdosFX\Magic Slashes FX\Shaders\SlashParticles.shader" />
     <None Include="Assets\FogVolume\FogVolume Demo Content\WaterPlane.shader" />
     <None Include="Assets\FogVolume\Scripts\Other\TAA\Shaders\TemporalReprojection.shader" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\NM_Cross_Snow.shader" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\Alpha Cutoff\AlphaCutoff-Add.shader" />
     <None Include="Assets\FogVolume\FogVolume Demo Content\Room Floor Reflection.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\FogVolume\ShaderReplacements\SpeedTree.shader" />
     <None Include="Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.dll" />
     <None Include="Assets\FogVolume\Resources\FogVolumeDirectionalLight.shader" />
@@ -513,6 +595,8 @@
     <None Include="Assets\UMotionEditor\Plugins\Application\UMotionApplication.dll" />
     <None Include="Assets\FogVolume\Resources\FogVolumeFragment.cginc" />
     <None Include="Assets\NatureManufacture Assets\Forest Environment Dynamic Nature\R.A.M Non Tesseled trial\Shaders\Water River Offset Vertex Color Flow.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\UMotionEditor\Shaders\ColorUnlitTransparent.shader" />
     <None Include="Assets\FogVolume\Scenes\RT Viewer\FogVolumeTextured.shader" />
   </ItemGroup>
@@ -1222,9 +1306,25 @@
       <Project>{FB3DEC76-CB1A-AFF6-7BA1-69BE9C987C0F}</Project>
       <Name>ZibraAILiquid.Settings.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="CopoCopo.TextMeshProAnimator.Runtime.csproj">
+      <Project>{4788F8B2-A2CC-2790-6738-01BEA2C6A413}</Project>
+      <Name>CopoCopo.TextMeshProAnimator.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.DOTween.csproj">
+      <Project>{74544EB1-E987-1150-8FDE-CDB1C5592D0A}</Project>
+      <Name>UniTask.DOTween</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Linq.csproj">
+      <Project>{C934515A-3875-CCE1-33A9-D7D4B84D0D67}</Project>
+      <Name>UniTask.Linq</Name>
+    </ProjectReference>
     <ProjectReference Include="UniRx.csproj">
       <Project>{07A77A7E-0014-CD1D-1EBC-8B13CED12054}</Project>
       <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.TextMeshPro.csproj">
+      <Project>{F7BEF139-CE9B-D685-FB80-E3F6A3A29E74}</Project>
+      <Name>UniTask.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Samples.csproj">
       <Project>{E5E40DE8-3B24-8481-2CC1-91C5870318C8}</Project>
@@ -1237,6 +1337,14 @@
     <ProjectReference Include="UMotionSourceEditor.csproj">
       <Project>{234AB61D-8A9A-1B6C-6F91-7ABD7DE1B8A2}</Project>
       <Name>UMotionSourceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{8D441D18-1F5F-241D-6DC1-11AED2F3DBBF}</Project>
+      <Name>UniTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Addressables.csproj">
+      <Project>{6EBA5A42-0691-2EFD-2C8C-13CAAEFBCDAF}</Project>
+      <Name>UniTask.Addressables</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
