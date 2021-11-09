@@ -15,6 +15,9 @@ public class AttackRay : MonoBehaviour
     [SerializeField]
     float scale = 4;
 
+    [SerializeField]
+    private TimeManager _timeManager;
+
     RaycastHit hit;
     PlayerSound playerSound = null;
 
@@ -54,6 +57,8 @@ public class AttackRay : MonoBehaviour
 
         foreach (RaycastHit hit in hitSlash)
         {
+            //_timeManager.PlayerAttackHitStop();
+
             if (hit.transform.tag == "Enemy")
             {
                 hit.transform.GetComponent<EnemyHp>().Damage(slashDamage);

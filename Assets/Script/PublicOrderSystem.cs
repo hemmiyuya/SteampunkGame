@@ -8,6 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class PublicOrderSystem : MonoBehaviour
 {
+    [SerializeField]
     private float _orderPoint = 0;
 
     /// <summary>
@@ -30,6 +31,11 @@ public class PublicOrderSystem : MonoBehaviour
         Best=6,
     }
 
+    private void Start()
+    {
+        _orderPoint = 250;
+    }
+
     /// <summary>
     /// 現在の治安評価段階
     /// </summary>
@@ -45,6 +51,9 @@ public class PublicOrderSystem : MonoBehaviour
         if (_orderPoint > 500) _orderPoint = 500;
         OrderEvaluate();
     }
+
+    [SerializeField]
+    private UIManager uiManager = default;
 
     /// <summary>
     /// 現時点の治安ポイントに基づいて状態判定を行う
@@ -83,6 +92,8 @@ public class PublicOrderSystem : MonoBehaviour
         }
 
         publicOrder = (PublicOrder)evaluation;
+
+        uiManager.SetOrderStars(_orderPoint);
     }
 
     /// <summary>

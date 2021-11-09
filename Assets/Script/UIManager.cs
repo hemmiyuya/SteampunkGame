@@ -37,9 +37,18 @@ public class UIManager : MonoBehaviour
     protected TextMeshProUGUI _progressQuestName;
     [SerializeField]
     protected TextMeshProUGUI _progressQuestContent;
+    [SerializeField]
+    private Image[] _orderStarsUI = new Image[5];
+    [SerializeField]
+    private Sprite _orderStarsisColor = default;
+    [SerializeField]
+    private Sprite _orderStarsNotColor = default;
+    [SerializeField]
+    private Sprite _orderStarsRainbow = default;
 
     [SerializeField]
     private GameObject _stateGage;
+
 
     /// <summary>
     /// 会話中などのイベント中に非表示にするUI
@@ -136,6 +145,60 @@ public class UIManager : MonoBehaviour
     public void QuestClereEnd()
     {
         QuestDisappearUI.SetActive(true);
+    }
+
+    public void SetOrderStars(float orderPoint)
+    {
+        if (orderPoint == 500)
+        {
+            
+        }
+
+        else
+        {
+            if (orderPoint >= 400)
+            {
+                _orderStarsUI[4].sprite = _orderStarsisColor;
+            }
+            else
+            {
+                _orderStarsUI[4].sprite = _orderStarsNotColor;
+            }
+
+
+            if (orderPoint >= 300)
+            {
+                _orderStarsUI[3].sprite = _orderStarsisColor;
+            }
+            else
+            {
+                _orderStarsUI[3].sprite = _orderStarsNotColor;
+            }
+
+
+            if (orderPoint >= 200)
+            {
+                _orderStarsUI[2].sprite = _orderStarsisColor;
+            }
+            else
+            {
+                _orderStarsUI[2].sprite = _orderStarsNotColor;
+            }
+
+            if (orderPoint >= 100)
+            {
+                _orderStarsUI[1].sprite = _orderStarsisColor;
+            }
+            if (orderPoint > 0)
+            {
+                _orderStarsUI[0].sprite = _orderStarsisColor;
+            }
+            if (orderPoint == 0)
+            {
+
+            }
+        }
+        
     }
 
 }

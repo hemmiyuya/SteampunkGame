@@ -10,6 +10,16 @@ public abstract class NPCData : MonoBehaviour
     [SerializeField]
     private Conversation[] conversations = new Conversation[7];
 
+
+    protected enum Gender
+    {
+        man=0,
+        woman=1,
+    }
+    
+    [SerializeField]
+    protected AudioSource _talkAudioSource = default;
+
     [SerializeField]
     public bool QuestHaveFlag { get; set; } = false;
 
@@ -32,7 +42,7 @@ public abstract class NPCData : MonoBehaviour
         {
             return _questData._questSelectSerifu;
         }
-        
+        _talkAudioSource.Play();
         return conversations[_orderSystem.NowOrder];
         
     }
@@ -40,5 +50,13 @@ public abstract class NPCData : MonoBehaviour
     [SerializeField]
     private QuestData _questData;
 
+    public void SetOrder(int orderPoint)
+    {
+        _orderSystem.AddOrder(orderPoint);
+    }
 
+    public virtual void EndTalk()
+    {
+        
+    }
 }

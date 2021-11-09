@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{24C743F0-B8AC-8139-C003-B5A64FD4E542}</ProjectGuid>
+    <ProjectGuid>{243F2072-5BCC-42E6-E7E2-BCBAE209D549}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UniRx.Examples</AssemblyName>
@@ -659,7 +659,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UniRx.csproj">
-      <Project>{07A77A7E-0014-CD1D-1EBC-8B13CED12054}</Project>
+      <Project>{39DF0CC3-5BB4-6D88-A5AC-C2B304839D0E}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>

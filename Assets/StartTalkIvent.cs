@@ -54,6 +54,7 @@ public class StartTalkIvent : MonoBehaviour
         else
         {
             player.GetComponent<NPCTalkLength>().NPCTalkEnd();
+            target.GetComponent<NPCData>().EndTalk();
         }
     }
 

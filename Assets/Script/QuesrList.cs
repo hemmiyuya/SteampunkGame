@@ -35,10 +35,21 @@ namespace QuestList
             Debug.Log(nowTalkCount.Value+"なうとーくかうんとりせっと");
         }
 
-        private void Update()
-        {
-            Debug.Log(nowTalkCount.Value);
-        }
+    }
+
+    /// <summary>
+    /// 治安レベルがマックスのときに出現ボス
+    /// </summary>
+    public class OrderMaxBoss : MonoBehaviour
+    {
+
+    }
+
+    /// <summary>
+    /// 治安レベルが最低のときに出現ボス
+    /// </summary>
+    public class OrderZeroBoss : MonoBehaviour
+    {
 
     }
     
