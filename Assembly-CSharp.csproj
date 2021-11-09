@@ -336,6 +336,7 @@
     <Compile Include="Assets\Script\NPCData\Gentlman2.cs" />
     <Compile Include="Assets\Script\NPCData\Renger.cs" />
     <Compile Include="Assets\Script\Quest\OrderMaxQuest.cs" />
+    <Compile Include="Assets\PlayerIconRotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
