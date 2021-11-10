@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NameTag;
 
 public abstract class NPCData : MonoBehaviour
 {
@@ -42,7 +43,11 @@ public abstract class NPCData : MonoBehaviour
         {
             return _questData._questSelectSerifu;
         }
-        _talkAudioSource.Play();
+
+        if (gameObject.tag == Tags.NPC)
+        {
+            _talkAudioSource.Play();
+        }
         return conversations[_orderSystem.NowOrder];
         
     }
