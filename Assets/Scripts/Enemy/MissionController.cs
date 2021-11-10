@@ -5,7 +5,7 @@ using UnityEngine;
 public class MissionController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject gunEnemy = null;
+    private GameObject[] cuestEnemys = null;
     private GameObject[] enemys = null;
 
     private Transform playerTrs = null;
@@ -18,8 +18,6 @@ public class MissionController : MonoBehaviour
     [SerializeField]
     private float missionExitRange=40;
 
-    [SerializeField, Range(3, 10)]
-    private int enemyValue = 5;
 
     private bool buttle = false;
 
@@ -72,11 +70,11 @@ public class MissionController : MonoBehaviour
 
         int range = 3;
 
-        for(int i = 0; i < enemyValue; i++)
+        for(int i = 0; i < cuestEnemys.Length; i++)
         {
             int randomTheta = Random.Range(20, 70);
 
-            GameObject enemyPrefab = Instantiate(gunEnemy, transform);
+            GameObject enemyPrefab = Instantiate(cuestEnemys[i], transform);
 
             count++;
 

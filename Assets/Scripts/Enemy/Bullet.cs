@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour
 
             gameObject.SetActive (false);
 
-            print("aaaaaaaaa   "+hit.transform.name);
         }
 
         if (Vector3.Distance(transform.position, muzzlePos) > Range) gameObject.SetActive(false);
