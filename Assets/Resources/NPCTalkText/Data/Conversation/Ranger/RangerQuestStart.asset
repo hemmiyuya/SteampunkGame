@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6dbad4d63d5734db6efe7371de38a3, type: 3}
+  m_Name: RangerQuestStart
+  m_EditorClassIdentifier: 
+  message: "\u3069\u3046\u3084\u3089\u6700\u8FD1\u6D3B\u8E8D\u3057\u3066\u3044\u308B\u3088\u3046\u3060\u306D\u3002\n\u541B\u306B\u306A\u3089\u3053\u306E\u4F9D\u983C\u3092\u4EFB\u305B\u3089\u308C\u308B\u3088\u3046\u306A\u6C17\u304C\u3059\u308B\u3088"

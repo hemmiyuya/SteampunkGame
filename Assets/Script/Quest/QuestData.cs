@@ -47,6 +47,7 @@ public abstract class QuestData : MonoBehaviour
     private  string _questName = "";
 
     [SerializeField]
+    [TextArea(1, 20)]
     private string _questContent = "";
 
     private bool _questClereFlag = false;

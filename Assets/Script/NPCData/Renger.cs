@@ -8,7 +8,7 @@ public class Renger : NPCData
     {
         if ((int)_orderSystem.NowOrder == 6)
         {
-            //QuestHaveFlag = true;
+            QuestHaveFlag = true;
         }
         else
         {

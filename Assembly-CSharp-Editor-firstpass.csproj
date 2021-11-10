@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ED4B7E85-140F-130A-DCC9-E3C313FDB036}</ProjectGuid>
+    <ProjectGuid>{A020E829-0BFB-FFD7-46A1-33E9C20DC638}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
@@ -52,6 +52,9 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Standard Assets\Editor\Water\Water4\SpecularLightingEditor.cs" />
     <Compile Include="Assets\Standard Assets\Editor\Water\Water4\GerstnerDisplaceEditor.cs" />
@@ -288,6 +291,9 @@
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UWP.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\PlaybackEngines\MetroSupport\UnityEditor.UWP.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
@@ -787,36 +793,60 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{1AFDADB2-801E-FA56-B448-3ED688EF021E}</Project>
+      <Project>{6726400F-3326-4D43-E220-4BDCDEF0EB79}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.csproj">
-      <Project>{E7098B86-2B0E-396F-16A7-FEDA4C1AAEA2}</Project>
+      <Project>{BE46208F-B66D-5B69-A070-2BF41068A520}</Project>
       <Name>ZibraAILiquid</Name>
     </ProjectReference>
     <ProjectReference Include="UMotionSourceApplication.csproj">
-      <Project>{8877B507-554B-DB58-D27A-B6107B8CF6AC}</Project>
+      <Project>{A1249CA7-E885-152B-21AA-DB911250B873}</Project>
       <Name>UMotionSourceApplication</Name>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Settings.Editor.csproj">
-      <Project>{FB3DEC76-CB1A-AFF6-7BA1-69BE9C987C0F}</Project>
+      <Project>{82F10048-9CCC-8F84-B0AA-F3B3A76A7381}</Project>
       <Name>ZibraAILiquid.Settings.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="CopoCopo.TextMeshProAnimator.Runtime.csproj">
+      <Project>{AD2E48B5-7C09-DDFF-8E39-6762F862A27B}</Project>
+      <Name>CopoCopo.TextMeshProAnimator.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.DOTween.csproj">
+      <Project>{20D5D245-0A71-AE8B-9DDA-384FF2B4B849}</Project>
+      <Name>UniTask.DOTween</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Linq.csproj">
+      <Project>{2F270DA7-F614-CC01-F713-37FA5ED15898}</Project>
+      <Name>UniTask.Linq</Name>
+    </ProjectReference>
     <ProjectReference Include="UniRx.csproj">
-      <Project>{07A77A7E-0014-CD1D-1EBC-8B13CED12054}</Project>
+      <Project>{39DF0CC3-5BB4-6D88-A5AC-C2B304839D0E}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
+    <ProjectReference Include="UniTask.TextMeshPro.csproj">
+      <Project>{AFE38B04-5AAC-6E8F-A5FA-3AAB3CC2B1ED}</Project>
+      <Name>UniTask.TextMeshPro</Name>
+    </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Samples.csproj">
-      <Project>{E5E40DE8-3B24-8481-2CC1-91C5870318C8}</Project>
+      <Project>{B26D7770-3EA4-35CD-BE42-762B5D75EFF8}</Project>
       <Name>ZibraAILiquid.Samples</Name>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Editor.csproj">
-      <Project>{559D3591-8CA9-3F4C-2E45-39E4E7EA6FF0}</Project>
+      <Project>{F41BE08B-5094-E266-8A71-8D472F9FD7E5}</Project>
       <Name>ZibraAILiquid.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UMotionSourceEditor.csproj">
-      <Project>{234AB61D-8A9A-1B6C-6F91-7ABD7DE1B8A2}</Project>
+      <Project>{3188442C-4D37-B964-FBEE-7EC9C08B5595}</Project>
       <Name>UMotionSourceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{60B090F0-13FB-FFBF-B339-F16B8CA011CC}</Project>
+      <Name>UniTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Addressables.csproj">
+      <Project>{96F2C14F-F0E5-77D7-4B43-E8E9CD1DBE04}</Project>
+      <Name>UniTask.Addressables</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

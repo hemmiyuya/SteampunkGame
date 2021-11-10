@@ -42,7 +42,15 @@ namespace QuestList
     /// </summary>
     public class OrderMaxBoss : MonoBehaviour
     {
-
+        
+        /// <summary>
+        /// ボス出現させる
+        /// </summary>
+        /// <param name="transform">ボスの出現場所</param>
+        public void StartQuestOrderMaxBoss(Transform spawnTrs,GameObject bossObj)
+        {
+            Instantiate(bossObj, spawnTrs);
+        }
     }
 
     /// <summary>

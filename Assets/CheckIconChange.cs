@@ -33,8 +33,6 @@ public class CheckIconChange : MonoBehaviour
     {
         targetTransform = checkObj;
         talkIvent.target = checkObj;
-        Debug.Log(checkObj.gameObject);
-        Debug.Log(checkObj.tag);
         switch (checkObj.tag)
         {
             case NPCTag:

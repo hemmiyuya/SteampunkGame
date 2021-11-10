@@ -23,6 +23,7 @@ TagManager:
   - Canvas
   - UIManager
   - Robo
+  - BossSpawn
   layers:
   - Default
   - TransparentFX

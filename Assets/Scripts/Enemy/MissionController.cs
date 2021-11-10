@@ -113,6 +113,6 @@ public class MissionController : MonoBehaviour
     private void MissionClear()
     {
         audioManager.BgmOn();
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

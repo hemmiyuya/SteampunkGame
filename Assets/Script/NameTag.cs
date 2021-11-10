@@ -12,6 +12,7 @@ namespace NameTag
         public const string Canvas = "Canvas";
         public const string UIManager = "UIManager";
         public const string Audio = "Audio";
+        public const string BossSpawn = "BossSpawn";
     }
 
 

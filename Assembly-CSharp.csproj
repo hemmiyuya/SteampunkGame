@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.12</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -56,6 +56,7 @@
     <Compile Include="Assets\Script\NPCData\Gentlman2.cs" />
     <Compile Include="Assets\Scripts\Enemy\RobotFootIk.cs" />
     <Compile Include="Assets\StartTalkIvent.cs" />
+    <Compile Include="Assets\GentlmanShophint.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\RendererSortingOrder.cs" />
     <Compile Include="Assets\QuestSelect.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\DitheringComponent.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\TAA\Scripts\FrustumJitter.cs" />
+    <Compile Include="Assets\Scripts\Respoon.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\PostProcessingComponent.cs" />
     <Compile Include="Assets\Script\MeshCombiner.cs" />
     <Compile Include="Assets\SteamCity\Scripts\FPCharacter.cs" />
@@ -337,8 +339,7 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
-    <Compile Include="Assets\GentlmanShophint.cs" />
-    <Compile Include="Assets\Scripts\Respoon.cs" />
+    <Compile Include="Assets\OndestroyQuestClere.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
