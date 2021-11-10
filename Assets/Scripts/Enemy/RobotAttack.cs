@@ -41,8 +41,9 @@ public class RobotAttack : MonoBehaviour
             anim.SetFloat("SpinSpeed", Mathf.Lerp(0.2f, 0.6f, interpolatedValue));
         }
 
-            ColliderOn();
-            efects[0].SetActive(true);
+
+        collider.SetActive(true);
+        efects[0].SetActive(true);
         
 
         timer = 0;
