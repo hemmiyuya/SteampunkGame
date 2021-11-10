@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\NPCData\Gentlman2.cs" />
     <Compile Include="Assets\Scripts\Enemy\RobotFootIk.cs" />
     <Compile Include="Assets\StartTalkIvent.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\RendererSortingOrder.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Assets\Visual Design Cafe\Nature Renderer\Runtime\NatureRenderer.SRP.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\ParticleAffector.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\TargetProjectile.cs" />
+    <Compile Include="Assets\PlayerIconRotation.cs" />
     <Compile Include="Assets\Script\NPCNamePos.cs" />
     <Compile Include="Assets\Script\NameTag.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\BloomModel.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\Script\NPCData\Renger.cs" />
     <Compile Include="Assets\TextMeshProMaxVisibleCharaController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\CameraShake.cs" />
@@ -176,6 +179,7 @@
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\SceneResources\Other\Slash_DemoGUI.cs" />
     <Compile Include="Assets\living birds\scripts\lb_BirdController.cs" />
     <Compile Include="Assets\Scripts\Jump.cs" />
+    <Compile Include="Assets\Script\Quest\OrderMaxQuest.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\FxaaComponent.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Demos\Wallpapers\Gravity Clock\Scripts\GravityClockInteractivityUVFX.cs" />
@@ -187,6 +191,7 @@
     <Compile Include="Assets\ReadTalkText.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts\AttractionParticleForceField.cs" />
     <Compile Include="Assets\SampleLoader\SampleLoader.cs" />
+    <Compile Include="Assets\Script\TimeManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\DestroyAfterTime.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeLight.cs" />
@@ -332,11 +337,7 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
-    <Compile Include="Assets\Script\TimeManager.cs" />
-    <Compile Include="Assets\Script\NPCData\Gentlman2.cs" />
-    <Compile Include="Assets\Script\NPCData\Renger.cs" />
-    <Compile Include="Assets\Script\Quest\OrderMaxQuest.cs" />
-    <Compile Include="Assets\PlayerIconRotation.cs" />
+    <Compile Include="Assets\GentlmanShophint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />

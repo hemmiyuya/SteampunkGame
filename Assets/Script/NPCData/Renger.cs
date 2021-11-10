@@ -8,9 +8,12 @@ public class Renger : NPCData
     {
         if ((int)_orderSystem.NowOrder == 6)
         {
-            QuestHaveFlag = true;
+            //QuestHaveFlag = true;
         }
-        
+        else
+        {
+            _talkAudioSource.clip = _audioClip;
+        }
 
         return base.GetConversation();
     }
