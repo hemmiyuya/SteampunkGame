@@ -151,7 +151,10 @@ public class UIManager : MonoBehaviour
     {
         if (orderPoint == 500)
         {
-            
+            for(int i = _orderStarsUI.Length-1; i >= 0; i--)
+            {
+                _orderStarsUI[i].sprite = _orderStarsRainbow;
+            }
         }
 
         else
