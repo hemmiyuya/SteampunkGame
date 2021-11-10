@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RobotController : MonoBehaviour
@@ -20,7 +19,7 @@ public class RobotController : MonoBehaviour
     bool action;
     bool death;
 
-    float jumpTime=0.5f;
+    float jumpTime=0.4f;
     float spinTime=5f;
 
     private void Start()
@@ -71,7 +70,7 @@ public class RobotController : MonoBehaviour
             yield return new WaitForSeconds(4f);
             if (action)
             {
-                int random = Random.Range(0, 3);
+                int random =  Random.Range(0, 3);
                 if (random == 0)
                 {
                     robotMove.Turn(playerTrs);

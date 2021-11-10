@@ -338,6 +338,7 @@
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
     <Compile Include="Assets\GentlmanShophint.cs" />
+    <Compile Include="Assets\Scripts\Respoon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
@@ -495,6 +496,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Hovl Studio\PBR Fantasy staff\Shaders\Staff.shader" />
     <None Include="Assets\FogVolume\Resources\Upsample.shader" />
+    <None Include="Assets\GVX URP Decal\ScreenSpaceDecal_URP.shader" />
     <None Include="Assets\Dark_Brown_GUI_kit\Dark_Brown_GUI_kit.txt" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Blend_LinePath.shader" />

@@ -83,11 +83,14 @@ public class RobotAttack : MonoBehaviour
     public IEnumerator JumpAttack(Vector3 startPosition, Vector3 targetPosition, float time)
     {
         anim.SetTrigger("jump");
+
+        Destroy( Instantiate(efects[1], targetPosition, Quaternion.identity),2f);
+
         yield return new WaitForSeconds(1);
 
 
         timer = 0;
-        Vector3 center = new Vector3(0,1,0);
+        Vector3 center = new Vector3(0,0.1f,0);
         startPosition -= center;
         targetPosition -= center;
 
@@ -105,6 +108,7 @@ public class RobotAttack : MonoBehaviour
 
     public void ColliderOn()
     {
+        Destroy(Instantiate(efects[2], transform.position, Quaternion.identity),0.7f);
         collider.SetActive(true);
     }
 

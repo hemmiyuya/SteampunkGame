@@ -44,7 +44,8 @@ public class AttackRay : MonoBehaviour
             }
             else if (hit.transform.tag == "Robo")
             {
-                hit.transform.root.GetComponent<EnemyHp>().Damage(shotDamage);
+                var rootObj = GetParent(hit.transform);
+                rootObj.GetComponent<EnemyHp>().Damage(shotDamage);
             }
         }
     }
@@ -65,7 +66,8 @@ public class AttackRay : MonoBehaviour
             }
             else if (hit.transform.tag == "Robo")
             {
-                hit.transform.root.GetComponent<EnemyHp>().Damage(slashDamage/6);
+                var rootObj = GetParent(hit.transform);
+                rootObj.GetComponent<EnemyHp>().Damage(slashDamage/6);
             }
         }
             
@@ -75,5 +77,14 @@ public class AttackRay : MonoBehaviour
     {
         boxRayCenter = new Vector3(transform.position.x, transform.position.y + up, transform.position.z);
         Gizmos.DrawWireCube(boxRayCenter + transform.forward, Rectangle * scale*2);
+    }
+
+    private Transform GetParent(Transform obj)
+    {
+        while (obj.parent.tag != "Enemy")
+        {
+            obj = obj.parent;
+        }
+        return obj.parent;
     }
 }

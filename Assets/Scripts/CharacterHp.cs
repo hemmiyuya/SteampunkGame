@@ -72,9 +72,12 @@ public class CharacterHp : MonoBehaviour
 
     public void Heal(int heal)
     {
-        hp -= heal;
-        if (hp <= maxHp)
+        if (hp >= maxHp) return;
+        hp += heal;
+        if (hp > maxHp)
+            hp = maxHp;
         StartCoroutine(Transition());
+            
     }
 
     private void Death()
@@ -123,6 +126,20 @@ public class CharacterHp : MonoBehaviour
         yield break;
     }
 
+    IEnumerator AutoHeal()
+    {
+        while (this)
+        {
+            yield return new WaitForSeconds(3f);
+            if (hp>=0)
+            {
+                //hpの3％を回復
+                Heal( maxHp / 100 * 3);
+            }
+        }
+        yield break;
+    }
+
     //アニメーションイベントで呼び出し
     public void MoveOn()
     {
@@ -131,6 +148,13 @@ public class CharacterHp : MonoBehaviour
 
     private void MoveOff()
     {
+        characontrolManager.moveFlag = false;
+    }
+
+    public void Respoon()
+    {
+        //hp半分回復
+        Heal(maxHp / 2);
         characontrolManager.moveFlag = false;
     }
 }
