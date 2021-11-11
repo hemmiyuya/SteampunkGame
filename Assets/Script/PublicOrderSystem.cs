@@ -33,7 +33,7 @@ public class PublicOrderSystem : MonoBehaviour
 
     private void Start()
     {
-        AddOrder(500);
+        AddOrder(250);
     }
 
     /// <summary>

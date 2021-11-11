@@ -16,7 +16,7 @@ public class TestNPCData : NPCData
         
         float nowTime = _timeManager.WorldTime;
         //クエスト優先
-        if (QuestHaveFlag)
+        if (CanQuestCheck())
         {
             Debug.Log("クエストボイス");
             _talkAudioSource.clip = _questvoice;

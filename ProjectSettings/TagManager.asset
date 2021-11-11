@@ -24,6 +24,7 @@ TagManager:
   - UIManager
   - Robo
   - BossSpawn
+  - CantWallUp
   layers:
   - Default
   - TransparentFX

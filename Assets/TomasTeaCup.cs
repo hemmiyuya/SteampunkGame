@@ -10,6 +10,9 @@ public class TomasTeaCup : NPCData
     [SerializeField]
     private GameObject _parentObj;
 
+    [SerializeField]
+    private Gentlman2 gentlman2 = default;
+
     public void QuestFlagON()
     {
         _questNow = true;
@@ -30,7 +33,10 @@ public class TomasTeaCup : NPCData
 
     private void GetTea()
     {
+        gentlman2.TomasTeaGet = true;
         _parentObj.SetActive(false);
     }
     
+
+
 }

@@ -86,6 +86,7 @@
     <Compile Include="Assets\SteamCity\Scripts\FPMouseLook.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\ScreenSpaceReflectionComponent.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\ParticleCollisionInstance.cs" />
+    <Compile Include="Assets\Script\Quest\TomasTeaQuest.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshCollider.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
@@ -239,6 +240,7 @@
     <Compile Include="Assets\Script\Grappling2.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\DestroyOnTrailsDestroyed.cs" />
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\MainMenuButton.cs" />
+    <Compile Include="Assets\TomasTeaCup.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts\Noise2.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\TrailRenderers.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\GrainComponent.cs" />
@@ -341,8 +343,12 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
-    <Compile Include="Assets\TomasTeaCup.cs" />
-    <Compile Include="Assets\Script\Quest\TomasTeaQuest.cs" />
+    <Compile Include="Assets\Script\NPCData\ShopWoman1.cs" />
+    <Compile Include="Assets\Script\NPCData\KaziyaOyazi.cs" />
+    <Compile Include="Assets\Script\NPCData\SintyoOtoko.cs" />
+    <Compile Include="Assets\Script\NPCData\GoukaiOtoko.cs" />
+    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Characters\Sources\Scripts\PT_Create_Prefab.cs" />
+    <Compile Include="Assets\RyousanNPC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
@@ -388,6 +394,7 @@
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\Distance Fade\DistanceFade-AnimBlendAdd.shader" />
     <None Include="Assets\Visual Design Cafe\Package Manager\VisualDesignCafe.Packages.dll" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
     <None Include="Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.Nature.Editor.dll" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Plugins\VisualDesignCafe.ShaderX.dll" />
     <None Include="Assets\FogVolume\Scenes\Skies\Skybox-Procedural.shader" />
@@ -395,6 +402,7 @@
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\NM_indirect.cginc" />
     <None Include="Assets\FogVolume\Resources\Surrogate.shader" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\Advanced Grass Standard.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Weapons\Sources\Shaders\PT_Medieval_Weapons_Shader_Toon.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Layered.shader" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\No Fog\NoFog-Alpha.shader" />
     <None Include="Assets\UMotionEditor\Shaders\WiresOnly.shader" />
@@ -442,6 +450,7 @@
     <None Include="Assets\Resources\NPCTalkText\NPCtext1.txt" />
     <None Include="Assets\Mirza Beig\_DOCS\README - Storm VFX.txt" />
     <None Include="Assets\UMotionEditor\Shaders\UnlitDashedLine.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Weapons\Sources\Shaders\PT_Medieval_Weapons_Shader_PBR.shader" />
     <None Include="Assets\FogVolume\Resources\FogVolumeCommon.cginc" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Lit_Top_Cover_Specular.shader" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
@@ -449,6 +458,7 @@
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Distortion.shader" />
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Blend_TwoSides.shader" />
     <None Include="Assets\NatureManufacture Assets\Third-Party Notices.txt" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Characters\Sources\Modular_Armors\Shaders\PT_Medieval_Armors_Shader_PBR.shader" />
     <None Include="Assets\Resources\NPCTalkText\Data\Conversation\TestNPC\TestNPCs.txt" />
     <None Include="Assets\NatureManufacture Assets\Forest Environment Dynamic Nature\R.A.M Non Tesseled trial\Shaders\WaterDistortionCheck.hlsl" />
     <None Include="Assets\SteamCity\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
@@ -460,8 +470,10 @@
     <None Include="Assets\Castle Walls\新しいテキスト ドキュメント.txt" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\NMWind.cginc" />
     <None Include="Assets\FogVolume\Scenes\RT Viewer\RT_DepthR.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Opaque_Shader.shader" />
     <None Include="Assets\FogVolume\Resources\Integrations.cginc" />
     <None Include="Assets\MogiWep\Shader\Unlit 1.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader.shader" />
     <None Include="Assets\MogiWep\Shader\EmissionSample.shader" />
     <None Include="Assets\FogVolume\Resources\Primitive.shader" />
     <None Include="Assets\NatureManufacture Assets\Forest Environment Dynamic Nature\VS PRO Forest Biomes\README - VS PRO Biomes.txt" />
@@ -499,6 +511,7 @@
     <None Include="Assets\Mirza Beig\Particle Systems\_Common\Shaders\ASE Templates\Particle Alpha Blend + TEXCOORD1.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Hovl Studio\PBR Fantasy staff\Shaders\Staff.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader.shader" />
     <None Include="Assets\FogVolume\Resources\Upsample.shader" />
     <None Include="Assets\GVX URP Decal\ScreenSpaceDecal_URP.shader" />
     <None Include="Assets\Dark_Brown_GUI_kit\Dark_Brown_GUI_kit.txt" />
@@ -582,8 +595,10 @@
     <None Include="Assets\Mirza Beig\Shaders\Particles\Alpha Cutoff\AlphaCutoff-Alpha.shader" />
     <None Include="Assets\NatureManufacture Assets\Object Shaders\NM_Layered_Triplanar_Top_Cover.shader" />
     <None Include="Assets\Mirza Beig\Shaders\Particles\Distortion\TextureDistortion-Alpha.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Characters\Sources\Modular_Armors\Shaders\PT_Medieval_Armors_Shader_Toon.shader" />
     <None Include="Assets\NatureManufacture Assets\Foliage Shaders\NM_Foliage.shader" />
     <None Include="Assets\Hovl Studio\White mage spells\Shaders\Add_CenterGlow.shader" />
+    <None Include="Assets\Polytope Studio\Lowpoly Medieval Environments\Sources\Shaders\PT_Rock_Shader.shader" />
     <None Include="Assets\Visual Design Cafe\Package Manager\VisualDesignCafe.Editor.Events.dll" />
     <None Include="Assets\SteamCity\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

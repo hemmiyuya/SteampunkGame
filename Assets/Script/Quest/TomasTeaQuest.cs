@@ -9,6 +9,9 @@ public class TomasTeaQuest : QuestData
     private TomasTea _tomasTea=new TomasTea();
 
     [SerializeField]
+    public Conversation _questEndSerifu = default;
+
+    [SerializeField]
     TomasTeaCup teaCup = default;
 
     public override void QuestStart()

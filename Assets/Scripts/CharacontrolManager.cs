@@ -371,14 +371,14 @@ public class CharacontrolManager : MonoBehaviour
         bool uppercheck = Physics.Raycast(transform.position + playerRotation * w_fowardUpRayOrigin, playerRotation * w_fowardUpRayPlusVector, out w_fowardUpHit, w_fowardUpRayAmount, 1 << _groundLayer);
         if (lowercheck && uppercheck)
         {
-            if((w_fowardDownHit.transform.tag!=Tags.Enemy && w_fowardUpHit.transform.tag!= Tags.Enemy) ||
-                ( w_fowardDownHit.transform.tag != Tags.NPC && w_fowardUpHit.transform.tag != Tags.NPC)||
-                 (w_fowardDownHit.transform.tag != Tags.CantWallUp && w_fowardUpHit.transform.tag != Tags.CantWallUp))
+            if((w_fowardDownHit.transform.tag!=Tags.Enemy || w_fowardUpHit.transform.tag!= Tags.Enemy) ||
+                ( w_fowardDownHit.transform.tag != Tags.NPC || w_fowardUpHit.transform.tag != Tags.NPC)||
+                 (w_fowardDownHit.transform.tag != Tags.CantWallUp || w_fowardUpHit.transform.tag != Tags.CantWallUp))
             {
-                return false;
+                return true ;
             }
 
-            return true;
+            return false;
         }
         return false;
     }
