@@ -11,6 +11,8 @@ public abstract class NPCData : MonoBehaviour
     [SerializeField]
     private Conversation[] conversations = new Conversation[7];
 
+    [SerializeField]
+    private GameObject _questAcceptNow;
 
     protected enum Gender
     {
@@ -29,6 +31,7 @@ public abstract class NPCData : MonoBehaviour
     protected virtual void Awake()
     {
         _orderSystem = GameObject.FindGameObjectWithTag("OrderSytem").GetComponent<PublicOrderSystem>();
+        _questAcceptNow = GameObject.FindGameObjectWithTag(Tags.Canvas).transform.GetChild(4).GetChild(1).GetChild(3).gameObject;
     }
     public string Name
     {
@@ -38,8 +41,8 @@ public abstract class NPCData : MonoBehaviour
     //　Conversionスクリプトを返す
     public virtual Conversation GetConversation()
     {
-        
-        if (QuestHaveFlag)
+        //クエストフラグがたっており、他に進行中のクエストがなかったら
+        if (QuestHaveFlag&& !_questAcceptNow.activeSelf)
         {
             return _questData._questSelectSerifu;
         }
@@ -53,7 +56,7 @@ public abstract class NPCData : MonoBehaviour
     }
 
     [SerializeField]
-    private QuestData _questData;
+    public QuestData _questData;
 
     public void SetOrder(int orderPoint)
     {
@@ -63,5 +66,11 @@ public abstract class NPCData : MonoBehaviour
     public virtual void EndTalk()
     {
         
+    }
+
+    public bool CanQuestCheck()
+    {
+        if (QuestHaveFlag && !_questAcceptNow.activeSelf) return true;
+        else return false;
     }
 }

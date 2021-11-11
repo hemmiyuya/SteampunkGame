@@ -38,8 +38,9 @@ public class StartTalkIvent : MonoBehaviour
                 No1.TalkCountUp();
                 _uiManager.NamePanelSetActive(true);
                 _uiManager.NamePanelSet(targetTransform.GetComponent<NPCData>().Name);
-                QuestTalkNow = targetTransform.GetComponent<NPCData>().QuestHaveFlag;
+                QuestTalkNow = targetTransform.GetComponent<NPCData>().CanQuestCheck();
             }
+            else QuestTalkNow = false;
         }
     }
 

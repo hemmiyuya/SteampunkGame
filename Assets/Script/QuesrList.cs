@@ -60,5 +60,18 @@ namespace QuestList
     {
 
     }
+
+    /// <summary>
+    /// トーマスのティーポットを探す
+    /// </summary>
+    public class TomasTea : MonoBehaviour
+    {
+
+        public void StartQuestTomasTea()
+        {
+            
+        }
+
+    }
     
 }
