@@ -47,7 +47,7 @@ MonoBehaviour:
   cuestEnemys:
   - {fileID: 6549892268849878702, guid: 769b395b97deec44db612dec416ecd6e, type: 3}
   missionRange: 9
-  missionExitRange: 40
+  missionExitRange: 70
   pinPrefab: {fileID: 700022902608382551, guid: 01589b474e66a304eb86f7d94ace12d1, type: 3}
 --- !u!114 &8616558606957810358
 MonoBehaviour:

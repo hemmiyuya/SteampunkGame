@@ -100,7 +100,7 @@ Material:
     - _CEL2COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _CEL3COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _CLOTH1COLOR: {r: 0.1465379, g: 0.282117, b: 0.3490566, a: 0}
-    - _CLOTH2COLOR: {r: 0, g: 0.04299283, b: 1, a: 0}
+    - _CLOTH2COLOR: {r: 0, g: 0.024377584, b: 1, a: 0}
     - _CLOTH3COLOR: {r: 0.2924528, g: 0.2906935, b: 0.16691881, a: 0}
     - _COATOFARMSCOLOR: {r: 1, g: 0, b: 0, a: 0}
     - _EYESCOLOR: {r: 0.0734529, g: 0.1320755, b: 0.05046281, a: 1}

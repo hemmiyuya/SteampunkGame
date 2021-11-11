@@ -73,5 +73,16 @@ namespace QuestList
         }
 
     }
+
+    /// <summary>
+    /// –…‚Ì“X‚Ì‹ß‚­‚Ì‚²‚ë‚Â‚«‚ð’Ç‚¢•¥‚¤
+    /// </summary>
+    public class ShopWoman2Sisters : MonoBehaviour
+    {
+        public void StartQuest(Transform spawnTrs, GameObject enemyobj)
+        {
+            Instantiate(enemyobj, spawnTrs);
+        }
+    }
     
 }
