@@ -59,6 +59,7 @@ public abstract class QuestData : MonoBehaviour
     {
         //治安ポイント加算
         NPCData.SetOrder(_questClereReward);
+        NPCData._questEndFlag = true;
         //クエストクリア画面表示
         _uiManager.QuestClereNameSet(_questName);
         _uiManager.QuestClereWindowSetActive(true);

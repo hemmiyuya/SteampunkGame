@@ -79,6 +79,21 @@ namespace QuestList
     /// </summary>
     public class ShopWoman2Sisters : MonoBehaviour
     {
+        GameObject _enemys;
+        public void StartQuest(Transform spawnTrs, GameObject enemyobj)
+        {
+            _enemys = enemyobj;
+            Instantiate(_enemys, spawnTrs);
+        }
+
+
+    }
+
+    /// <summary>
+    /// ƒSƒƒcƒL‚½‚¿‚Ì•œK‚ğ‘j~‚·‚é
+    /// </summary>
+    public class ShopWoman1Sisters : MonoBehaviour
+    {
         public void StartQuest(Transform spawnTrs, GameObject enemyobj)
         {
             Instantiate(enemyobj, spawnTrs);

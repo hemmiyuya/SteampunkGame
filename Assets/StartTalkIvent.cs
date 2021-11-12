@@ -38,7 +38,10 @@ public class StartTalkIvent : MonoBehaviour
                 No1.TalkCountUp();
                 _uiManager.NamePanelSetActive(true);
                 _uiManager.NamePanelSet(targetTransform.GetComponent<NPCData>().Name);
-                QuestTalkNow = targetTransform.GetComponent<NPCData>().CanQuestCheck();
+                if (!_uiManager._questClereFlag)
+                {
+                    QuestTalkNow = targetTransform.GetComponent<NPCData>().CanQuestCheck();
+                }
             }
             else QuestTalkNow = false;
         }
@@ -56,6 +59,10 @@ public class StartTalkIvent : MonoBehaviour
         {
             player.GetComponent<NPCTalkLength>().NPCTalkEnd();
             target.GetComponent<NPCData>().EndTalk();
+            if (_uiManager._questClereFlag)
+            {
+                player.GetComponent<CharacontrolManager>().moveFlag = false;
+            }
         }
     }
 

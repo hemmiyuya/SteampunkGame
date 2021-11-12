@@ -11,6 +11,8 @@ public class ShopWoman2Quest : QuestData
     private Transform _enemySpawn;
     [SerializeField]
     private GameObject _enemys;
+    [SerializeField]
+    private ShopWoman1 shopWoman;
 
     public override void QuestStart()
     {
@@ -20,6 +22,7 @@ public class ShopWoman2Quest : QuestData
 
     public override void QuestClere()
     {
+        shopWoman.QuestFlagON();
         GetComponent<ShopWoman2>()._questEndFlag = true;
         GetComponent<ShopWoman2>().QuestHaveFlag = false;
         base.QuestClere();

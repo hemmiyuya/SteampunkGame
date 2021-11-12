@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private CharacontrolManager _charaMamaneger;
 
+    public bool _questClereFlag = false;
 
     /// <summary>
     /// 会話中などのイベント中に非表示にするUI
@@ -145,11 +146,15 @@ public class UIManager : MonoBehaviour
     public void QuestClereNow()
     {
         QuestDisappearUI.SetActive(false);
+        _charaMamaneger.moveFlag = false;
+        _questClereFlag = true;
     }
 
     public void QuestClereEnd()
     {
         QuestDisappearUI.SetActive(true);
+        _questClereFlag = false;
+        _charaMamaneger.moveFlag = true;
     }
 
     public void SetOrderStars(float orderPoint)

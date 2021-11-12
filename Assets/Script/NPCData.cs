@@ -58,6 +58,8 @@ public abstract class NPCData : MonoBehaviour
     [SerializeField]
     public QuestData _questData;
 
+    public bool _questEndFlag = false;
+
     public void SetOrder(int orderPoint)
     {
         _orderSystem.AddOrder(orderPoint);

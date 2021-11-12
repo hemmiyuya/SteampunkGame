@@ -64,8 +64,9 @@
     <Compile Include="Assets\Scripts\UI\TargetIndicator.cs" />
     <Compile Include="Assets\OrdosFX\Magic Slashes FX\MobileBloom\Slashes_MobileBloom.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
-    <Compile Include="Assets\living birds\scripts\lb_CrowProximity.cs" />
+    <Compile Include="Assets\Script\NPCData\SintyoOtoko.cs" />
     <Compile Include="Assets\DonSESet.cs" />
+    <Compile Include="Assets\living birds\scripts\lb_CrowProximity.cs" />
     <Compile Include="Assets\MiniMap\MiniMapWithPlayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\FogVolume\Scripts\FogVolumeTAA.cs" />
@@ -96,6 +97,8 @@
     <Compile Include="Assets\MogiWep\C#Script\OneOverFNoise.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\PostProcessingProfile.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Flocking\ParticleFlocking.cs" />
+    <Compile Include="Assets\Script\NPCData\ShopWoman1.cs" />
+    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Characters\Sources\Scripts\PT_Create_Prefab.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts (DEMO ONLY)\ParticleForceFieldsDemo.cs" />
     <Compile Include="Assets\Scripts\Enemy\Conditions.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\ToggleChildren.cs" />
@@ -154,6 +157,7 @@
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Demos\Wallpapers\Gravity Clock\Scripts\BillboardCameraPlaneUVFX.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\FogVolumePriority.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\ColorGradingComponent.cs" />
+    <Compile Include="Assets\OndestroyQuestClereShopWoman2.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FPSTest.cs" />
     <Compile Include="Assets\Scripts\Animationmanager.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Plexus\Scripts (DEMO ONLY)\ParticlePlexusDemo_CameraRig.cs" />
@@ -172,6 +176,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\CameraShake.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
+    <Compile Include="Assets\RyousanNPC.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\RewindParticleSystemSimple.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\RenderPriority.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
@@ -210,6 +215,7 @@
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\FogVolume\Scripts\Other\TAA\Scripts\VelocityBuffer.cs" />
     <Compile Include="Assets\CursorManager.cs" />
+    <Compile Include="Assets\Script\NPCData\KaziyaOyazi.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\Noise.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\TransformNoise.cs" />
     <Compile Include="Assets\FogVolume\FogVolume Demo Content\AnimatorSpeed.cs" />
@@ -230,6 +236,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\VignetteModel.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Expansions\XP - STORM\Scripts\StormVFXTerrainDemoCamera.cs" />
+    <Compile Include="Assets\Script\NPCData\GoukaiOtoko.cs" />
     <Compile Include="Assets\Mirza Beig\Shaders\_Common\IEBase.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\GrainModel.cs" />
     <Compile Include="Assets\Scripts\Enemy\Pool.cs" />
@@ -274,9 +281,11 @@
     <Compile Include="Assets\SAColliderBuilder\Scripts\SABoneColliderChild.cs" />
     <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SABoneColliderCommon.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\PerlinNoise.cs" />
+    <Compile Include="Assets\Script\Quest\ShopWoman2Quest.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\UserLutComponent.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\LoopingParticleSystemsManager.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\AnimatedLight.cs" />
+    <Compile Include="Assets\Script\NPCData\CanCheckObj.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Script\NPCData\TestNPCData.cs" />
     <Compile Include="Assets\DynamicBone\Scripts\DynamicBoneCollider.cs" />
@@ -292,6 +301,7 @@
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\DemoManager.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Scripts\Enemy\RobotController.cs" />
+    <Compile Include="Assets\Script\NPCData\ShopWoman2.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\ZoneTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\AmbientOcclusionModel.cs" />
@@ -343,16 +353,8 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
-    <Compile Include="Assets\Script\NPCData\ShopWoman1.cs" />
-    <Compile Include="Assets\Script\NPCData\KaziyaOyazi.cs" />
-    <Compile Include="Assets\Script\NPCData\SintyoOtoko.cs" />
-    <Compile Include="Assets\Script\NPCData\GoukaiOtoko.cs" />
-    <Compile Include="Assets\Polytope Studio\Lowpoly Medieval Characters\Sources\Scripts\PT_Create_Prefab.cs" />
-    <Compile Include="Assets\RyousanNPC.cs" />
-    <Compile Include="Assets\Script\NPCData\CanCheckObj.cs" />
-    <Compile Include="Assets\Script\NPCData\ShopWoman2.cs" />
-    <Compile Include="Assets\Script\Quest\ShopWoman2Quest.cs" />
-    <Compile Include="Assets\OndestroyQuestClereShopWoman2.cs" />
+    <Compile Include="Assets\Script\Quest\ShopWoman2Quest2.cs" />
+    <Compile Include="Assets\OndestroyQuestClereShopWoman1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
