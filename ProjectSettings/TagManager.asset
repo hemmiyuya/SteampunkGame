@@ -25,6 +25,7 @@ TagManager:
   - Robo
   - BossSpawn
   - CantWallUp
+  - INN
   layers:
   - Default
   - TransparentFX

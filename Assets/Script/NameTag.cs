@@ -15,6 +15,7 @@ namespace NameTag
         public const string BossSpawn = "BossSpawn";
         public const string Enemy = "Enemy";
         public const string CantWallUp = "CantWallUp";
+        public const string INN = "INN";
     }
 
 

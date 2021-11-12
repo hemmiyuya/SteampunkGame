@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NameTag;
 
 public class NPCTalkLength : MonoBehaviour
 {
@@ -41,8 +42,7 @@ public class NPCTalkLength : MonoBehaviour
         if (_talkState == 0)
         {
 
-
-            if(other.tag== NPCTag || other.tag== CanCheckObjTag)
+            if(other.tag== NPCTag || other.tag== CanCheckObjTag||other.tag==Tags.INN)
             {
                 checkIcon.SetActive(true);
                 checkIcon.GetComponent<CheckIconChange>().ChangeIcon(other.transform);
@@ -61,7 +61,7 @@ public class NPCTalkLength : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == NPCTag || other.tag == CanCheckObjTag)
+        if (other.tag == NPCTag || other.tag == CanCheckObjTag || other.tag == Tags.INN)
         {
             //プレイヤーが出たときアイコンを非表示に
             checkIcon.SetActive(false);

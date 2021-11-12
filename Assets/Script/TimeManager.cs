@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
@@ -37,6 +38,14 @@ public class TimeManager : MonoBehaviour
     private Color _lamp2onColor;
     private Color _lamp2offColor;
 
+    [SerializeField]
+    private CharacterHp _characterHp;
+
+    [SerializeField]
+    private CharacontrolManager _characontrolManager;
+
+    private const float _morningTime = 0.75f;
+
     private void Awake()
     {
         _lamp1onColor = _lampMat1.GetColor("_EmissionColor");
@@ -44,6 +53,7 @@ public class TimeManager : MonoBehaviour
 
         _lamp1offColor = _lamp1onColor * 0.2f;
         _lamp2offColor = _lamp2onColor * 0.2f;
+        
     }
 
     /// <summary>
@@ -63,17 +73,88 @@ public class TimeManager : MonoBehaviour
     private HitStopTipe _stopType = default;
 
     [SerializeField]
-    Animator AnimeController;
+    Animator AnimeControllerDirectionalLight;
+
+    [SerializeField]
+    Animator AnimeControllerClowd;
+
+    /// <summary>
+    /// êQÇÈÇ∆Ç´ÅAà√ì]ÇµÇƒí©Ç…Ç∑ÇÈ
+    /// </summary>
+    public void Sleep()
+    {
+        StartCoroutine(FadeOut());
+        audioSource.Play();
+    }
+
+    [SerializeField]
+    private Image _blackOutImage;
+
+    [SerializeField]
+    private AudioSource audioSource;
+
+    private IEnumerator FadeOut()
+    {
+        
+        float FadeOutTime = 4;
+        float FadeOutNowTime = 0;
+        float FadeOutPer = 0;
+        while (FadeOutPer < 1)
+        {
+            FadeOutPer = FadeOutNowTime / FadeOutTime;
+            float a = Mathf.Lerp(0, 1, FadeOutPer);
+            FadeOutNowTime += 0.1f;
+            _blackOutImage.color = new Color(_blackOutImage.color.r, _blackOutImage.color.g, _blackOutImage.color.b, a);
+            yield return new WaitForSeconds(0.1f);
+            _characontrolManager.moveFlag = false;
+        }
+        StartCoroutine(FadeNow());
+        AnimeControllerDirectionalLight.Play(0, -1, _morningTime);
+        AnimeControllerClowd.Play(0, -1, _morningTime);
+        _characterHp.Heal(100);
+        yield break;
+    }
+
+    private IEnumerator FadeNow()
+    {
+        float FadeTime = 1.5f;
+        float FadeNowTime = 0;
+        while (FadeNowTime < FadeTime)
+        {
+            FadeNowTime += 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        StartCoroutine(FadeIn());
+        yield break;
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float FadeInTime = 2;
+        float FadeInNowTime = 0;
+        float FadeInPer = 0;
+
+        while (FadeInPer < 1)
+        {
+            FadeInPer = FadeInNowTime / FadeInTime;
+            float a = Mathf.Lerp(1, 0, FadeInPer);
+            FadeInNowTime += 0.1f;
+            _blackOutImage.color = new Color(_blackOutImage.color.r, _blackOutImage.color.g, _blackOutImage.color.b, a);
+            yield return new WaitForSeconds(0.1f);
+        }
+        _characontrolManager.moveFlag = true;
+        yield break;
+    }
 
     private void Update()
     {
-        AnimatorStateInfo animeStateInfo = AnimeController.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo animeStateInfo = AnimeControllerDirectionalLight.GetCurrentAnimatorStateInfo(0);
         float animeTime = animeStateInfo.normalizedTime;
-        animeTime = animeTime - minasTime;
+        //animeTime = animeTime - minasTime;
         if (animeTime >= resetTime) 
         {
-           
-           minasTime += 1;
+            AnimeControllerDirectionalLight.Play(0, -1, 0f);
+            //minasTime += 1;
         } 
         _worldTime = Mathf.Lerp(0, 100, animeTime);
         if (_worldTime == 100)
@@ -114,8 +195,6 @@ public class TimeManager : MonoBehaviour
 
                     break;
             }
-
-            
         }
     }
 

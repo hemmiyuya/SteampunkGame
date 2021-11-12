@@ -6,7 +6,7 @@ public class ShopWoman2 : NPCData
 {
     public override Conversation GetConversation()
     {
-        if ((int)_orderSystem.NowOrder >= 3&&!_questEndFlag)
+        if ((int)_orderSystem.NowOrder >= 4&&!_questEndFlag)
         {
             QuestHaveFlag = true;
             _talkAudioSource.clip = _questAudioClip;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QuestList;
+using NameTag;
 
 public class StartTalkIvent : MonoBehaviour
 {
@@ -44,6 +45,12 @@ public class StartTalkIvent : MonoBehaviour
                 }
             }
             else QuestTalkNow = false;
+
+            //èhâÆÇ»ÇÁÅAãxåeÇ∑ÇÈÇ©Ç«Ç§Ç©ï∑Ç≠
+            if (targetTransform.tag == Tags.INN)
+            {
+
+            }
         }
     }
 
@@ -54,6 +61,10 @@ public class StartTalkIvent : MonoBehaviour
         if (QuestTalkNow)
         {
             targetTransform.GetComponent<QuestData>().QuestSelect();
+        } 
+        else if (targetTransform.tag == Tags.INN)
+        {
+            _uiManager.INNWindowSetActive(true);
         }
         else
         {

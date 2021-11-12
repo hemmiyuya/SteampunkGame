@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NameTag;
 
 public class CheckIconChange : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class CheckIconChange : MonoBehaviour
 
     private const string Talk = "òbÇ∑";
     private const string Check = "í≤Ç◊ÇÈ";
+    private const string Sleep = "èhâÆ";
 
     private void Awake()
     {
@@ -43,6 +45,11 @@ public class CheckIconChange : MonoBehaviour
             case CanCheckObjTag:
                 CheckIconText.text = Check;
                 iconImage.sprite = iconSprites[1];
+                break;
+
+            case Tags.INN:
+                CheckIconText.text = Sleep;
+                iconImage.sprite = iconSprites[3];
                 break;
         }
     }

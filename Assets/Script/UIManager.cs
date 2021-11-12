@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject _questWindow = default;
     [SerializeField]
+    private GameObject _innWindow = default;
+    [SerializeField]
     private Text _questWindowNameText = default;
     [SerializeField]
     private Text _questContents = default;
@@ -81,6 +83,11 @@ public class UIManager : MonoBehaviour
     public void QuestClereWindowSetActive(bool set)
     {
         _questClere.SetActive(set);
+    }
+
+    public void INNWindowSetActive(bool set)
+    {
+        _innWindow.SetActive(set);
     }
 
     public void ProgressQuestUISetActive(bool set)

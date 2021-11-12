@@ -355,6 +355,8 @@
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
     <Compile Include="Assets\Script\Quest\ShopWoman2Quest2.cs" />
     <Compile Include="Assets\OndestroyQuestClereShopWoman1.cs" />
+    <Compile Include="Assets\Script\NPCData\Yadoya.cs" />
+    <Compile Include="Assets\INNSelect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />

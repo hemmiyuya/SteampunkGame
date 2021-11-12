@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6dbad4d63d5734db6efe7371de38a3, type: 3}
+  m_Name: INN
+  m_EditorClassIdentifier: 
+  message: "\u5BBF\u5C4B\u3060\uFF01\u4F11\u61A9\u3057\u3066\u56DE\u5FA9\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3002"
