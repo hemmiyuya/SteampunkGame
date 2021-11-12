@@ -49,6 +49,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject _stateGage;
 
+    [SerializeField]
+    private CharacontrolManager _charaMamaneger;
+
 
     /// <summary>
     /// 会話中などのイベント中に非表示にするUI
@@ -130,11 +133,13 @@ public class UIManager : MonoBehaviour
     public void IventNow()
     {
         iventDisappearUI.SetActive(false);
+        _charaMamaneger.moveFlag = false;
     }
 
     public void IventEnd()
     {
         iventDisappearUI.SetActive(true);
+        _charaMamaneger.moveFlag = true;
     }
 
     public void QuestClereNow()
