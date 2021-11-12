@@ -32,7 +32,6 @@ namespace QuestList
                 } )
                 ;
 
-            Debug.Log(nowTalkCount.Value+"Ç»Ç§Ç∆Å[Ç≠Ç©Ç§ÇÒÇ∆ÇËÇπÇ¡Ç∆");
         }
 
     }

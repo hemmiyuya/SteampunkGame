@@ -32,7 +32,6 @@ public class INNSelect : MonoBehaviour
 
     private void INNAccept()
     {
-        audioManager.SEOn(2);
         timeManager.Sleep();
 
         gameObject.SetActive(false);

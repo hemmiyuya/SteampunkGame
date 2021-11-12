@@ -18,7 +18,6 @@ public class TestNPCData : NPCData
         //クエスト優先
         if (CanQuestCheck())
         {
-            Debug.Log("クエストボイス");
             _talkAudioSource.clip = _questvoice;
             _talkAudioSource.Play();
         }

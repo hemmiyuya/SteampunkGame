@@ -28,6 +28,7 @@ public class Gentlman2 : NPCData
 
         if (TomasTeaQuestEnd)
         {
+            QuestHaveFlag = false;
             return _afterQuestSerihu;
         }
 

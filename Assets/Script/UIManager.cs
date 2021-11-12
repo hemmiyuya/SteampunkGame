@@ -161,8 +161,34 @@ public class UIManager : MonoBehaviour
     {
         QuestDisappearUI.SetActive(true);
         _questClereFlag = false;
-        _charaMamaneger.moveFlag = true;
+        OrderLevelChangeWindowSetActive();
     }
+
+    [SerializeField]
+    private GameObject OrderChangeWindow;
+
+
+    public void OrderLevelChangeWindowSetActive()
+    {
+        OrderChangeWindow.SetActive(true);
+        IventNow();
+        StartCoroutine(OrderLevelChangeWindowFalse());
+    }
+
+    private IEnumerator OrderLevelChangeWindowFalse()
+    {
+        float HyoziTime = 1.5f;
+        float NowTime = 0;
+        while (NowTime < HyoziTime)
+        {
+            NowTime += 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        OrderChangeWindow.SetActive(false);
+        IventEnd();
+        yield break;
+    }
+
 
     public void SetOrderStars(float orderPoint)
     {
