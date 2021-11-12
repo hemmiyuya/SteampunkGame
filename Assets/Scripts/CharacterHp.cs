@@ -155,6 +155,6 @@ public class CharacterHp : MonoBehaviour
     {
         //hp”¼•ª‰ñ•œ
         Heal(maxHp / 2);
-        characontrolManager.moveFlag = false;
+        characontrolManager.moveFlag = true;
     }
 }
