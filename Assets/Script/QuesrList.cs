@@ -98,5 +98,13 @@ namespace QuestList
             Instantiate(enemyobj, spawnTrs);
         }
     }
+
+    public class KaziyaQuest1 : MonoBehaviour
+    {
+        public void StartQuest(Transform spawnTrs, GameObject enemyobj)
+        {
+            Instantiate(enemyobj, spawnTrs);
+        }
+    }
     
 }

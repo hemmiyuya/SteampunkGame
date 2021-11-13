@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour
 
     public bool _questClereFlag = false;
 
+
     /// <summary>
     /// 会話中などのイベント中に非表示にするUI
     /// </summary>
@@ -64,6 +65,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private GameObject QuestDisappearUI;
+
+    [SerializeField]
+    private GameObject _canRepeatQuestUI;
 
     public void TalkUISetActive(bool set)
     {
@@ -78,6 +82,11 @@ public class UIManager : MonoBehaviour
     public void QuestWindowSetActive(bool set)
     {
         _questWindow.SetActive(set);
+    }
+
+    public void CanRepeatQuestSetActive(bool set)
+    {
+        _canRepeatQuestUI.SetActive(set);
     }
 
     public void QuestClereWindowSetActive(bool set)

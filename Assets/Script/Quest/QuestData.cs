@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using NameTag;
+using QuestList;
 
 /// <summary>
 /// クエストに関する情報を格納した親クラス
@@ -76,6 +77,7 @@ public abstract class QuestData : MonoBehaviour
         _uiManager.QuestWindowNameSet(_questName);
         _uiManager.QuestWindowContentsSet(_questContent);
         _uiManager.QuestWindowSetActive(true);
+        _uiManager.CanRepeatQuestSetActive(_repeat);
         audioManager.SEOn(1);
     }
 
@@ -87,4 +89,6 @@ public abstract class QuestData : MonoBehaviour
     }
 
     public abstract void QuestStart();
+
+    public bool _repeat = false;
 }
