@@ -27,10 +27,15 @@ public class Knockback : MonoBehaviour
         enemyController.lookatFlag = false;
         transform.LookAt(player.transform);
 
-        anim.SetTrigger("Knockback");
+        if (this.name == "SteamGirl(Clone)")
+        {
 
-        StartCoroutine(MoveBack());
+            anim.SetTrigger("Knockback");
 
+            StartCoroutine(MoveBack());
+        }
+        else
+            anim.SetTrigger("Damage");
     }
     private IEnumerator MoveBack()
     {

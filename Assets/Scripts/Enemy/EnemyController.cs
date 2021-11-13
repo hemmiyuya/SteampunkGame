@@ -7,8 +7,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private Transform playerTrs = null;
 
-    private Rigidbody enemyRig = null;
-
     private Animator enemyAnim = null;
 
     [SerializeField]
@@ -42,7 +40,6 @@ public class EnemyController : MonoBehaviour
     {
         playerTrs = GameObject.FindGameObjectWithTag("Target").transform;
 
-        enemyRig = GetComponent<Rigidbody>();
         enemyAnim = GetComponent<Animator>();
         enemyHp = GetComponent<EnemyHp>();
         beforHp = enemyHp.GetHp();

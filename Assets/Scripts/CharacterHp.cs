@@ -21,6 +21,7 @@ public class CharacterHp : MonoBehaviour
     Animator anim;
 
     CharacontrolManager characontrolManager;
+    Grappling2 grappling;
 
     private void Start()
     {
@@ -28,6 +29,8 @@ public class CharacterHp : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         characontrolManager = GetComponent<CharacontrolManager>();
+        grappling = GetComponent<Grappling2>();
+        StartCoroutine(AutoHeal());
         damageFlag = true;
     }
 
@@ -55,12 +58,12 @@ public class CharacterHp : MonoBehaviour
             {
                 if (parameter == 0)
                 {
-                    anim.SetTrigger("Damage");
+                    anim.SetBool("Damage",true);
                     damageFlag = true;
                 }
                 else
                 {
-                    anim.SetTrigger("Knockback");
+                    anim.SetBool("Knockback",true);
                     transform.LookAt( new Vector3(enemyVec.x, transform.position.y, enemyVec.z));
                     StartCoroutine(MoveBack(enemyVec));
                 }
@@ -134,7 +137,7 @@ public class CharacterHp : MonoBehaviour
             if (hp>=0)
             {
                 //hpの3％を回復
-                Heal( maxHp / 100 * 3);
+                Heal( (int)(maxHp / 100) * 3);
             }
         }
         yield break;
@@ -143,18 +146,28 @@ public class CharacterHp : MonoBehaviour
     //アニメーションイベントで呼び出し
     public void MoveOn()
     {
+        anim.SetBool("Damage", false);
+        anim.SetBool("Knockback", false);
         characontrolManager.moveFlag = true;
+        grappling.grappFlag = true;
+    }
+
+    public void AnimOff()
+    {
+        anim.SetBool("Damage", false);
     }
 
     private void MoveOff()
     {
         characontrolManager.moveFlag = false;
+        grappling.grappFlag = false;
     }
 
     public void Respoon()
     {
         //hp半分回復
         Heal(maxHp / 2);
-        characontrolManager.moveFlag = true;
+        MoveOn();
+
     }
 }
