@@ -353,10 +353,14 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\Quest\ShopWoman2Quest2.cs" />
     <Compile Include="Assets\OndestroyQuestClereShopWoman1.cs" />
     <Compile Include="Assets\Script\NPCData\Yadoya.cs" />
     <Compile Include="Assets\INNSelect.cs" />
+=======
+    <Compile Include="Assets\Scripts\Enemy\Punch.cs" />
+>>>>>>> 8dd091ee5e835abc1993ee54aed9f97d08a29430
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />

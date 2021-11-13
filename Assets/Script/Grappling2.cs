@@ -15,7 +15,7 @@ public class Grappling2 : MonoBehaviour
 
     private RaycastHit hit;
     private RaycastHit hit2;
-    int layerMask = ~(1 << 7);
+    int layerMask = 1;
     private Rigidbody rig;
     private float force = 2;
     private float firstForce = 27f;
@@ -85,6 +85,7 @@ public class Grappling2 : MonoBehaviour
 
     private bool grapplingNow = false;
 
+    public bool grappFlag = true;
 
     /// <summary>
     /// グラップルしてるかどうかを返す
@@ -137,9 +138,8 @@ public class Grappling2 : MonoBehaviour
     void Update()
     {
         Render();
-
         if (Input.GetKeyDown(KeyCode.Q) && !removeanchorFrag && !moveFlag && !shootFlag && !characontrolManager.GetAtacckingFlag()
-            &&shotReady&&!grapplingNow)
+            && shotReady && !grapplingNow && grappFlag)
         {
             GrapplingShot();
         }
@@ -148,7 +148,7 @@ public class Grappling2 : MonoBehaviour
         //グラップル発射可能かつ発射したときに刺せる位置ならレティクルをさせるよー表示にする
         if (Physics.Raycast(mainCamera.transform.position
                         + playerCamera.transform.position - mainCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.back), out hit, rayRange, layerMask)
-            && !removeanchorFrag && !moveFlag && !shootFlag)
+            && !removeanchorFrag && !moveFlag && !shootFlag && grappFlag)
         {
             shotReady = true;
             reticle.sprite = reticleSprites[0];
@@ -166,7 +166,7 @@ public class Grappling2 : MonoBehaviour
 
             present_Location = nowshootTime * shootSpeed / startEndDistance;
 
-            if (endPosition == anchorTransform.position)
+            if (endPosition == anchorTransform.position || !grappFlag)
             {
                 anim.GrapHit();
                 characontrolManager.GravityOff();
@@ -182,6 +182,17 @@ public class Grappling2 : MonoBehaviour
 
         if (moveFlag)
         {
+            if (!grappFlag)
+            {
+                nowgrappTime = 0;
+                moveFlag = false;
+                lockatFlag = false;
+                nowgrappTime = 0;
+                rig.velocity = Vector3.zero;
+                GrapComp();
+                return;
+            }
+
             nowgrappTime += Time.deltaTime;
             
             motionBlur.active = true;
@@ -347,11 +358,11 @@ public class Grappling2 : MonoBehaviour
             //敵にあたるとキックする
             if (hit.transform.tag == enemyTag)
             {
-                kickFlag = true;
-                enemyTrs = hit.transform;
-                //敵の動きを止める
-                enemyTrs.GetComponent<Knockback>().StopEnemy();
 
+                    kickFlag = true;
+                    enemyTrs = hit.transform;
+                    //敵の動きを止める
+                    enemyTrs.GetComponent<Knockback>().StopEnemy();
             }
             else
             {
