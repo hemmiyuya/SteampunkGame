@@ -31,6 +31,11 @@ public abstract class NPCData : MonoBehaviour
     protected virtual void Awake()
     {
         _orderSystem = GameObject.FindGameObjectWithTag("OrderSytem").GetComponent<PublicOrderSystem>();
+        
+    }
+
+    protected virtual void Start()
+    {
         _questAcceptNow = GameObject.FindGameObjectWithTag(Tags.Canvas).transform.GetChild(4).GetChild(1).GetChild(3).gameObject;
     }
     public string Name

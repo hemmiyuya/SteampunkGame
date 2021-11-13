@@ -364,6 +364,8 @@
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
     <Compile Include="Assets\KaziyaQuest.cs" />
+    <Compile Include="Assets\Scripts\Audio\StartScaneAudio.cs" />
+    <Compile Include="Assets\Scripts\StartMenu.cs" />
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\XBoxOne.hlsl" />
     <None Include="Assets\Mirza Beig\_DOCS\README - Particle Plexus.txt" />
