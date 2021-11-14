@@ -46,6 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cuestEnemys:
   - {fileID: 6549892268849878702, guid: 769b395b97deec44db612dec416ecd6e, type: 3}
+  - {fileID: 2710494880204229281, guid: 7cbcd9bd0ae94fd4a909620d9901e9e6, type: 3}
+  - {fileID: 2710494880204229281, guid: 7cbcd9bd0ae94fd4a909620d9901e9e6, type: 3}
+  - {fileID: 3784539579316967748, guid: 3d4a3ed53a812194f887765a8b21c8b7, type: 3}
+  - {fileID: 3784539579316967748, guid: 3d4a3ed53a812194f887765a8b21c8b7, type: 3}
   missionRange: 9
   missionExitRange: 70
   pinPrefab: {fileID: 700022902608382551, guid: 01589b474e66a304eb86f7d94ace12d1, type: 3}
