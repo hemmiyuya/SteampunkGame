@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{866DC8E2-CC86-517D-30CB-F0FAFB10B776}</ProjectGuid>
+    <ProjectGuid>{07DBD10F-B782-6A3E-33EE-1CE891724A68}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.11.4.0</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>4.11.3.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -352,83 +352,80 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UWP.Extensions">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Nature.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.Editor.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Threading">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Threading.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Threading.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Rendering.Nature">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Rendering">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Packages">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Packages.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Packages.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.Events">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Events.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Events.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Nature">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.ShaderX">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Memory">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Memory.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Memory.dll</HintPath>
     </Reference>
     <Reference Include="UMotionEditor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/UMotionEditor/Plugins/Editor/UMotionEditor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/UMotionEditor/Plugins/Editor/UMotionEditor.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.PackageManager">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.PackageManager.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.PackageManager.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.ShaderX.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.Editor.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Pooling">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Pooling.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Pooling.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.Community">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Community.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Community.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.ShaderX">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.Editor.ShaderX.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.Editor.ShaderX.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.render-pipelines.core@10.6.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.render-pipelines.core@10.6.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Rendering.Nature.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UMotionApplication">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/UMotionEditor/Plugins/Application/UMotionApplication.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/UMotionEditor/Plugins/Application/UMotionApplication.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.Web">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Web.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Web.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -779,153 +776,153 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{6726400F-3326-4D43-E220-4BDCDEF0EB79}</Project>
+      <Project>{1AFDADB2-801E-FA56-B448-3ED688EF021E}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{A404D75E-6C7B-4621-0344-A31CA794E240}</Project>
+      <Project>{BC0F7497-685A-57E7-4F71-CD46BA180237}</Project>
       <Name>Assembly-CSharp</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
-      <Project>{A020E829-0BFB-FFD7-46A1-33E9C20DC638}</Project>
+      <Project>{ED4B7E85-140F-130A-DCC9-E3C313FDB036}</Project>
       <Name>Assembly-CSharp-Editor-firstpass</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.csproj">
-      <Project>{BE46208F-B66D-5B69-A070-2BF41068A520}</Project>
+      <Project>{E7098B86-2B0E-396F-16A7-FEDA4C1AAEA2}</Project>
       <Name>ZibraAILiquid</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UMotionSourceApplication.csproj">
-      <Project>{A1249CA7-E885-152B-21AA-DB911250B873}</Project>
+      <Project>{8877B507-554B-DB58-D27A-B6107B8CF6AC}</Project>
       <Name>UMotionSourceApplication</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Settings.Editor.csproj">
-      <Project>{82F10048-9CCC-8F84-B0AA-F3B3A76A7381}</Project>
+      <Project>{FB3DEC76-CB1A-AFF6-7BA1-69BE9C987C0F}</Project>
       <Name>ZibraAILiquid.Settings.Editor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="CopoCopo.TextMeshProAnimator.Runtime.csproj">
-      <Project>{AD2E48B5-7C09-DDFF-8E39-6762F862A27B}</Project>
+      <Project>{4788F8B2-A2CC-2790-6738-01BEA2C6A413}</Project>
       <Name>CopoCopo.TextMeshProAnimator.Runtime</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UniTask.DOTween.csproj">
-      <Project>{20D5D245-0A71-AE8B-9DDA-384FF2B4B849}</Project>
+      <Project>{74544EB1-E987-1150-8FDE-CDB1C5592D0A}</Project>
       <Name>UniTask.DOTween</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UniTask.Linq.csproj">
-      <Project>{2F270DA7-F614-CC01-F713-37FA5ED15898}</Project>
+      <Project>{C934515A-3875-CCE1-33A9-D7D4B84D0D67}</Project>
       <Name>UniTask.Linq</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UniRx.csproj">
-      <Project>{39DF0CC3-5BB4-6D88-A5AC-C2B304839D0E}</Project>
+      <Project>{07A77A7E-0014-CD1D-1EBC-8B13CED12054}</Project>
       <Name>UniRx</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UniTask.TextMeshPro.csproj">
-      <Project>{AFE38B04-5AAC-6E8F-A5FA-3AAB3CC2B1ED}</Project>
+      <Project>{F7BEF139-CE9B-D685-FB80-E3F6A3A29E74}</Project>
       <Name>UniTask.TextMeshPro</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Samples.csproj">
-      <Project>{B26D7770-3EA4-35CD-BE42-762B5D75EFF8}</Project>
+      <Project>{E5E40DE8-3B24-8481-2CC1-91C5870318C8}</Project>
       <Name>ZibraAILiquid.Samples</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="ZibraAILiquid.Editor.csproj">
-      <Project>{F41BE08B-5094-E266-8A71-8D472F9FD7E5}</Project>
+      <Project>{559D3591-8CA9-3F4C-2E45-39E4E7EA6FF0}</Project>
       <Name>ZibraAILiquid.Editor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UMotionSourceEditor.csproj">
-      <Project>{3188442C-4D37-B964-FBEE-7EC9C08B5595}</Project>
+      <Project>{234AB61D-8A9A-1B6C-6F91-7ABD7DE1B8A2}</Project>
       <Name>UMotionSourceEditor</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UniTask.csproj">
-      <Project>{60B090F0-13FB-FFBF-B339-F16B8CA011CC}</Project>
+      <Project>{8D441D18-1F5F-241D-6DC1-11AED2F3DBBF}</Project>
       <Name>UniTask</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UniTask.Addressables.csproj">
-      <Project>{96F2C14F-F0E5-77D7-4B43-E8E9CD1DBE04}</Project>
+      <Project>{6EBA5A42-0691-2EFD-2C8C-13CAAEFBCDAF}</Project>
       <Name>UniTask.Addressables</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

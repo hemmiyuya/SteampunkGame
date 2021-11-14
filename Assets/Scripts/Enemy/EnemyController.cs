@@ -24,10 +24,20 @@ public class EnemyController : MonoBehaviour
     private int plusOrMinus = 1;
 
     EnemyHp enemyHp;
+    Rigidbody rig;
     int beforHp;
 
     public bool lookatFlag = true;
     private bool death = false;
+
+    [SerializeField]
+    private float g_maxDistance = 0.68f;
+    [SerializeField]
+    Vector3 g_boxSize = new Vector3(0.2f, 0.45f, 0.2f);
+    [SerializeField]
+    float g_castHight = 0.6f;
+    RaycastHit hit;
+    private bool grandcheck = false;
 
     //ステート
     public StateManager StateManager { get; set; } = new StateManager();
@@ -44,6 +54,7 @@ public class EnemyController : MonoBehaviour
         enemyHp = GetComponent<EnemyHp>();
         beforHp = enemyHp.GetHp();
 
+        rig = GetComponent<Rigidbody>();
         //ステートの初期化
         StateManager.State.Value = StateIdle;
         StateIdle.ExecAction = Idle;
@@ -64,6 +75,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        grandcheck = Physics.BoxCast(transform.position + new Vector3(0, g_castHight, 0), g_boxSize, new Vector3(0, -1, 0), out hit, transform.rotation, g_maxDistance, 1);
         if (death) return;
 
         if (beforHp != enemyHp.GetHp())
@@ -97,6 +109,14 @@ public class EnemyController : MonoBehaviour
         if (prevStateName == "State:SideWalk")
         {
             LookTarget();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!grandcheck)
+        {
+            rig.AddForce(new Vector3(0f, -10f, 0f) * 9.81f, ForceMode.Acceleration);
         }
     }
 
@@ -157,6 +177,10 @@ public class EnemyController : MonoBehaviour
         enemyAnim.SetBool("Walk", false);
         enemyAnim.SetBool("Run", false);
     }
-    
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + new Vector3(0, g_castHight, 0) + new Vector3(0, -1, 0) * g_maxDistance, g_boxSize * 2);
+    }
 }
