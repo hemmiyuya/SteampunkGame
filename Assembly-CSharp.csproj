@@ -91,6 +91,7 @@
     <Compile Include="Assets\SteamCity\Scripts\FPMouseLook.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\ScreenSpaceReflectionComponent.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\ParticleCollisionInstance.cs" />
+    <Compile Include="Assets\KaziyaQuest.cs" />
     <Compile Include="Assets\Script\Quest\TomasTeaQuest.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshCollider.cs" />
@@ -131,10 +132,12 @@
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Affectors\Scripts\ParticleAffector.cs" />
     <Compile Include="Assets\Hovl Studio\White mage spells\Scripts\TargetProjectile.cs" />
     <Compile Include="Assets\PlayerIconRotation.cs" />
+    <Compile Include="Assets\Script\QuestUITargetIndicator.cs" />
     <Compile Include="Assets\Script\NPCNamePos.cs" />
     <Compile Include="Assets\Script\NameTag.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\SAColliderBuilder\Scripts\Internal\SAMeshColliderCommon.cs" />
+    <Compile Include="Assets\QuestIconVisible.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\_Common\CreateLUT.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\GrappWalk.cs" />
@@ -239,6 +242,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\TaaComponent.cs" />
     <Compile Include="Assets\living birds\scripts\lb_Bird.cs" />
+    <Compile Include="Assets\Scripts\StartMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\VignetteModel.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\Ultimate VFX\Expansions\XP - STORM\Scripts\StormVFXTerrainDemoCamera.cs" />
@@ -256,6 +260,7 @@
     <Compile Include="Assets\TomasTeaCup.cs" />
     <Compile Include="Assets\Mirza Beig\Scripting\Effects\Particle Force Fields\Scripts\Noise2.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\TrailRenderers.cs" />
+    <Compile Include="Assets\Scripts\Audio\StartScaneAudio.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Components\GrainComponent.cs" />
     <Compile Include="Assets\FogVolume\FogVolume Demo Content\TOD_Values.cs" />
     <Compile Include="Assets\Testaa.cs" />
@@ -363,11 +368,6 @@
     <Compile Include="Assets\FogVolume\Scenes\Menu\Scripts\SceneMenu.cs" />
     <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\ParticleSystemTimeRemap.cs" />
     <Compile Include="Assets\SteamCity\PostProcessing\Runtime\Models\DitheringModel.cs" />
-    <Compile Include="Assets\KaziyaQuest.cs" />
-    <Compile Include="Assets\Scripts\Audio\StartScaneAudio.cs" />
-    <Compile Include="Assets\Scripts\StartMenu.cs" />
-    <Compile Include="Assets\Script\QuestUITargetIndicator.cs" />
-    <Compile Include="Assets\QuestIconVisible.cs" />
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\XBoxOne.hlsl" />
     <None Include="Assets\Mirza Beig\_DOCS\README - Particle Plexus.txt" />
