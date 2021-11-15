@@ -6,11 +6,16 @@ public class KaziyaOyazi : NPCData
 {
     public override Conversation GetConversation()
     {
-        if(_orderSystem.NowOrder >= 5)
+        
+
+        return base.GetConversation();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_orderSystem.NowOrder >= 5)
         {
             QuestHaveFlag = true;
         }
-
-        return base.GetConversation();
     }
 }

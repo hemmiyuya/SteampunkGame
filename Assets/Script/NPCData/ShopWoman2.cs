@@ -6,7 +6,15 @@ public class ShopWoman2 : NPCData
 {
     public override Conversation GetConversation()
     {
-        if ((int)_orderSystem.NowOrder >= 4&&!_questEndFlag)
+        
+
+
+        return base.GetConversation();
+    }
+
+    private void FixedUpdate()
+    {
+        if ((int)_orderSystem.NowOrder >= 4 && !_questEndFlag)
         {
             QuestHaveFlag = true;
             _talkAudioSource.clip = _questAudioClip;
@@ -15,8 +23,6 @@ public class ShopWoman2 : NPCData
         {
             _talkAudioSource.clip = _audioClip;
         }
-
-        return base.GetConversation();
     }
 
     [SerializeField]

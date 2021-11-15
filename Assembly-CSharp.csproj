@@ -366,6 +366,8 @@
     <Compile Include="Assets\KaziyaQuest.cs" />
     <Compile Include="Assets\Scripts\Audio\StartScaneAudio.cs" />
     <Compile Include="Assets\Scripts\StartMenu.cs" />
+    <Compile Include="Assets\Script\QuestUITargetIndicator.cs" />
+    <Compile Include="Assets\QuestIconVisible.cs" />
     <None Include="Assets\Mirza Beig\Editor Extensions\Utilities\Multi-Asset Renamer\README.txt" />
     <None Include="Assets\Visual Design Cafe\ShaderX\Templates\API\XBoxOne.hlsl" />
     <None Include="Assets\Mirza Beig\_DOCS\README - Particle Plexus.txt" />

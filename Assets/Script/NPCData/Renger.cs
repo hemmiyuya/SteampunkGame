@@ -6,6 +6,12 @@ public class Renger : NPCData
 {
     public override Conversation GetConversation()
     {
+        
+        return base.GetConversation();
+    }
+
+    private void FixedUpdate()
+    {
         if ((int)_orderSystem.NowOrder == 6)
         {
             QuestHaveFlag = true;
@@ -15,7 +21,6 @@ public class Renger : NPCData
             _talkAudioSource.clip = _audioClip;
         }
 
-        return base.GetConversation();
     }
 
     [SerializeField]

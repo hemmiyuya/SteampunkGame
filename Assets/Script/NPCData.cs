@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NameTag;
+using UnityEngine.UI;
 
 public abstract class NPCData : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public abstract class NPCData : MonoBehaviour
 
     [SerializeField]
     private GameObject _questAcceptNow;
+
+    private GameObject _player;
 
     protected enum Gender
     {
@@ -31,22 +34,54 @@ public abstract class NPCData : MonoBehaviour
     protected virtual void Awake()
     {
         _orderSystem = GameObject.FindGameObjectWithTag("OrderSytem").GetComponent<PublicOrderSystem>();
-        
     }
 
     protected virtual void Start()
     {
         _questAcceptNow = GameObject.FindGameObjectWithTag(Tags.Canvas).transform.GetChild(4).GetChild(1).GetChild(3).gameObject;
+        if (transform.tag == Tags.NPC)
+        {
+            _questIconRectTrs = _questIconUI.GetComponent<RectTransform>();
+            _questIconSizeDefault = _questIconRectTrs.sizeDelta;
+            _player = GameObject.FindGameObjectWithTag(Tags.Player);
+        }
+        
     }
     public string Name
     {
         get { return _npcName; }
     }
 
-    //Å@ConversionÉXÉNÉäÉvÉgÇï‘Ç∑
+    [SerializeField]
+    private GameObject _questIconUI;
+    private RectTransform _questIconRectTrs;
+    private Vector2 _questIconSizeDefault;
+    private Vector3 offset = new Vector3(0, 1.2f, 0);
+
+    private bool OnBecameNow = default;
+    private void Update()
+    {
+        //„Ç´„É°„É©„Å´ÂÜô„Å£„Å¶„Çã„Å®„Åç„ÇØ„Ç®„Çπ„Éà„Ç¢„Ç§„Ç≥„É≥Ë°®Á§∫
+        if (transform.tag == Tags.NPC)
+        {
+            if (CanQuestCheck()&& OnBecameNow)
+            {
+                _questIconUI.SetActive(true);
+                _questIconRectTrs.position= RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position+ offset);
+                _questIconRectTrs.sizeDelta = _questIconSizeDefault / (Vector3.Distance(_player.transform.position, transform.position)*0.2f);
+                if (_questIconRectTrs.sizeDelta.x >= _questIconSizeDefault.x)
+                {
+                    _questIconRectTrs.sizeDelta = _questIconSizeDefault;
+                }
+            }
+            else _questIconUI.SetActive(false);
+        }
+    }
+
+    //„Çª„É™„Éï
     public virtual Conversation GetConversation()
     {
-        //ÉNÉGÉXÉgÉtÉâÉOÇ™ÇΩÇ¡ÇƒÇ®ÇËÅAëºÇ…êiçsíÜÇÃÉNÉGÉXÉgÇ™Ç»Ç©Ç¡ÇΩÇÁ
+        //„ÇØ„Ç®„Çπ„ÉàÊåÅ„Å£„Å¶„Çã„Å®„Åç„ÅØ„ÇØ„Ç®„Çπ„Éà„ÅÆ„Çª„É™„Éï
         if (QuestHaveFlag&& !_questAcceptNow.activeSelf)
         {
             return _questData._questSelectSerifu;
@@ -79,5 +114,16 @@ public abstract class NPCData : MonoBehaviour
     {
         if (QuestHaveFlag && !_questAcceptNow.activeSelf) return true;
         else return false;
+    }
+
+    private void OnBecameInvisible()
+    {
+        if(transform.tag==Tags.NPC) _questIconUI.SetActive(false);
+        OnBecameNow = false;
+    }
+
+    private void OnBecameVisible()
+    {
+        OnBecameNow = true;
     }
 }

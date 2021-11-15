@@ -15,15 +15,10 @@ public class Gentlman2 : NPCData
 
         }
 
-        if (_orderSystem.NowOrder >= 4&& !TomasTeaQuestEnd)
+        if (CanQuestCheck())
         {
-            QuestHaveFlag = true;
-            if(CanQuestCheck())
-            {
-                _talkAudioSource.clip = _questvoice;
-                _talkAudioSource.Play();
-            }
-            _questData = GetComponent<TomasTeaQuest>();
+            _talkAudioSource.clip = _questvoice;
+            _talkAudioSource.Play();
         }
 
         if (TomasTeaQuestEnd)
@@ -34,6 +29,17 @@ public class Gentlman2 : NPCData
 
 
         return base.GetConversation();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_orderSystem.NowOrder >= 4 && !TomasTeaQuestEnd)
+        {
+            QuestHaveFlag = true;
+            
+            _questData = GetComponent<TomasTeaQuest>();
+        }
+
     }
 
     /// <summary>
