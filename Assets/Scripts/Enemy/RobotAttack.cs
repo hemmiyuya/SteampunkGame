@@ -16,12 +16,14 @@ public class RobotAttack : MonoBehaviour
     GameObject[] efects;
 
     EnemyHp enemyHp;
+    RobotMove robotMove;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         enemyHp = GetComponent<EnemyHp>();
+        robotMove = GetComponent<RobotMove>();
     }
 
     public IEnumerator SpinAttack(float time)
@@ -84,6 +86,7 @@ public class RobotAttack : MonoBehaviour
     public IEnumerator JumpAttack(Vector3 startPosition, Vector3 targetPosition, float time)
     {
         anim.SetTrigger("jump");
+        robotMove.gravity = false;
 
         Destroy( Instantiate(efects[1], targetPosition, Quaternion.identity),2f);
 
@@ -103,6 +106,7 @@ public class RobotAttack : MonoBehaviour
 
             transform.position = Vector3.Slerp(startPosition, targetPosition, interpolatedValue)+center;
         }
+        robotMove.gravity = true;
         yield break;
     }
 
