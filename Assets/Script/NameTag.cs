@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace NameTag
 {
-    public class Tags
+    /// <summary>
+    /// オブジェエクトのタグ格納
+    /// </summary>
+    static class Tags
     {
         public const string Player = "Player";
         public const string NPC = "NPC";

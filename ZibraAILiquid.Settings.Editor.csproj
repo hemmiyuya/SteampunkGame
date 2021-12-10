@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FB3DEC76-CB1A-AFF6-7BA1-69BE9C987C0F}</ProjectGuid>
+    <ProjectGuid>{82F10048-9CCC-8F84-B0AA-F3B3A76A7381}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>ZibraAILiquid.Settings.Editor</AssemblyName>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>4.11.3.0</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>4.11.4.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -325,80 +325,83 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UWP.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Nature.Editor">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.Editor.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.Editor.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Threading">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Threading.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Threading.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Rendering.Nature">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Rendering">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Packages">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Packages.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Packages.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.Events">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Events.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Events.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Nature">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Shaders/Plugins/VisualDesignCafe.Nature.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.ShaderX">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Memory">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Memory.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Memory.dll</HintPath>
     </Reference>
     <Reference Include="UMotionEditor">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/UMotionEditor/Plugins/Editor/UMotionEditor.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/UMotionEditor/Plugins/Editor/UMotionEditor.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.collab-proxy@1.11.2/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.PackageManager">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.PackageManager.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.PackageManager.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.ShaderX.Editor">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.Editor.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.ShaderX.Editor.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Pooling">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Pooling.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Pooling.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.Community">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Community.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Community.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.ShaderX">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.Editor.ShaderX.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/ShaderX/Plugins/VisualDesignCafe.Editor.ShaderX.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.render-pipelines.core@10.6.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.render-pipelines.core@10.6.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Rendering.Nature.Editor">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.Editor.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Nature Renderer/Plugins/VisualDesignCafe.Rendering.Nature.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UMotionApplication">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/UMotionEditor/Plugins/Application/UMotionApplication.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/UMotionEditor/Plugins/Application/UMotionApplication.dll</HintPath>
     </Reference>
     <Reference Include="VisualDesignCafe.Editor.Web">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Web.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Assets/Visual Design Cafe/Package Manager/VisualDesignCafe.Editor.Web.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -749,21 +752,21 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/kkudo/Desktop/3Dアクション/SteamGame/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/ytenp/OneDrive/ドキュメント/Steampunkk/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ZibraAILiquid.csproj">
-      <Project>{E7098B86-2B0E-396F-16A7-FEDA4C1AAEA2}</Project>
+      <Project>{BE46208F-B66D-5B69-A070-2BF41068A520}</Project>
       <Name>ZibraAILiquid</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

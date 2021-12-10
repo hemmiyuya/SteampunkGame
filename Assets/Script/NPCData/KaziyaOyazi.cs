@@ -11,6 +11,8 @@ public class KaziyaOyazi : NPCData
         return base.GetConversation();
     }
 
+
+
     private void FixedUpdate()
     {
         if (_orderSystem.NowOrder >= 5)
